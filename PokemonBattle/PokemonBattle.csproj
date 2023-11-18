@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{80B6CD85-708C-4BD0-B708-06E5C3EBC942}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>PokemonBattle</RootNamespace>
+    <AssemblyName>PokemonBattle</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>pokeball.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\ButtonTransparentHelper.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BattleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\BattleForm.Designer.cs">
+      <DependentUpon>BattleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BracketForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\BracketForm.Designer.cs">
+      <DependentUpon>BracketForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InitTournamentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\InitTournamentForm.Designer.cs">
+      <DependentUpon>InitTournamentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PlayersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PlayersForm.Designer.cs">
+      <DependentUpon>PlayersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PokedexForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PokedexForm.Designer.cs">
+      <DependentUpon>PokedexForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PrincipalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PrincipalForm.Designer.cs">
+      <DependentUpon>PrincipalForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Views\BattleForm.resx">
+      <DependentUpon>BattleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\BracketForm.resx">
+      <DependentUpon>BracketForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\InitTournamentForm.resx">
+      <DependentUpon>InitTournamentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PlayersForm.resx">
+      <DependentUpon>PlayersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PokedexForm.resx">
+      <DependentUpon>PokedexForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PrincipalForm.resx">
+      <DependentUpon>PrincipalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+    <Folder Include="Models\" />
+    <Folder Include="Repositories\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="pokeball.ico" />
+    <None Include="Resources\Interface\BackgroundMainScreen.jpg" />
+    <None Include="Resources\Interface\BackgroundInitTournament.jpg" />
+    <None Include="Resources\Interface\ButtonNext.png" />
+    <None Include="Resources\Interface\BackgroundPlayersScreen.jpeg" />
+    <None Include="Resources\Interface\ButtonStop.png" />
+    <None Include="Resources\Interface\ButtonPlay.png" />
+    <None Include="Resources\Interface\ButtonChoosePokemon.png" />
+    <None Include="Resources\Interface\BackgroundPokedex.png" />
+    <None Include="Resources\Interface\TournamentEight.png" />
+    <None Include="Resources\Interface\TournamentFour.png" />
+    <None Include="Resources\Interface\TournamentSixteen.png" />
+    <None Include="Resources\Interface\ButtonsBattle.png" />
+    <None Include="Resources\Pokemon\387.png" />
+    <None Include="Resources\Pokemon\388.png" />
+    <None Include="Resources\Pokemon\389.png" />
+    <None Include="Resources\Pokemon\390.png" />
+    <None Include="Resources\Pokemon\391.png" />
+    <None Include="Resources\Pokemon\392.png" />
+    <None Include="Resources\Pokemon\393.png" />
+    <None Include="Resources\Pokemon\394.png" />
+    <None Include="Resources\Pokemon\395.png" />
+    <None Include="Resources\Pokemon\396.png" />
+    <None Include="Resources\Pokemon\397.png" />
+    <None Include="Resources\Pokemon\398.png" />
+    <None Include="Resources\Pokemon\399.png" />
+    <None Include="Resources\Pokemon\400.png" />
+    <None Include="Resources\Pokemon\401.png" />
+    <None Include="Resources\Pokemon\402.png" />
+    <None Include="Resources\Pokemon\403.png" />
+    <None Include="Resources\Pokemon\404.png" />
+    <None Include="Resources\Pokemon\405.png" />
+    <None Include="Resources\Pokemon\406.png" />
+    <None Include="Resources\Pokemon\407.png" />
+    <None Include="Resources\Pokemon\408.png" />
+    <None Include="Resources\Pokemon\409.png" />
+    <None Include="Resources\Pokemon\410.png" />
+    <None Include="Resources\Pokemon\411.png" />
+    <None Include="Resources\Pokemon\412.png" />
+    <None Include="Resources\Pokemon\413.png" />
+    <None Include="Resources\Pokemon\414.png" />
+    <None Include="Resources\Pokemon\415.png" />
+    <None Include="Resources\Pokemon\416.png" />
+    <None Include="Resources\Pokemon\417.png" />
+    <None Include="Resources\Pokemon\418.png" />
+    <None Include="Resources\Pokemon\419.png" />
+    <None Include="Resources\Pokemon\420.png" />
+    <None Include="Resources\Pokemon\421.png" />
+    <None Include="Resources\Pokemon\422.png" />
+    <None Include="Resources\Pokemon\423.png" />
+    <None Include="Resources\Pokemon\424.png" />
+    <None Include="Resources\Pokemon\425.png" />
+    <None Include="Resources\Pokemon\426.png" />
+    <None Include="Resources\Pokemon\427.png" />
+    <None Include="Resources\Pokemon\428.png" />
+    <None Include="Resources\Pokemon\429.png" />
+    <None Include="Resources\Pokemon\430.png" />
+    <None Include="Resources\Pokemon\431.png" />
+    <None Include="Resources\Pokemon\432.png" />
+    <None Include="Resources\Pokemon\433.png" />
+    <None Include="Resources\Pokemon\434.png" />
+    <None Include="Resources\Pokemon\435.png" />
+    <None Include="Resources\Pokemon\436.png" />
+    <None Include="Resources\Pokemon\438.png" />
+    <None Include="Resources\Pokemon\437.png" />
+    <None Include="Resources\Pokemon\439.png" />
+    <None Include="Resources\Pokemon\440.png" />
+    <None Include="Resources\Pokemon\441.png" />
+    <None Include="Resources\Pokemon\442.png" />
+    <None Include="Resources\Pokemon\443.png" />
+    <None Include="Resources\Pokemon\444.png" />
+    <None Include="Resources\Pokemon\445.png" />
+    <None Include="Resources\Pokemon\446.png" />
+    <None Include="Resources\Pokemon\447.png" />
+    <None Include="Resources\Pokemon\448.png" />
+    <None Include="Resources\Pokemon\449.png" />
+    <None Include="Resources\Pokemon\450.png" />
+    <None Include="Resources\Pokemon\451.png" />
+    <None Include="Resources\Pokemon\452.png" />
+    <None Include="Resources\Pokemon\453.png" />
+    <None Include="Resources\Pokemon\454.png" />
+    <None Include="Resources\Pokemon\455.png" />
+    <None Include="Resources\Pokemon\456.png" />
+    <None Include="Resources\Pokemon\457.png" />
+    <None Include="Resources\Pokemon\458.png" />
+    <None Include="Resources\Pokemon\459.png" />
+    <None Include="Resources\Pokemon\460.png" />
+    <None Include="Resources\Pokemon\461.png" />
+    <None Include="Resources\Pokemon\462.png" />
+    <None Include="Resources\Pokemon\463.png" />
+    <None Include="Resources\Pokemon\464.png" />
+    <None Include="Resources\Pokemon\465.png" />
+    <None Include="Resources\Pokemon\466.png" />
+    <None Include="Resources\Pokemon\467.png" />
+    <None Include="Resources\Pokemon\468.png" />
+    <None Include="Resources\Pokemon\469.png" />
+    <None Include="Resources\Pokemon\470.png" />
+    <None Include="Resources\Pokemon\471.png" />
+    <None Include="Resources\Pokemon\472.png" />
+    <None Include="Resources\Pokemon\473.png" />
+    <None Include="Resources\Pokemon\474.png" />
+    <None Include="Resources\Pokemon\475.png" />
+    <None Include="Resources\Pokemon\476.png" />
+    <None Include="Resources\Pokemon\477.png" />
+    <None Include="Resources\Pokemon\478.png" />
+    <None Include="Resources\Pokemon\479.png" />
+    <None Include="Resources\Pokemon\480.png" />
+    <None Include="Resources\Pokemon\481.png" />
+    <None Include="Resources\Pokemon\482.png" />
+    <None Include="Resources\Pokemon\483.png" />
+    <None Include="Resources\Pokemon\484.png" />
+    <None Include="Resources\Pokemon\485.png" />
+    <None Include="Resources\Pokemon\486.png" />
+    <None Include="Resources\Pokemon\487.png" />
+    <None Include="Resources\Pokemon\488.png" />
+    <None Include="Resources\Pokemon\489.png" />
+    <None Include="Resources\Pokemon\490.png" />
+    <None Include="Resources\Pokemon\491.png" />
+    <None Include="Resources\Pokemon\492.png" />
+    <None Include="Resources\Pokemon\493.png" />
+    <None Include="Resources\Battle\DefaultPlayerImage.png" />
+    <None Include="Resources\music-pokemon-battle.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
