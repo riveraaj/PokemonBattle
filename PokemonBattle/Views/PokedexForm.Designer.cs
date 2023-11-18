@@ -226,7 +226,6 @@ namespace PokemonBattle.View
             this.Name = "PokedexForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pokedex";
-            this.Load += new System.EventHandler(this.PokedexForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picBoxPokemon1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxPokemon2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxPokemon3)).EndInit();
