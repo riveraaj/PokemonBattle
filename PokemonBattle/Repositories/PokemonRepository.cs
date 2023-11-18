@@ -1,9 +1,6 @@
 ﻿using PokemonBattle.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PokemonBattle.Repositories
 {
@@ -16,6 +13,5 @@ namespace PokemonBattle.Repositories
         }
 
         public ICollection<Pokemon> GetAll() => _pokemonEntities.Pokemons.ToList();
-
     }
 }
