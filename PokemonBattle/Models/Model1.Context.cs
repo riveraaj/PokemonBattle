@@ -20,8 +20,7 @@ namespace PokemonBattle.Models
         {
         }
     
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
+        protected override void OnModelCreating(DbModelBuilder modelBuilder) {
             throw new UnintentionalCodeFirstException();
         }
     
