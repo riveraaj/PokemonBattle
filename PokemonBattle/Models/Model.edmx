@@ -1,0 +1,1094 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PokemonModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Arena">
+          <Key>
+            <PropertyRef Name="arenaID" />
+          </Key>
+          <Property Name="arenaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="typeElementID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Battle">
+          <Key>
+            <PropertyRef Name="battleID" />
+          </Key>
+          <Property Name="battleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tournamentID" Type="int" Nullable="false" />
+          <Property Name="arenaID" Type="int" Nullable="false" />
+          <Property Name="playerOneID" Type="int" Nullable="false" />
+          <Property Name="playerTwoID" Type="int" Nullable="false" />
+          <Property Name="winnerID" Type="int" Nullable="false" />
+          <Property Name="logID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="logID" />
+          </Key>
+          <Property Name="logID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="logDescription" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Movement">
+          <Key>
+            <PropertyRef Name="movementID" />
+          </Key>
+          <Property Name="movementID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="movementName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="movementPower" Type="int" Nullable="false" />
+          <Property Name="typeMovementID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Player">
+          <Key>
+            <PropertyRef Name="playerID" />
+          </Key>
+          <Property Name="playerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="playerName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="teamID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pokemon">
+          <Key>
+            <PropertyRef Name="pokemonID" />
+          </Key>
+          <Property Name="pokemonID" Type="int" Nullable="false" />
+          <Property Name="pokemonName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="pokemonDescription" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="typeElementOneID" Type="int" Nullable="false" />
+          <Property Name="typeElementTwoID" Type="int" />
+          <Property Name="movementOneID" Type="int" Nullable="false" />
+          <Property Name="movementTwoID" Type="int" Nullable="false" />
+          <Property Name="movementThreeID" Type="int" Nullable="false" />
+          <Property Name="movementFourID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="teamID" />
+          </Key>
+          <Property Name="teamID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pokemonOneID" Type="int" Nullable="false" />
+          <Property Name="pokemonTwoID" Type="int" Nullable="false" />
+          <Property Name="pokemonThreeID" Type="int" Nullable="false" />
+          <Property Name="pokemonFourID" Type="int" Nullable="false" />
+          <Property Name="pokemonFiveID" Type="int" Nullable="false" />
+          <Property Name="pokemonSixID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tournament">
+          <Key>
+            <PropertyRef Name="tournamentID" />
+          </Key>
+          <Property Name="tournamentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="winnerID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypeElement">
+          <Key>
+            <PropertyRef Name="typeElementID" />
+          </Key>
+          <Property Name="typeElementID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="typeElementName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypeMovement">
+          <Key>
+            <PropertyRef Name="typeMovementID" />
+          </Key>
+          <Property Name="typeMovementID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="typeMovementName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Arena__typeEleme__5070F446">
+          <End Role="TypeElement" Type="Self.TypeElement" Multiplicity="1" />
+          <End Role="Arena" Type="Self.Arena" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeElement">
+              <PropertyRef Name="typeElementID" />
+            </Principal>
+            <Dependent Role="Arena">
+              <PropertyRef Name="typeElementID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Battle__arenaID__59063A47">
+          <End Role="Arena" Type="Self.Arena" Multiplicity="1" />
+          <End Role="Battle" Type="Self.Battle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Arena">
+              <PropertyRef Name="arenaID" />
+            </Principal>
+            <Dependent Role="Battle">
+              <PropertyRef Name="arenaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Battle__logID__5CD6CB2B">
+          <End Role="Log" Type="Self.Log" Multiplicity="1" />
+          <End Role="Battle" Type="Self.Battle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Log">
+              <PropertyRef Name="logID" />
+            </Principal>
+            <Dependent Role="Battle">
+              <PropertyRef Name="logID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Battle__playerOn__59FA5E80">
+          <End Role="Player" Type="Self.Player" Multiplicity="1" />
+          <End Role="Battle" Type="Self.Battle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Player">
+              <PropertyRef Name="playerID" />
+            </Principal>
+            <Dependent Role="Battle">
+              <PropertyRef Name="playerOneID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Battle__playerTw__5AEE82B9">
+          <End Role="Player" Type="Self.Player" Multiplicity="1" />
+          <End Role="Battle" Type="Self.Battle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Player">
+              <PropertyRef Name="playerID" />
+            </Principal>
+            <Dependent Role="Battle">
+              <PropertyRef Name="playerTwoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Battle__tourname__5812160E">
+          <End Role="Tournament" Type="Self.Tournament" Multiplicity="1" />
+          <End Role="Battle" Type="Self.Battle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tournament">
+              <PropertyRef Name="tournamentID" />
+            </Principal>
+            <Dependent Role="Battle">
+              <PropertyRef Name="tournamentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Battle__winnerID__5BE2A6F2">
+          <End Role="Player" Type="Self.Player" Multiplicity="1" />
+          <End Role="Battle" Type="Self.Battle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Player">
+              <PropertyRef Name="playerID" />
+            </Principal>
+            <Dependent Role="Battle">
+              <PropertyRef Name="winnerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Movement__typeMo__3B75D760">
+          <End Role="TypeMovement" Type="Self.TypeMovement" Multiplicity="1" />
+          <End Role="Movement" Type="Self.Movement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeMovement">
+              <PropertyRef Name="typeMovementID" />
+            </Principal>
+            <Dependent Role="Movement">
+              <PropertyRef Name="typeMovementID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Player__teamID__4D94879B">
+          <End Role="Team" Type="Self.Team" Multiplicity="1" />
+          <End Role="Player" Type="Self.Player" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="teamID" />
+            </Principal>
+            <Dependent Role="Player">
+              <PropertyRef Name="teamID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pokemon__movemen__403A8C7D">
+          <End Role="Movement" Type="Self.Movement" Multiplicity="1" />
+          <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movement">
+              <PropertyRef Name="movementID" />
+            </Principal>
+            <Dependent Role="Pokemon">
+              <PropertyRef Name="movementOneID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pokemon__movemen__412EB0B6">
+          <End Role="Movement" Type="Self.Movement" Multiplicity="1" />
+          <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movement">
+              <PropertyRef Name="movementID" />
+            </Principal>
+            <Dependent Role="Pokemon">
+              <PropertyRef Name="movementTwoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pokemon__movemen__4222D4EF">
+          <End Role="Movement" Type="Self.Movement" Multiplicity="1" />
+          <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movement">
+              <PropertyRef Name="movementID" />
+            </Principal>
+            <Dependent Role="Pokemon">
+              <PropertyRef Name="movementThreeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pokemon__movemen__4316F928">
+          <End Role="Movement" Type="Self.Movement" Multiplicity="1" />
+          <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movement">
+              <PropertyRef Name="movementID" />
+            </Principal>
+            <Dependent Role="Pokemon">
+              <PropertyRef Name="movementFourID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pokemon__typeEle__3E52440B">
+          <End Role="TypeElement" Type="Self.TypeElement" Multiplicity="1" />
+          <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeElement">
+              <PropertyRef Name="typeElementID" />
+            </Principal>
+            <Dependent Role="Pokemon">
+              <PropertyRef Name="typeElementOneID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pokemon__typeEle__3F466844">
+          <End Role="TypeElement" Type="Self.TypeElement" Multiplicity="0..1" />
+          <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeElement">
+              <PropertyRef Name="typeElementID" />
+            </Principal>
+            <Dependent Role="Pokemon">
+              <PropertyRef Name="typeElementTwoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Team__pokemonFiv__49C3F6B7">
+          <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="1" />
+          <End Role="Team" Type="Self.Team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pokemon">
+              <PropertyRef Name="pokemonID" />
+            </Principal>
+            <Dependent Role="Team">
+              <PropertyRef Name="pokemonFiveID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Team__pokemonFou__48CFD27E">
+          <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="1" />
+          <End Role="Team" Type="Self.Team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pokemon">
+              <PropertyRef Name="pokemonID" />
+            </Principal>
+            <Dependent Role="Team">
+              <PropertyRef Name="pokemonFourID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Team__pokemonOne__45F365D3">
+          <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="1" />
+          <End Role="Team" Type="Self.Team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pokemon">
+              <PropertyRef Name="pokemonID" />
+            </Principal>
+            <Dependent Role="Team">
+              <PropertyRef Name="pokemonOneID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Team__pokemonSix__4AB81AF0">
+          <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="1" />
+          <End Role="Team" Type="Self.Team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pokemon">
+              <PropertyRef Name="pokemonID" />
+            </Principal>
+            <Dependent Role="Team">
+              <PropertyRef Name="pokemonSixID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Team__pokemonThr__47DBAE45">
+          <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="1" />
+          <End Role="Team" Type="Self.Team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pokemon">
+              <PropertyRef Name="pokemonID" />
+            </Principal>
+            <Dependent Role="Team">
+              <PropertyRef Name="pokemonThreeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Team__pokemonTwo__46E78A0C">
+          <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="1" />
+          <End Role="Team" Type="Self.Team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pokemon">
+              <PropertyRef Name="pokemonID" />
+            </Principal>
+            <Dependent Role="Team">
+              <PropertyRef Name="pokemonTwoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tournamen__winne__534D60F1">
+          <End Role="Player" Type="Self.Player" Multiplicity="1" />
+          <End Role="Tournament" Type="Self.Tournament" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Player">
+              <PropertyRef Name="playerID" />
+            </Principal>
+            <Dependent Role="Tournament">
+              <PropertyRef Name="winnerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PokemonModelStoreContainer">
+          <EntitySet Name="Arena" EntityType="Self.Arena" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Battle" EntityType="Self.Battle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Movement" EntityType="Self.Movement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Player" EntityType="Self.Player" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pokemon" EntityType="Self.Pokemon" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Team" EntityType="Self.Team" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tournament" EntityType="Self.Tournament" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeElement" EntityType="Self.TypeElement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeMovement" EntityType="Self.TypeMovement" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Arena__typeEleme__5070F446" Association="Self.FK__Arena__typeEleme__5070F446">
+            <End Role="TypeElement" EntitySet="TypeElement" />
+            <End Role="Arena" EntitySet="Arena" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Battle__arenaID__59063A47" Association="Self.FK__Battle__arenaID__59063A47">
+            <End Role="Arena" EntitySet="Arena" />
+            <End Role="Battle" EntitySet="Battle" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Battle__logID__5CD6CB2B" Association="Self.FK__Battle__logID__5CD6CB2B">
+            <End Role="Log" EntitySet="Log" />
+            <End Role="Battle" EntitySet="Battle" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Battle__playerOn__59FA5E80" Association="Self.FK__Battle__playerOn__59FA5E80">
+            <End Role="Player" EntitySet="Player" />
+            <End Role="Battle" EntitySet="Battle" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Battle__playerTw__5AEE82B9" Association="Self.FK__Battle__playerTw__5AEE82B9">
+            <End Role="Player" EntitySet="Player" />
+            <End Role="Battle" EntitySet="Battle" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Battle__tourname__5812160E" Association="Self.FK__Battle__tourname__5812160E">
+            <End Role="Tournament" EntitySet="Tournament" />
+            <End Role="Battle" EntitySet="Battle" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Battle__winnerID__5BE2A6F2" Association="Self.FK__Battle__winnerID__5BE2A6F2">
+            <End Role="Player" EntitySet="Player" />
+            <End Role="Battle" EntitySet="Battle" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Movement__typeMo__3B75D760" Association="Self.FK__Movement__typeMo__3B75D760">
+            <End Role="TypeMovement" EntitySet="TypeMovement" />
+            <End Role="Movement" EntitySet="Movement" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Player__teamID__4D94879B" Association="Self.FK__Player__teamID__4D94879B">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Player" EntitySet="Player" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pokemon__movemen__403A8C7D" Association="Self.FK__Pokemon__movemen__403A8C7D">
+            <End Role="Movement" EntitySet="Movement" />
+            <End Role="Pokemon" EntitySet="Pokemon" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pokemon__movemen__412EB0B6" Association="Self.FK__Pokemon__movemen__412EB0B6">
+            <End Role="Movement" EntitySet="Movement" />
+            <End Role="Pokemon" EntitySet="Pokemon" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pokemon__movemen__4222D4EF" Association="Self.FK__Pokemon__movemen__4222D4EF">
+            <End Role="Movement" EntitySet="Movement" />
+            <End Role="Pokemon" EntitySet="Pokemon" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pokemon__movemen__4316F928" Association="Self.FK__Pokemon__movemen__4316F928">
+            <End Role="Movement" EntitySet="Movement" />
+            <End Role="Pokemon" EntitySet="Pokemon" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pokemon__typeEle__3E52440B" Association="Self.FK__Pokemon__typeEle__3E52440B">
+            <End Role="TypeElement" EntitySet="TypeElement" />
+            <End Role="Pokemon" EntitySet="Pokemon" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pokemon__typeEle__3F466844" Association="Self.FK__Pokemon__typeEle__3F466844">
+            <End Role="TypeElement" EntitySet="TypeElement" />
+            <End Role="Pokemon" EntitySet="Pokemon" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Team__pokemonFiv__49C3F6B7" Association="Self.FK__Team__pokemonFiv__49C3F6B7">
+            <End Role="Pokemon" EntitySet="Pokemon" />
+            <End Role="Team" EntitySet="Team" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Team__pokemonFou__48CFD27E" Association="Self.FK__Team__pokemonFou__48CFD27E">
+            <End Role="Pokemon" EntitySet="Pokemon" />
+            <End Role="Team" EntitySet="Team" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Team__pokemonOne__45F365D3" Association="Self.FK__Team__pokemonOne__45F365D3">
+            <End Role="Pokemon" EntitySet="Pokemon" />
+            <End Role="Team" EntitySet="Team" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Team__pokemonSix__4AB81AF0" Association="Self.FK__Team__pokemonSix__4AB81AF0">
+            <End Role="Pokemon" EntitySet="Pokemon" />
+            <End Role="Team" EntitySet="Team" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Team__pokemonThr__47DBAE45" Association="Self.FK__Team__pokemonThr__47DBAE45">
+            <End Role="Pokemon" EntitySet="Pokemon" />
+            <End Role="Team" EntitySet="Team" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Team__pokemonTwo__46E78A0C" Association="Self.FK__Team__pokemonTwo__46E78A0C">
+            <End Role="Pokemon" EntitySet="Pokemon" />
+            <End Role="Team" EntitySet="Team" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tournamen__winne__534D60F1" Association="Self.FK__Tournamen__winne__534D60F1">
+            <End Role="Player" EntitySet="Player" />
+            <End Role="Tournament" EntitySet="Tournament" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PokemonModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Arena">
+          <Key>
+            <PropertyRef Name="arenaID" />
+          </Key>
+          <Property Name="arenaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="typeElementID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TypeElement" Relationship="Self.FK__Arena__typeEleme__5070F446" FromRole="Arena" ToRole="TypeElement" />
+          <NavigationProperty Name="Battles" Relationship="Self.FK__Battle__arenaID__59063A47" FromRole="Arena" ToRole="Battle" />
+        </EntityType>
+        <EntityType Name="Battle">
+          <Key>
+            <PropertyRef Name="battleID" />
+          </Key>
+          <Property Name="battleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tournamentID" Type="Int32" Nullable="false" />
+          <Property Name="arenaID" Type="Int32" Nullable="false" />
+          <Property Name="playerOneID" Type="Int32" Nullable="false" />
+          <Property Name="playerTwoID" Type="Int32" Nullable="false" />
+          <Property Name="winnerID" Type="Int32" Nullable="false" />
+          <Property Name="logID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Arena" Relationship="Self.FK__Battle__arenaID__59063A47" FromRole="Battle" ToRole="Arena" />
+          <NavigationProperty Name="Log" Relationship="Self.FK__Battle__logID__5CD6CB2B" FromRole="Battle" ToRole="Log" />
+          <NavigationProperty Name="Player" Relationship="Self.FK__Battle__playerOn__59FA5E80" FromRole="Battle" ToRole="Player" />
+          <NavigationProperty Name="Player1" Relationship="Self.FK__Battle__playerTw__5AEE82B9" FromRole="Battle" ToRole="Player" />
+          <NavigationProperty Name="Tournament" Relationship="Self.FK__Battle__tourname__5812160E" FromRole="Battle" ToRole="Tournament" />
+          <NavigationProperty Name="Player2" Relationship="Self.FK__Battle__winnerID__5BE2A6F2" FromRole="Battle" ToRole="Player" />
+        </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="logID" />
+          </Key>
+          <Property Name="logID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="logDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Battles" Relationship="Self.FK__Battle__logID__5CD6CB2B" FromRole="Log" ToRole="Battle" />
+        </EntityType>
+        <EntityType Name="Movement">
+          <Key>
+            <PropertyRef Name="movementID" />
+          </Key>
+          <Property Name="movementID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="movementName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="movementPower" Type="Int32" Nullable="false" />
+          <Property Name="typeMovementID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TypeMovement" Relationship="Self.FK__Movement__typeMo__3B75D760" FromRole="Movement" ToRole="TypeMovement" />
+          <NavigationProperty Name="Pokemons" Relationship="Self.FK__Pokemon__movemen__403A8C7D" FromRole="Movement" ToRole="Pokemon" />
+          <NavigationProperty Name="Pokemons1" Relationship="Self.FK__Pokemon__movemen__412EB0B6" FromRole="Movement" ToRole="Pokemon" />
+          <NavigationProperty Name="Pokemons2" Relationship="Self.FK__Pokemon__movemen__4222D4EF" FromRole="Movement" ToRole="Pokemon" />
+          <NavigationProperty Name="Pokemons3" Relationship="Self.FK__Pokemon__movemen__4316F928" FromRole="Movement" ToRole="Pokemon" />
+        </EntityType>
+        <EntityType Name="Player">
+          <Key>
+            <PropertyRef Name="playerID" />
+          </Key>
+          <Property Name="playerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="playerName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="teamID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Battles" Relationship="Self.FK__Battle__playerOn__59FA5E80" FromRole="Player" ToRole="Battle" />
+          <NavigationProperty Name="Battles1" Relationship="Self.FK__Battle__playerTw__5AEE82B9" FromRole="Player" ToRole="Battle" />
+          <NavigationProperty Name="Battles2" Relationship="Self.FK__Battle__winnerID__5BE2A6F2" FromRole="Player" ToRole="Battle" />
+          <NavigationProperty Name="Team" Relationship="Self.FK__Player__teamID__4D94879B" FromRole="Player" ToRole="Team" />
+          <NavigationProperty Name="Tournaments" Relationship="Self.FK__Tournamen__winne__534D60F1" FromRole="Player" ToRole="Tournament" />
+        </EntityType>
+        <EntityType Name="Pokemon">
+          <Key>
+            <PropertyRef Name="pokemonID" />
+          </Key>
+          <Property Name="pokemonID" Type="Int32" Nullable="false" />
+          <Property Name="pokemonName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pokemonDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="typeElementOneID" Type="Int32" Nullable="false" />
+          <Property Name="typeElementTwoID" Type="Int32" />
+          <Property Name="movementOneID" Type="Int32" Nullable="false" />
+          <Property Name="movementTwoID" Type="Int32" Nullable="false" />
+          <Property Name="movementThreeID" Type="Int32" Nullable="false" />
+          <Property Name="movementFourID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Movement" Relationship="Self.FK__Pokemon__movemen__403A8C7D" FromRole="Pokemon" ToRole="Movement" />
+          <NavigationProperty Name="Movement1" Relationship="Self.FK__Pokemon__movemen__412EB0B6" FromRole="Pokemon" ToRole="Movement" />
+          <NavigationProperty Name="Movement2" Relationship="Self.FK__Pokemon__movemen__4222D4EF" FromRole="Pokemon" ToRole="Movement" />
+          <NavigationProperty Name="Movement3" Relationship="Self.FK__Pokemon__movemen__4316F928" FromRole="Pokemon" ToRole="Movement" />
+          <NavigationProperty Name="TypeElement" Relationship="Self.FK__Pokemon__typeEle__3E52440B" FromRole="Pokemon" ToRole="TypeElement" />
+          <NavigationProperty Name="TypeElement1" Relationship="Self.FK__Pokemon__typeEle__3F466844" FromRole="Pokemon" ToRole="TypeElement" />
+          <NavigationProperty Name="Teams" Relationship="Self.FK__Team__pokemonFiv__49C3F6B7" FromRole="Pokemon" ToRole="Team" />
+          <NavigationProperty Name="Teams1" Relationship="Self.FK__Team__pokemonFou__48CFD27E" FromRole="Pokemon" ToRole="Team" />
+          <NavigationProperty Name="Teams2" Relationship="Self.FK__Team__pokemonOne__45F365D3" FromRole="Pokemon" ToRole="Team" />
+          <NavigationProperty Name="Teams3" Relationship="Self.FK__Team__pokemonSix__4AB81AF0" FromRole="Pokemon" ToRole="Team" />
+          <NavigationProperty Name="Teams4" Relationship="Self.FK__Team__pokemonThr__47DBAE45" FromRole="Pokemon" ToRole="Team" />
+          <NavigationProperty Name="Teams5" Relationship="Self.FK__Team__pokemonTwo__46E78A0C" FromRole="Pokemon" ToRole="Team" />
+        </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="teamID" />
+          </Key>
+          <Property Name="teamID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pokemonOneID" Type="Int32" Nullable="false" />
+          <Property Name="pokemonTwoID" Type="Int32" Nullable="false" />
+          <Property Name="pokemonThreeID" Type="Int32" Nullable="false" />
+          <Property Name="pokemonFourID" Type="Int32" Nullable="false" />
+          <Property Name="pokemonFiveID" Type="Int32" Nullable="false" />
+          <Property Name="pokemonSixID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Players" Relationship="Self.FK__Player__teamID__4D94879B" FromRole="Team" ToRole="Player" />
+          <NavigationProperty Name="Pokemon" Relationship="Self.FK__Team__pokemonFiv__49C3F6B7" FromRole="Team" ToRole="Pokemon" />
+          <NavigationProperty Name="Pokemon1" Relationship="Self.FK__Team__pokemonFou__48CFD27E" FromRole="Team" ToRole="Pokemon" />
+          <NavigationProperty Name="Pokemon2" Relationship="Self.FK__Team__pokemonOne__45F365D3" FromRole="Team" ToRole="Pokemon" />
+          <NavigationProperty Name="Pokemon3" Relationship="Self.FK__Team__pokemonSix__4AB81AF0" FromRole="Team" ToRole="Pokemon" />
+          <NavigationProperty Name="Pokemon4" Relationship="Self.FK__Team__pokemonThr__47DBAE45" FromRole="Team" ToRole="Pokemon" />
+          <NavigationProperty Name="Pokemon5" Relationship="Self.FK__Team__pokemonTwo__46E78A0C" FromRole="Team" ToRole="Pokemon" />
+        </EntityType>
+        <EntityType Name="Tournament">
+          <Key>
+            <PropertyRef Name="tournamentID" />
+          </Key>
+          <Property Name="tournamentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="winnerID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Battles" Relationship="Self.FK__Battle__tourname__5812160E" FromRole="Tournament" ToRole="Battle" />
+          <NavigationProperty Name="Player" Relationship="Self.FK__Tournamen__winne__534D60F1" FromRole="Tournament" ToRole="Player" />
+        </EntityType>
+        <EntityType Name="TypeElement">
+          <Key>
+            <PropertyRef Name="typeElementID" />
+          </Key>
+          <Property Name="typeElementID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="typeElementName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Arenas" Relationship="Self.FK__Arena__typeEleme__5070F446" FromRole="TypeElement" ToRole="Arena" />
+          <NavigationProperty Name="Pokemons" Relationship="Self.FK__Pokemon__typeEle__3E52440B" FromRole="TypeElement" ToRole="Pokemon" />
+          <NavigationProperty Name="Pokemons1" Relationship="Self.FK__Pokemon__typeEle__3F466844" FromRole="TypeElement" ToRole="Pokemon" />
+        </EntityType>
+        <EntityType Name="TypeMovement">
+          <Key>
+            <PropertyRef Name="typeMovementID" />
+          </Key>
+          <Property Name="typeMovementID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="typeMovementName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Movements" Relationship="Self.FK__Movement__typeMo__3B75D760" FromRole="TypeMovement" ToRole="Movement" />
+        </EntityType>
+        <Association Name="FK__Arena__typeEleme__5070F446">
+          <End Role="TypeElement" Type="Self.TypeElement" Multiplicity="1" />
+          <End Role="Arena" Type="Self.Arena" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeElement">
+              <PropertyRef Name="typeElementID" />
+            </Principal>
+            <Dependent Role="Arena">
+              <PropertyRef Name="typeElementID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Battle__arenaID__59063A47">
+          <End Role="Arena" Type="Self.Arena" Multiplicity="1" />
+          <End Role="Battle" Type="Self.Battle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Arena">
+              <PropertyRef Name="arenaID" />
+            </Principal>
+            <Dependent Role="Battle">
+              <PropertyRef Name="arenaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Battle__logID__5CD6CB2B">
+          <End Role="Log" Type="Self.Log" Multiplicity="1" />
+          <End Role="Battle" Type="Self.Battle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Log">
+              <PropertyRef Name="logID" />
+            </Principal>
+            <Dependent Role="Battle">
+              <PropertyRef Name="logID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Battle__playerOn__59FA5E80">
+          <End Role="Player" Type="Self.Player" Multiplicity="1" />
+          <End Role="Battle" Type="Self.Battle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Player">
+              <PropertyRef Name="playerID" />
+            </Principal>
+            <Dependent Role="Battle">
+              <PropertyRef Name="playerOneID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Battle__playerTw__5AEE82B9">
+          <End Role="Player" Type="Self.Player" Multiplicity="1" />
+          <End Role="Battle" Type="Self.Battle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Player">
+              <PropertyRef Name="playerID" />
+            </Principal>
+            <Dependent Role="Battle">
+              <PropertyRef Name="playerTwoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Battle__tourname__5812160E">
+          <End Role="Tournament" Type="Self.Tournament" Multiplicity="1" />
+          <End Role="Battle" Type="Self.Battle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tournament">
+              <PropertyRef Name="tournamentID" />
+            </Principal>
+            <Dependent Role="Battle">
+              <PropertyRef Name="tournamentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Battle__winnerID__5BE2A6F2">
+          <End Role="Player" Type="Self.Player" Multiplicity="1" />
+          <End Role="Battle" Type="Self.Battle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Player">
+              <PropertyRef Name="playerID" />
+            </Principal>
+            <Dependent Role="Battle">
+              <PropertyRef Name="winnerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Movement__typeMo__3B75D760">
+          <End Role="TypeMovement" Type="Self.TypeMovement" Multiplicity="1" />
+          <End Role="Movement" Type="Self.Movement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeMovement">
+              <PropertyRef Name="typeMovementID" />
+            </Principal>
+            <Dependent Role="Movement">
+              <PropertyRef Name="typeMovementID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pokemon__movemen__403A8C7D">
+          <End Role="Movement" Type="Self.Movement" Multiplicity="1" />
+          <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movement">
+              <PropertyRef Name="movementID" />
+            </Principal>
+            <Dependent Role="Pokemon">
+              <PropertyRef Name="movementOneID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pokemon__movemen__412EB0B6">
+          <End Role="Movement" Type="Self.Movement" Multiplicity="1" />
+          <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movement">
+              <PropertyRef Name="movementID" />
+            </Principal>
+            <Dependent Role="Pokemon">
+              <PropertyRef Name="movementTwoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pokemon__movemen__4222D4EF">
+          <End Role="Movement" Type="Self.Movement" Multiplicity="1" />
+          <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movement">
+              <PropertyRef Name="movementID" />
+            </Principal>
+            <Dependent Role="Pokemon">
+              <PropertyRef Name="movementThreeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pokemon__movemen__4316F928">
+          <End Role="Movement" Type="Self.Movement" Multiplicity="1" />
+          <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Movement">
+              <PropertyRef Name="movementID" />
+            </Principal>
+            <Dependent Role="Pokemon">
+              <PropertyRef Name="movementFourID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Player__teamID__4D94879B">
+          <End Role="Team" Type="Self.Team" Multiplicity="1" />
+          <End Role="Player" Type="Self.Player" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="teamID" />
+            </Principal>
+            <Dependent Role="Player">
+              <PropertyRef Name="teamID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Tournamen__winne__534D60F1">
+          <End Role="Player" Type="Self.Player" Multiplicity="1" />
+          <End Role="Tournament" Type="Self.Tournament" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Player">
+              <PropertyRef Name="playerID" />
+            </Principal>
+            <Dependent Role="Tournament">
+              <PropertyRef Name="winnerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pokemon__typeEle__3E52440B">
+          <End Role="TypeElement" Type="Self.TypeElement" Multiplicity="1" />
+          <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeElement">
+              <PropertyRef Name="typeElementID" />
+            </Principal>
+            <Dependent Role="Pokemon">
+              <PropertyRef Name="typeElementOneID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Pokemon__typeEle__3F466844">
+          <End Role="TypeElement" Type="Self.TypeElement" Multiplicity="0..1" />
+          <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeElement">
+              <PropertyRef Name="typeElementID" />
+            </Principal>
+            <Dependent Role="Pokemon">
+              <PropertyRef Name="typeElementTwoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Team__pokemonFiv__49C3F6B7">
+          <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="1" />
+          <End Role="Team" Type="Self.Team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pokemon">
+              <PropertyRef Name="pokemonID" />
+            </Principal>
+            <Dependent Role="Team">
+              <PropertyRef Name="pokemonFiveID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Team__pokemonFou__48CFD27E">
+          <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="1" />
+          <End Role="Team" Type="Self.Team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pokemon">
+              <PropertyRef Name="pokemonID" />
+            </Principal>
+            <Dependent Role="Team">
+              <PropertyRef Name="pokemonFourID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Team__pokemonOne__45F365D3">
+          <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="1" />
+          <End Role="Team" Type="Self.Team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pokemon">
+              <PropertyRef Name="pokemonID" />
+            </Principal>
+            <Dependent Role="Team">
+              <PropertyRef Name="pokemonOneID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Team__pokemonSix__4AB81AF0">
+          <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="1" />
+          <End Role="Team" Type="Self.Team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pokemon">
+              <PropertyRef Name="pokemonID" />
+            </Principal>
+            <Dependent Role="Team">
+              <PropertyRef Name="pokemonSixID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Team__pokemonThr__47DBAE45">
+          <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="1" />
+          <End Role="Team" Type="Self.Team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pokemon">
+              <PropertyRef Name="pokemonID" />
+            </Principal>
+            <Dependent Role="Team">
+              <PropertyRef Name="pokemonThreeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Team__pokemonTwo__46E78A0C">
+          <End Role="Pokemon" Type="Self.Pokemon" Multiplicity="1" />
+          <End Role="Team" Type="Self.Team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pokemon">
+              <PropertyRef Name="pokemonID" />
+            </Principal>
+            <Dependent Role="Team">
+              <PropertyRef Name="pokemonTwoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PokemonEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Arenas" EntityType="Self.Arena" />
+          <EntitySet Name="Battles" EntityType="Self.Battle" />
+          <EntitySet Name="Logs" EntityType="Self.Log" />
+          <EntitySet Name="Movements" EntityType="Self.Movement" />
+          <EntitySet Name="Players" EntityType="Self.Player" />
+          <EntitySet Name="Pokemons" EntityType="Self.Pokemon" />
+          <EntitySet Name="Teams" EntityType="Self.Team" />
+          <EntitySet Name="Tournaments" EntityType="Self.Tournament" />
+          <EntitySet Name="TypeElements" EntityType="Self.TypeElement" />
+          <EntitySet Name="TypeMovements" EntityType="Self.TypeMovement" />
+          <AssociationSet Name="FK__Arena__typeEleme__5070F446" Association="Self.FK__Arena__typeEleme__5070F446">
+            <End Role="TypeElement" EntitySet="TypeElements" />
+            <End Role="Arena" EntitySet="Arenas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Battle__arenaID__59063A47" Association="Self.FK__Battle__arenaID__59063A47">
+            <End Role="Arena" EntitySet="Arenas" />
+            <End Role="Battle" EntitySet="Battles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Battle__logID__5CD6CB2B" Association="Self.FK__Battle__logID__5CD6CB2B">
+            <End Role="Log" EntitySet="Logs" />
+            <End Role="Battle" EntitySet="Battles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Battle__playerOn__59FA5E80" Association="Self.FK__Battle__playerOn__59FA5E80">
+            <End Role="Player" EntitySet="Players" />
+            <End Role="Battle" EntitySet="Battles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Battle__playerTw__5AEE82B9" Association="Self.FK__Battle__playerTw__5AEE82B9">
+            <End Role="Player" EntitySet="Players" />
+            <End Role="Battle" EntitySet="Battles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Battle__tourname__5812160E" Association="Self.FK__Battle__tourname__5812160E">
+            <End Role="Tournament" EntitySet="Tournaments" />
+            <End Role="Battle" EntitySet="Battles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Battle__winnerID__5BE2A6F2" Association="Self.FK__Battle__winnerID__5BE2A6F2">
+            <End Role="Player" EntitySet="Players" />
+            <End Role="Battle" EntitySet="Battles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Movement__typeMo__3B75D760" Association="Self.FK__Movement__typeMo__3B75D760">
+            <End Role="TypeMovement" EntitySet="TypeMovements" />
+            <End Role="Movement" EntitySet="Movements" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pokemon__movemen__403A8C7D" Association="Self.FK__Pokemon__movemen__403A8C7D">
+            <End Role="Movement" EntitySet="Movements" />
+            <End Role="Pokemon" EntitySet="Pokemons" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pokemon__movemen__412EB0B6" Association="Self.FK__Pokemon__movemen__412EB0B6">
+            <End Role="Movement" EntitySet="Movements" />
+            <End Role="Pokemon" EntitySet="Pokemons" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pokemon__movemen__4222D4EF" Association="Self.FK__Pokemon__movemen__4222D4EF">
+            <End Role="Movement" EntitySet="Movements" />
+            <End Role="Pokemon" EntitySet="Pokemons" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pokemon__movemen__4316F928" Association="Self.FK__Pokemon__movemen__4316F928">
+            <End Role="Movement" EntitySet="Movements" />
+            <End Role="Pokemon" EntitySet="Pokemons" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Player__teamID__4D94879B" Association="Self.FK__Player__teamID__4D94879B">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="Player" EntitySet="Players" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Tournamen__winne__534D60F1" Association="Self.FK__Tournamen__winne__534D60F1">
+            <End Role="Player" EntitySet="Players" />
+            <End Role="Tournament" EntitySet="Tournaments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pokemon__typeEle__3E52440B" Association="Self.FK__Pokemon__typeEle__3E52440B">
+            <End Role="TypeElement" EntitySet="TypeElements" />
+            <End Role="Pokemon" EntitySet="Pokemons" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Pokemon__typeEle__3F466844" Association="Self.FK__Pokemon__typeEle__3F466844">
+            <End Role="TypeElement" EntitySet="TypeElements" />
+            <End Role="Pokemon" EntitySet="Pokemons" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Team__pokemonFiv__49C3F6B7" Association="Self.FK__Team__pokemonFiv__49C3F6B7">
+            <End Role="Pokemon" EntitySet="Pokemons" />
+            <End Role="Team" EntitySet="Teams" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Team__pokemonFou__48CFD27E" Association="Self.FK__Team__pokemonFou__48CFD27E">
+            <End Role="Pokemon" EntitySet="Pokemons" />
+            <End Role="Team" EntitySet="Teams" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Team__pokemonOne__45F365D3" Association="Self.FK__Team__pokemonOne__45F365D3">
+            <End Role="Pokemon" EntitySet="Pokemons" />
+            <End Role="Team" EntitySet="Teams" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Team__pokemonSix__4AB81AF0" Association="Self.FK__Team__pokemonSix__4AB81AF0">
+            <End Role="Pokemon" EntitySet="Pokemons" />
+            <End Role="Team" EntitySet="Teams" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Team__pokemonThr__47DBAE45" Association="Self.FK__Team__pokemonThr__47DBAE45">
+            <End Role="Pokemon" EntitySet="Pokemons" />
+            <End Role="Team" EntitySet="Teams" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Team__pokemonTwo__46E78A0C" Association="Self.FK__Team__pokemonTwo__46E78A0C">
+            <End Role="Pokemon" EntitySet="Pokemons" />
+            <End Role="Team" EntitySet="Teams" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PokemonModelStoreContainer" CdmEntityContainer="PokemonEntities">
+          <EntitySetMapping Name="Arenas">
+            <EntityTypeMapping TypeName="PokemonModel.Arena">
+              <MappingFragment StoreEntitySet="Arena">
+                <ScalarProperty Name="arenaID" ColumnName="arenaID" />
+                <ScalarProperty Name="typeElementID" ColumnName="typeElementID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Battles">
+            <EntityTypeMapping TypeName="PokemonModel.Battle">
+              <MappingFragment StoreEntitySet="Battle">
+                <ScalarProperty Name="battleID" ColumnName="battleID" />
+                <ScalarProperty Name="tournamentID" ColumnName="tournamentID" />
+                <ScalarProperty Name="arenaID" ColumnName="arenaID" />
+                <ScalarProperty Name="playerOneID" ColumnName="playerOneID" />
+                <ScalarProperty Name="playerTwoID" ColumnName="playerTwoID" />
+                <ScalarProperty Name="winnerID" ColumnName="winnerID" />
+                <ScalarProperty Name="logID" ColumnName="logID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logs">
+            <EntityTypeMapping TypeName="PokemonModel.Log">
+              <MappingFragment StoreEntitySet="Log">
+                <ScalarProperty Name="logID" ColumnName="logID" />
+                <ScalarProperty Name="logDescription" ColumnName="logDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Movements">
+            <EntityTypeMapping TypeName="PokemonModel.Movement">
+              <MappingFragment StoreEntitySet="Movement">
+                <ScalarProperty Name="movementID" ColumnName="movementID" />
+                <ScalarProperty Name="movementName" ColumnName="movementName" />
+                <ScalarProperty Name="movementPower" ColumnName="movementPower" />
+                <ScalarProperty Name="typeMovementID" ColumnName="typeMovementID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Players">
+            <EntityTypeMapping TypeName="PokemonModel.Player">
+              <MappingFragment StoreEntitySet="Player">
+                <ScalarProperty Name="playerID" ColumnName="playerID" />
+                <ScalarProperty Name="playerName" ColumnName="playerName" />
+                <ScalarProperty Name="teamID" ColumnName="teamID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pokemons">
+            <EntityTypeMapping TypeName="PokemonModel.Pokemon">
+              <MappingFragment StoreEntitySet="Pokemon">
+                <ScalarProperty Name="pokemonID" ColumnName="pokemonID" />
+                <ScalarProperty Name="pokemonName" ColumnName="pokemonName" />
+                <ScalarProperty Name="pokemonDescription" ColumnName="pokemonDescription" />
+                <ScalarProperty Name="typeElementOneID" ColumnName="typeElementOneID" />
+                <ScalarProperty Name="typeElementTwoID" ColumnName="typeElementTwoID" />
+                <ScalarProperty Name="movementOneID" ColumnName="movementOneID" />
+                <ScalarProperty Name="movementTwoID" ColumnName="movementTwoID" />
+                <ScalarProperty Name="movementThreeID" ColumnName="movementThreeID" />
+                <ScalarProperty Name="movementFourID" ColumnName="movementFourID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Teams">
+            <EntityTypeMapping TypeName="PokemonModel.Team">
+              <MappingFragment StoreEntitySet="Team">
+                <ScalarProperty Name="teamID" ColumnName="teamID" />
+                <ScalarProperty Name="pokemonOneID" ColumnName="pokemonOneID" />
+                <ScalarProperty Name="pokemonTwoID" ColumnName="pokemonTwoID" />
+                <ScalarProperty Name="pokemonThreeID" ColumnName="pokemonThreeID" />
+                <ScalarProperty Name="pokemonFourID" ColumnName="pokemonFourID" />
+                <ScalarProperty Name="pokemonFiveID" ColumnName="pokemonFiveID" />
+                <ScalarProperty Name="pokemonSixID" ColumnName="pokemonSixID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tournaments">
+            <EntityTypeMapping TypeName="PokemonModel.Tournament">
+              <MappingFragment StoreEntitySet="Tournament">
+                <ScalarProperty Name="tournamentID" ColumnName="tournamentID" />
+                <ScalarProperty Name="winnerID" ColumnName="winnerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeElements">
+            <EntityTypeMapping TypeName="PokemonModel.TypeElement">
+              <MappingFragment StoreEntitySet="TypeElement">
+                <ScalarProperty Name="typeElementID" ColumnName="typeElementID" />
+                <ScalarProperty Name="typeElementName" ColumnName="typeElementName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeMovements">
+            <EntityTypeMapping TypeName="PokemonModel.TypeMovement">
+              <MappingFragment StoreEntitySet="TypeMovement">
+                <ScalarProperty Name="typeMovementID" ColumnName="typeMovementID" />
+                <ScalarProperty Name="typeMovementName" ColumnName="typeMovementName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
