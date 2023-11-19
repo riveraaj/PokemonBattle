@@ -3,10 +3,10 @@ using System.Collections.Generic;
 namespace PokemonBattle.Models {
     public partial class Movement {
         public Movement() {
-            this.PokemonsOneMovement = new HashSet<Pokemon>();
-            this.PokemonsTwoMovement = new HashSet<Pokemon>();
-            this.PokemonsThreeMovement = new HashSet<Pokemon>();
-            this.PokemonsFourMovement = new HashSet<Pokemon>();
+            this.PokemonsOne = new HashSet<Pokemon>();
+            this.PokemonsTwo = new HashSet<Pokemon>();
+            this.PokemonsThree = new HashSet<Pokemon>();
+            this.PokemonsFour = new HashSet<Pokemon>();
         }
     
         //Table Properties
@@ -17,9 +17,9 @@ namespace PokemonBattle.Models {
 
         //Refereces ForeingKey
         public virtual TypeMovement TypeMovement { get; set; }
-        public virtual ICollection<Pokemon> PokemonsOneMovement { get; set; }
-        public virtual ICollection<Pokemon> PokemonsTwoMovement { get; set; }
-        public virtual ICollection<Pokemon> PokemonsThreeMovement { get; set; }
-        public virtual ICollection<Pokemon> PokemonsFourMovement { get; set; }
+        public virtual ICollection<Pokemon> PokemonsOne { get; set; }
+        public virtual ICollection<Pokemon> PokemonsTwo { get; set; }
+        public virtual ICollection<Pokemon> PokemonsThree { get; set; }
+        public virtual ICollection<Pokemon> PokemonsFour { get; set; }
     }
 }

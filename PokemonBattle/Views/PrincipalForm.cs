@@ -22,7 +22,7 @@ namespace PokemonBattle
         public PrincipalForm() {
             InitInstance();
             InitializeComponent();
-            ButtonTransparentHelper.CustomizeButtonAppearance(new List<Button> { btnPlayer });
+            ButtonTransparentHelper.CustomizeAppearanceButtons(new List<Button> { btnPlayer });
             oSoundPlayer.Play();
             initPositionX = labelStart.Location.X;
             timer1.Interval = 1000;
@@ -34,6 +34,7 @@ namespace PokemonBattle
             isMusicPlaying = true;
             oSoundPlayer = new SoundPlayer("Resources/music-pokemon-battle.wav");
             _tournamentServices = TournamentManager.GetInstance;
+            _tournamentServices.InitInstances();
         }
 
         private void OpenInitTournament(object sender, KeyPressEventArgs e) {

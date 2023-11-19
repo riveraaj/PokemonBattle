@@ -6,7 +6,7 @@ namespace PokemonBattle.Models{
             this.BattlesPlayerOne = new HashSet<Battle>();
             this.BattlesPlayerTwo = new HashSet<Battle>();
             this.BattlesPlayerWinner = new HashSet<Battle>();
-            this.TournamentsPlayer = new HashSet<Tournament>();
+            this.Tournaments = new HashSet<Tournament>();
         }
         
         //Table Properties
@@ -18,7 +18,7 @@ namespace PokemonBattle.Models{
         public virtual ICollection<Battle> BattlesPlayerOne { get; set; }
         public virtual ICollection<Battle> BattlesPlayerTwo { get; set; }
         public virtual ICollection<Battle> BattlesPlayerWinner { get; set; }
-        public virtual Team TeamPlayer { get; set; }
-        public virtual ICollection<Tournament> TournamentsPlayer { get; set; }
+        public virtual Team Team { get; set; }
+        public virtual ICollection<Tournament> Tournaments{ get; set; }
     }
 }

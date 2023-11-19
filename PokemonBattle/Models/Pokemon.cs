@@ -24,12 +24,12 @@ namespace PokemonBattle.Models {
         public int MovementFourID { get; set; }
 
         //References ForeignKey
-        public virtual Movement MovementOnePokemon { get; set; }
-        public virtual Movement MovementTwoPokemon { get; set; }
-        public virtual Movement MovementThreePokemon { get; set; }
-        public virtual Movement MovementFourPokemon { get; set; }
-        public virtual TypeElement TypeElementOnePokemon { get; set; }
-        public virtual TypeElement TypeElementTwoPokemon { get; set; }
+        public virtual Movement MovementOne { get; set; }
+        public virtual Movement MovementTwo { get; set; }
+        public virtual Movement MovementThree { get; set; }
+        public virtual Movement MovementFour { get; set; }
+        public virtual TypeElement TypeElementOne { get; set; }
+        public virtual TypeElement TypeElementTwo { get; set; }
         public virtual ICollection<Team> TeamsPokemonOne { get; set; }
         public virtual ICollection<Team> TeamsPokemonTwo { get; set; }
         public virtual ICollection<Team> TeamsPokemonThree { get; set; }

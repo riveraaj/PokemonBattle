@@ -5,15 +5,15 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="338e238c03334baa947c7b9892e0f96d" Name="Diagram1">
-        <EntityTypeShape EntityType="PokemonModel.Arena" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="PokemonModel.Battle" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PokemonModel.Arena" Width="1.75" PointX="2.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PokemonModel.Battle" Width="1.625" PointX="5.25" PointY="6.5" IsExpanded="true" />
         <EntityTypeShape EntityType="PokemonModel.Log" Width="1.5" PointX="3" PointY="14.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="PokemonModel.Movement" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PokemonModel.Movement" Width="2" PointX="0.5" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PokemonModel.Player" Width="1.5" PointX="7.5" PointY="12.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="PokemonModel.Pokemon" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PokemonModel.Pokemon" Width="2" PointX="3" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PokemonModel.Team" Width="1.5" PointX="5.25" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PokemonModel.Tournament" Width="1.5" PointX="9.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PokemonModel.TypeElement" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PokemonModel.TypeElement" Width="1.75" PointX="0.5" PointY="7.25" IsExpanded="true" />
         <EntityTypeShape EntityType="PokemonModel.TypeMovement" Width="1.5" PointX="1.5" PointY="10.375" IsExpanded="true" />
         <AssociationConnector Association="PokemonModel.FK__Arena__typeEleme__5070F446" ManuallyRouted="false" />
         <AssociationConnector Association="PokemonModel.FK__Battle__arenaID__59063A47" ManuallyRouted="false" />

@@ -2,8 +2,8 @@ using System.Collections.Generic;
 
 namespace PokemonBattle.Models {   
     public partial class Team {
-        public Team() => this.PlayersTeam = new HashSet<Player>();
-        
+        public Team() => this.Players = new HashSet<Player>();
+
         //Table Properties
         public int TeamID { get; set; }
         public int PokemonOneID { get; set; }
@@ -14,12 +14,12 @@ namespace PokemonBattle.Models {
         public int PokemonSixID { get; set; }
     
         //References ForeignKey
-        public virtual ICollection<Player> PlayersTeam { get; set; }
-        public virtual Pokemon PokemonOneTeam { get; set; }
-        public virtual Pokemon PokemonTwoTeam { get; set; }
-        public virtual Pokemon PokemonThreeTeam { get; set; }
-        public virtual Pokemon PokemonFourTeam { get; set; }
-        public virtual Pokemon PokemonFiveTeam { get; set; }
-        public virtual Pokemon PokemonSixTeam { get; set; }
+        public virtual ICollection<Player> Players { get; set; }
+        public virtual Pokemon PokemonOne { get; set; }
+        public virtual Pokemon PokemonTwo { get; set; }
+        public virtual Pokemon PokemonThree { get; set; }
+        public virtual Pokemon PokemonFour { get; set; }
+        public virtual Pokemon PokemonFive { get; set; }
+        public virtual Pokemon PokemonSix { get; set; }
     }
 }

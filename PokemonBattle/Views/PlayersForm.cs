@@ -8,7 +8,7 @@ namespace PokemonBattle.View
     public partial class PlayersForm : Form {
         public PlayersForm() {
             InitializeComponent();
-            ButtonTransparentHelper.CustomizeButtonAppearance(new List<Button> { btnNext, btnChoosePokemon});
+            ButtonTransparentHelper.CustomizeAppearanceButtons(new List<Button> { btnNext, btnChoosePokemon});
         }
 
         protected override void WndProc(ref Message m) {
