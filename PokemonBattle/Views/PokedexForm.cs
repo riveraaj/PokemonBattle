@@ -1,5 +1,6 @@
 ﻿using PokemonBattle.Models;
 using PokemonBattle.Repositories;
+using PokemonBattle.Services;
 using PokemonBattle.Utilities;
 using PokemonBattle.Views;
 using System;
@@ -11,12 +12,10 @@ namespace PokemonBattle.View
 {
     public partial class PokedexForm : Form {
 
-        private readonly PokemonRepository _pokemonRepository;
-        private List<Pokemon> _pokemons;
+        private readonly TournamentManager _tournamentServices;
 
         public PokedexForm() {
-            _pokemonRepository = new PokemonRepository(new PokemonEntities());
-            _pokemons = (List<Pokemon>)_pokemonRepository.GetAll();
+            _tournamentServices = TournamentManager.GetInstance;
             InitializeComponent();
             LoadPokedexInLayout();
             ButtonTransparentHelper.CustomizeButtonAppearance(new List<Button> { btnBack});
@@ -36,14 +35,15 @@ namespace PokemonBattle.View
         }
 
         public void LoadPokedexInLayout() {
-            lblPokemonID.Text = $"0{_pokemons[3].pokemonID}";
-            picBoxPokemon.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject($"_{_pokemons[3].pokemonID}");
-            lblName.Text = _pokemons[3].pokemonName;
-            lblTypeOne.Text = _pokemons[3].TypeElement.typeElementName;
-            if (_pokemons[3].typeElementTwoID != null) lblTypeTwo.Text = _pokemons[3].TypeElement.typeElementName;
-            txtDescription.Text = _pokemons[3].pokemonDescription;
+            lblPokemonID.Text = $"0{_tournamentServices.PokemonsList[3].pokemonID}";
+            picBoxPokemon.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject($"_{_tournamentServices.PokemonsList[3].pokemonID}");
+            lblName.Text = _tournamentServices.PokemonsList[3].pokemonName;
+            lblTypeOne.Text = _tournamentServices.PokemonsList[3].TypeElement.typeElementName;
+            if (_tournamentServices.PokemonsList[3].typeElementTwoID != null) lblTypeTwo.Text = _tournamentServices.PokemonsList[3].TypeElement.typeElementName;
+            txtDescription.Text = _tournamentServices.PokemonsList[3].pokemonDescription;
             txtDescription.SelectionAlignment = HorizontalAlignment.Center;
+            txtDescription.ReadOnly = true;
+            txtDescription.BackColor = Color.White;
         }
-
     }
 }

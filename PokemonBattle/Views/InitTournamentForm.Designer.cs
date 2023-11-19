@@ -44,13 +44,13 @@ namespace PokemonBattle.View
             // 
             this.labelSelectSizeTournament.AutoSize = true;
             this.labelSelectSizeTournament.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelSelectSizeTournament.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSelectSizeTournament.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSelectSizeTournament.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.labelSelectSizeTournament.Location = new System.Drawing.Point(33, 27);
             this.labelSelectSizeTournament.Name = "labelSelectSizeTournament";
-            this.labelSelectSizeTournament.Size = new System.Drawing.Size(330, 30);
+            this.labelSelectSizeTournament.Size = new System.Drawing.Size(221, 21);
             this.labelSelectSizeTournament.TabIndex = 0;
-            this.labelSelectSizeTournament.Text = "Seleccione el tamaño del Torneo";
+            this.labelSelectSizeTournament.Text = "Select the Tournament Size.";
             // 
             // cmbSizeTournament
             // 
@@ -61,7 +61,7 @@ namespace PokemonBattle.View
             "4",
             "8",
             "16"});
-            this.cmbSizeTournament.Location = new System.Drawing.Point(33, 71);
+            this.cmbSizeTournament.Location = new System.Drawing.Point(33, 60);
             this.cmbSizeTournament.Name = "cmbSizeTournament";
             this.cmbSizeTournament.Size = new System.Drawing.Size(121, 25);
             this.cmbSizeTournament.TabIndex = 1;
@@ -71,13 +71,13 @@ namespace PokemonBattle.View
             // 
             this.labelNumberPlayer.AutoSize = true;
             this.labelNumberPlayer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.labelNumberPlayer.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNumberPlayer.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNumberPlayer.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.labelNumberPlayer.Location = new System.Drawing.Point(518, 27);
             this.labelNumberPlayer.Name = "labelNumberPlayer";
-            this.labelNumberPlayer.Size = new System.Drawing.Size(366, 30);
+            this.labelNumberPlayer.Size = new System.Drawing.Size(232, 21);
             this.labelNumberPlayer.TabIndex = 2;
-            this.labelNumberPlayer.Text = "Seleccione la cantidad de Jugadores";
+            this.labelNumberPlayer.Text = "Select the number of Players.";
             // 
             // cmbNumberPlayer
             // 
@@ -86,9 +86,9 @@ namespace PokemonBattle.View
             this.cmbNumberPlayer.FormattingEnabled = true;
             this.cmbNumberPlayer.Items.AddRange(new object[] {
             "Seleccione el tamaño del Torneo"});
-            this.cmbNumberPlayer.Location = new System.Drawing.Point(518, 71);
+            this.cmbNumberPlayer.Location = new System.Drawing.Point(518, 60);
             this.cmbNumberPlayer.Name = "cmbNumberPlayer";
-            this.cmbNumberPlayer.Size = new System.Drawing.Size(222, 25);
+            this.cmbNumberPlayer.Size = new System.Drawing.Size(123, 25);
             this.cmbNumberPlayer.TabIndex = 1;
             this.cmbNumberPlayer.SelectedIndexChanged += new System.EventHandler(this.ChangeListCreateInputForNamesPlayers);
             // 
@@ -125,9 +125,9 @@ namespace PokemonBattle.View
             this.btnNextPlayersForm.Name = "btnNextPlayersForm";
             this.btnNextPlayersForm.Size = new System.Drawing.Size(93, 41);
             this.btnNextPlayersForm.TabIndex = 4;
-            this.btnNextPlayersForm.Text = "SIGUIENTE";
+            this.btnNextPlayersForm.Text = "NEXT";
             this.btnNextPlayersForm.UseVisualStyleBackColor = false;
-            this.btnNextPlayersForm.Click += new System.EventHandler(this.NextPlayersForm);
+            this.btnNextPlayersForm.Click += new System.EventHandler(this.OpenPlayersForm);
             // 
             // labelWarning
             // 
@@ -137,9 +137,9 @@ namespace PokemonBattle.View
             this.labelWarning.ForeColor = System.Drawing.Color.Red;
             this.labelWarning.Location = new System.Drawing.Point(182, 245);
             this.labelWarning.Name = "labelWarning";
-            this.labelWarning.Size = new System.Drawing.Size(345, 21);
+            this.labelWarning.Size = new System.Drawing.Size(229, 21);
             this.labelWarning.TabIndex = 6;
-            this.labelWarning.Text = "*Todos  los jugadores deben tener un nombre";
+            this.labelWarning.Text = "*All players must have a name.";
             this.labelWarning.Visible = false;
             // 
             // InitTournamentForm

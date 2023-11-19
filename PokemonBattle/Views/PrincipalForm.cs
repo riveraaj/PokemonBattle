@@ -1,4 +1,5 @@
 ﻿using PokemonBattle.Properties;
+using PokemonBattle.Services;
 using PokemonBattle.Utilities;
 using PokemonBattle.View;
 using System;
@@ -16,20 +17,24 @@ namespace PokemonBattle
         private bool pulsating;
         private SoundPlayer oSoundPlayer;
         private bool isMusicPlaying;
+        private TournamentManager _tournamentServices;
 
         public PrincipalForm() {
-            pulsating= false;
-            isMusicPlaying = true;
+            InitInstance();
             InitializeComponent();
             ButtonTransparentHelper.CustomizeButtonAppearance(new List<Button> { btnPlayer });
-            oSoundPlayer = new SoundPlayer("Resources/music-pokemon-battle.wav");
-
             oSoundPlayer.Play();
             initPositionX = labelStart.Location.X;
             timer1.Interval = 1000;
             timer1.Start();
         }
-    
+        
+        private void InitInstance() {
+            pulsating = false;
+            isMusicPlaying = true;
+            oSoundPlayer = new SoundPlayer("Resources/music-pokemon-battle.wav");
+            _tournamentServices = TournamentManager.GetInstance;
+        }
 
         private void OpenInitTournament(object sender, KeyPressEventArgs e) {
             InitTournamentForm oInitTournamentForm = new InitTournamentForm();
@@ -54,14 +59,13 @@ namespace PokemonBattle
             } else {
                 labelStart.TextAlign = ContentAlignment.MiddleCenter;
                 labelStart.Font = new System.Drawing.Font(labelStart.Font.FontFamily, labelStart.Font.Size + 2, labelStart.Font.Style);
-                labelStart.Location = new Point(labelStart.Location.X - 27, labelStart.Location.Y);
+                labelStart.Location = new Point(labelStart.Location.X - 15, labelStart.Location.Y);
                 pulsating = true;
                 labelStart.Refresh();
             }
         }
 
-        private void StopMusic(object sender, EventArgs e)
-        {
+        private void StopMusic(object sender, EventArgs e) {
             if (isMusicPlaying) {
                 isMusicPlaying = false;
                 oSoundPlayer.Stop();

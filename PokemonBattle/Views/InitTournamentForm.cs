@@ -1,4 +1,5 @@
-﻿using PokemonBattle.Utilities;
+﻿using PokemonBattle.Controllers;
+using PokemonBattle.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -6,16 +7,27 @@ using System.Windows.Forms;
 
 namespace PokemonBattle.View
 {
-    public partial class InitTournamentForm : Form{
+    internal partial class InitTournamentForm : Form{
 
-        List<TextBox> textBoxes;
+        private List<TextBox> textBoxes;
+        private List<string> playersName;
+        private InitTournamentController _initTournamentController;
+        private int sizeTournament, numberPlayers;
 
         public InitTournamentForm() {
-            textBoxes = new List<TextBox>();
+            InitInstance();
             InitializeComponent();
             ButtonTransparentHelper.CustomizeButtonAppearance(new List<Button> { btnNextPlayersForm });
             cmbSizeTournament.SelectedIndex = 0;
             cmbNumberPlayer.SelectedIndex = 0;
+        }
+
+        private void InitInstance() {
+            _initTournamentController = new InitTournamentController();
+            textBoxes = new List<TextBox>();
+            sizeTournament = 0;
+            numberPlayers = 0;
+            playersName = new List<string>();
         }
 
         protected override void WndProc(ref Message m) {
@@ -28,14 +40,14 @@ namespace PokemonBattle.View
         }
 
         private void ChangeListOfPlayer(object sender, EventArgs e) {
-            int sizeTournament = Convert.ToInt32(cmbSizeTournament.SelectedItem);
+            sizeTournament = Convert.ToInt32(cmbSizeTournament.SelectedItem);
             cmbNumberPlayer.Items.Clear();
             for (int i = 1; i < sizeTournament +  1; i++) cmbNumberPlayer.Items.Add(i);
             cmbNumberPlayer.SelectedIndex = 0;
         }
 
         private void ChangeListCreateInputForNamesPlayers(object sender, EventArgs e) {
-            int numberPlayers = Convert.ToInt32(cmbNumberPlayer.SelectedItem);
+            numberPlayers = Convert.ToInt32(cmbNumberPlayer.SelectedItem);
             textBoxes.Clear();
             layoutNamePlayers.Controls.Clear();
             for (int i = 1; i < numberPlayers + 1; i++) {
@@ -45,23 +57,43 @@ namespace PokemonBattle.View
             }
         }
 
-        private void NextPlayersForm(object sender, EventArgs e) {
+        private void OpenPlayersForm(object sender, EventArgs e)
+        {
             bool allNoEmpty = true;
+            bool noDuplicates = true;
+
+            List<string> enteredNames = new List<string>();
 
             foreach (TextBox textBox in textBoxes) {
-                if (string.IsNullOrEmpty(textBox.Text)) {
+                if (string.IsNullOrEmpty(textBox.Text)){
                     allNoEmpty = false;
                     break; // You can exit the loop as soon as you find an empty one, or you can continue and mark all the empty ones.
+                } else {
+                    if (enteredNames.Contains(textBox.Text)) { // Check whether the name has already been entered
+                        noDuplicates = false;
+                        break; // You can exit the loop as soon as you find a duplicate name.
+                    }
+                    enteredNames.Add(textBox.Text);
                 }
             }
 
-            if (allNoEmpty) { // All TextBoxes are filled
+            if (allNoEmpty && noDuplicates){
                 labelWarning.Visible = false;
+                _initTournamentController.SaveTournamentSize(sizeTournament);
+                _initTournamentController.GenerateBots(sizeTournament, numberPlayers);
+                textBoxes.ForEach(x => playersName.Add(x.Text));
+                _initTournamentController.GeneratePlayers(playersName);
                 PlayersForm oPlayersForm = new PlayersForm();
                 oPlayersForm.Show();
                 this.Close();
             }
-            else /* At least one of the TextBoxes is empty */ labelWarning.Visible = true;
+            else {
+                labelWarning.Visible = true;
+                if (!noDuplicates) {
+                    labelWarning.Visible = false;
+                    MessageBox.Show("No se pueden tener nombres duplicados.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private TextBox CreateDinamicInput(int id) {

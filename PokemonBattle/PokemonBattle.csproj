@@ -77,7 +77,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\TournamentController.cs" />
+    <Compile Include="Controllers\InitTournamentController.cs" />
     <Compile Include="Helpers\ButtonTransparentHelper.cs" />
     <Compile Include="Models\Arena.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -125,7 +125,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Repositories\PokemonRepository.cs" />
-    <Compile Include="Services\TournamentServices.cs" />
+    <Compile Include="Services\PlayerService.cs" />
+    <Compile Include="Services\BotService.cs" />
+    <Compile Include="Models\TournamentManager.cs" />
     <Compile Include="Views\BattleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,6 +223,7 @@
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
     <Content Include="pokeball.ico" />
+    <None Include="Resources\Interface\BackgroundPokedex.png" />
     <None Include="Resources\Interface\BackgroundMainScreen.jpg" />
     <None Include="Resources\Interface\BackgroundInitTournament.jpg" />
     <None Include="Resources\Interface\ButtonNext.png" />
@@ -228,7 +231,6 @@
     <None Include="Resources\Interface\ButtonStop.png" />
     <None Include="Resources\Interface\ButtonPlay.png" />
     <None Include="Resources\Interface\ButtonChoosePokemon.png" />
-    <None Include="Resources\Interface\BackgroundPokedex.png" />
     <None Include="Resources\Interface\TournamentEight.png" />
     <None Include="Resources\Interface\TournamentFour.png" />
     <None Include="Resources\Interface\TournamentSixteen.png" />

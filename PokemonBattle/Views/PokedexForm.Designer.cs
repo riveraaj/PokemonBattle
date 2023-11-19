@@ -145,11 +145,13 @@ namespace PokemonBattle.View
             // 
             // txtDescription
             // 
+            this.txtDescription.BackColor = System.Drawing.Color.White;
             this.txtDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDescription.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.txtDescription.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescription.Location = new System.Drawing.Point(82, 373);
             this.txtDescription.Name = "txtDescription";
+            this.txtDescription.ReadOnly = true;
             this.txtDescription.Size = new System.Drawing.Size(177, 94);
             this.txtDescription.TabIndex = 10;
             this.txtDescription.Text = "";
@@ -202,7 +204,7 @@ namespace PokemonBattle.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::PokemonBattle.Properties.Resources.BackgroundPokedex;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(914, 515);
             this.Controls.Add(this.lblTypeTwo);

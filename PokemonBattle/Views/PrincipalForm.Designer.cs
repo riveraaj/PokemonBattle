@@ -40,11 +40,11 @@
             this.labelStart.AutoSize = true;
             this.labelStart.BackColor = System.Drawing.Color.Transparent;
             this.labelStart.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelStart.Location = new System.Drawing.Point(308, 463);
+            this.labelStart.Location = new System.Drawing.Point(370, 456);
             this.labelStart.Name = "labelStart";
-            this.labelStart.Size = new System.Drawing.Size(310, 21);
+            this.labelStart.Size = new System.Drawing.Size(170, 21);
             this.labelStart.TabIndex = 0;
-            this.labelStart.Text = "Presione cualquier tecla para comenzar";
+            this.labelStart.Text = "Press any key to start";
             this.labelStart.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // timer1
