@@ -1,7 +1,5 @@
-﻿namespace PokemonBattle
-{
-    partial class PrincipalForm
-    {
+﻿namespace PokemonBattle {
+    partial class PrincipalForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -11,12 +9,8 @@
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
+        protected override void Dispose(bool disposing) {
+            if (disposing && (components != null)) components.Dispose();
             base.Dispose(disposing);
         }
 
@@ -31,7 +25,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrincipalForm));
             this.labelStart = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.btnPlayer = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -47,10 +41,10 @@
             this.labelStart.Text = "Press any key to start";
             this.labelStart.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // timer1
+            // timer
             // 
-            this.timer1.Interval = 500;
-            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
+            this.timer.Interval = 500;
+            this.timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
             // btnPlayer
             // 
@@ -64,7 +58,7 @@
             this.btnPlayer.Size = new System.Drawing.Size(40, 38);
             this.btnPlayer.TabIndex = 1;
             this.btnPlayer.UseVisualStyleBackColor = false;
-            this.btnPlayer.Click += new System.EventHandler(this.StopMusic);
+            this.btnPlayer.Click += new System.EventHandler(this.MusicManager);
             // 
             // PrincipalForm
             // 
@@ -82,7 +76,6 @@
             this.Name = "PrincipalForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pokemon Battle";
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.OpenInitTournament);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -91,8 +84,7 @@
         #endregion
 
         private System.Windows.Forms.Label labelStart;
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Button btnPlayer;
+        private System.Windows.Forms.Timer timer;
+        private  System.Windows.Forms.Button btnPlayer;
     }
 }
-

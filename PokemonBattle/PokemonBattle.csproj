@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\InitTournamentController.cs" />
+    <Compile Include="Controllers\PrincipalController.cs" />
     <Compile Include="Helpers\ButtonTransparentHelper.cs" />
     <Compile Include="Models\Arena.cs">
       <DependentUpon>Model1.tt</DependentUpon>
