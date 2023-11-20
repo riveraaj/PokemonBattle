@@ -5,13 +5,15 @@ using System.Windows.Forms;
 namespace PokemonBattle.Controllers {
     internal class PrincipalController {
 
+        //Instances
         private PrincipalForm _principalForm;
         private TournamentManager _tournamentServices;
 
         public PrincipalController(PrincipalForm oPrincipalForm){
+            //Init instances
             this._principalForm = oPrincipalForm;
             InitInstance();
-            _principalForm.KeyPress += new KeyPressEventHandler(OpenInitTournamentForm);
+            AddEventsToComponents();
         }
 
         private void InitInstance() {
@@ -19,6 +21,10 @@ namespace PokemonBattle.Controllers {
             _tournamentServices.InitInstances();
         }
 
+        //Adding events to components
+        private void AddEventsToComponents() => _principalForm.KeyPress += new KeyPressEventHandler(OpenInitTournamentForm);
+
+        //Event to Open a Init Tournament Form
         private  void OpenInitTournamentForm(object sender, KeyPressEventArgs e) => new InitTournamentForm().Show();
     }
 }
