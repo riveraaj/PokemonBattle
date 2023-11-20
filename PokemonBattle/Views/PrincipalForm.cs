@@ -7,7 +7,7 @@ using System.Media;
 using System.Windows.Forms;
 
 namespace PokemonBattle {
-    public partial class PrincipalForm : Form {
+    internal partial class PrincipalForm : Form {
  
         //Intances
         private int initPositionX;

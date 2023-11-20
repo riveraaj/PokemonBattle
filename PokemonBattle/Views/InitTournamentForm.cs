@@ -5,106 +5,73 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace PokemonBattle.View
-{
-    internal partial class InitTournamentForm : Form{
+namespace PokemonBattle.View {
+    internal partial class InitTournamentForm : Form {
 
-        private List<TextBox> textBoxes;
-        private List<string> playersName;
-        private InitTournamentController _initTournamentController;
-        private int sizeTournament, numberPlayers;
-
+        //Instances
+        internal List<TextBox> TextBoxes;
+        internal int SizeTournament, NumberPlayers;
+            
         public InitTournamentForm() {
             InitInstance();
             InitializeComponent();
+            InitializeComponentCustom();
+            new InitTournamentController(this);
+        }
+
+        //Init Instances
+        private void InitInstance() {
+            TextBoxes = new List<TextBox>();
+            SizeTournament = 0;
+            NumberPlayers = 0;   
+        }
+
+        //Init Components Custom Properties
+        private void InitializeComponentCustom() {
             ButtonTransparentHelper.CustomizeAppearanceButtons(new List<Button> { btnNextPlayersForm });
             cmbSizeTournament.SelectedIndex = 0;
             cmbNumberPlayer.SelectedIndex = 0;
         }
 
-        private void InitInstance() {
-            _initTournamentController = new InitTournamentController();
-            textBoxes = new List<TextBox>();
-            sizeTournament = 0;
-            numberPlayers = 0;
-            playersName = new List<string>();
-        }
-
+        //Cancel the ability to move the screen
         protected override void WndProc(ref Message m) {
             const int WM_NCLBUTTONDOWN = 0xA1;
             const int HTCAPTION = 0x2;
 
             if (m.Msg == WM_NCLBUTTONDOWN && (int)m.WParam == HTCAPTION) return;
-
             base.WndProc(ref m);
         }
 
+        //Changes the values of the combo box depending on the selected value
         private void ChangeListOfPlayer(object sender, EventArgs e) {
-            sizeTournament = Convert.ToInt32(cmbSizeTournament.SelectedItem);
+            SizeTournament = Convert.ToInt32(cmbSizeTournament.SelectedItem);
             cmbNumberPlayer.Items.Clear();
-            for (int i = 1; i < sizeTournament +  1; i++) cmbNumberPlayer.Items.Add(i);
+            for (int i = 1; i < SizeTournament +  1; i++) cmbNumberPlayer.Items.Add(i);
             cmbNumberPlayer.SelectedIndex = 0;
         }
 
+        //Event that creates inputs depending on the selected size
         private void ChangeListCreateInputForNamesPlayers(object sender, EventArgs e) {
-            numberPlayers = Convert.ToInt32(cmbNumberPlayer.SelectedItem);
-            textBoxes.Clear();
+            NumberPlayers = Convert.ToInt32(cmbNumberPlayer.SelectedItem);
+            TextBoxes.Clear();
             layoutNamePlayers.Controls.Clear();
-            for (int i = 1; i < numberPlayers + 1; i++) {
+            for (int i = 1; i < NumberPlayers + 1; i++) {
                 var txtBox = CreateDinamicInput(i);
                 layoutNamePlayers.Controls.Add(txtBox);
-                textBoxes.Add(txtBox);
+                TextBoxes.Add(txtBox);
             }
         }
 
-        private void OpenPlayersForm(object sender, EventArgs e)
-        {
-            bool allNoEmpty = true;
-            bool noDuplicates = true;
-
-            List<string> enteredNames = new List<string>();
-
-            foreach (TextBox textBox in textBoxes) {
-                if (string.IsNullOrEmpty(textBox.Text)){
-                    allNoEmpty = false;
-                    break; // You can exit the loop as soon as you find an empty one, or you can continue and mark all the empty ones.
-                } else {
-                    if (enteredNames.Contains(textBox.Text)) { // Check whether the name has already been entered
-                        noDuplicates = false;
-                        break; // You can exit the loop as soon as you find a duplicate name.
-                    }
-                    enteredNames.Add(textBox.Text);
-                }
-            }
-
-            if (allNoEmpty && noDuplicates){
-                labelWarning.Visible = false;
-                _initTournamentController.SaveTournamentSize(sizeTournament);
-                _initTournamentController.GenerateBots(sizeTournament, numberPlayers);
-                textBoxes.ForEach(x => playersName.Add(x.Text));
-                _initTournamentController.GeneratePlayers(playersName);
-                PlayersForm oPlayersForm = new PlayersForm();
-                oPlayersForm.Show();
-                this.Close();
-            }
-            else {
-                labelWarning.Visible = true;
-                if (!noDuplicates) {
-                    labelWarning.Visible = false;
-                    MessageBox.Show("No se pueden tener nombres duplicados.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
+        //Create a single input
         private TextBox CreateDinamicInput(int id) {
-            TextBox input = new TextBox();
-            input.Name = $"txtPlayer{id}";
-            input.Width = 89;
-            input.Height = 20;
-            input.TextAlign = HorizontalAlignment.Center;
-            input.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            input.Margin = new Padding(15, 15, 15, 15);
-            return input;
+            return  new TextBox {
+                Name = $"txtPlayer{id}",
+                Width = 89,
+                Height = 20,
+                TextAlign = HorizontalAlignment.Center,
+                Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                Margin = new Padding(15, 15, 15, 15)
+            };
         }
     }
 }

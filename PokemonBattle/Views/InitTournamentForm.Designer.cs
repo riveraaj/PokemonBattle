@@ -1,9 +1,5 @@
-﻿using System.Drawing;
-
-namespace PokemonBattle.View
-{
-    partial class InitTournamentForm
-    {
+﻿namespace PokemonBattle.View{
+    partial class InitTournamentForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -13,12 +9,8 @@ namespace PokemonBattle.View
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
+        protected override void Dispose(bool disposing) {
+            if (disposing && (components != null)) components.Dispose();
             base.Dispose(disposing);
         }
 
@@ -28,8 +20,7 @@ namespace PokemonBattle.View
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InitTournamentForm));
             this.labelSelectSizeTournament = new System.Windows.Forms.Label();
             this.cmbSizeTournament = new System.Windows.Forms.ComboBox();
@@ -127,7 +118,6 @@ namespace PokemonBattle.View
             this.btnNextPlayersForm.TabIndex = 4;
             this.btnNextPlayersForm.Text = "NEXT";
             this.btnNextPlayersForm.UseVisualStyleBackColor = false;
-            this.btnNextPlayersForm.Click += new System.EventHandler(this.OpenPlayersForm);
             // 
             // labelWarning
             // 
@@ -176,7 +166,7 @@ namespace PokemonBattle.View
         private System.Windows.Forms.Label labelNumberPlayer;
         private System.Windows.Forms.ComboBox cmbNumberPlayer;
         private System.Windows.Forms.TableLayoutPanel layoutNamePlayers;
-        private System.Windows.Forms.Button btnNextPlayersForm;
-        private System.Windows.Forms.Label labelWarning;
+        public System.Windows.Forms.Button btnNextPlayersForm;
+        public System.Windows.Forms.Label labelWarning;
     }
 }

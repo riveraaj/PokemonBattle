@@ -9,13 +9,13 @@ namespace PokemonBattle.Controllers {
         private PrincipalForm _principalForm;
         private TournamentManager _tournamentServices;
 
-        public PrincipalController(PrincipalForm oPrincipalForm){
-            //Init instances
+        public PrincipalController(PrincipalForm oPrincipalForm){  
             this._principalForm = oPrincipalForm;
             InitInstance();
             AddEventsToComponents();
         }
 
+        //Init instances
         private void InitInstance() {
             _tournamentServices = TournamentManager.GetInstance;
             _tournamentServices.InitInstances();
