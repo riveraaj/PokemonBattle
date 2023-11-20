@@ -16,7 +16,7 @@ namespace PokemonBattle.View
             _tournamentServices = TournamentManager.GetInstance;
             InitializeComponent();
             LoadPokedexInLayout();
-            ButtonTransparentHelper.CustomizeAppearanceButtons(new List<Button> { btnBack});
+            ButtonHelper.CustomizeAppearanceButtons(new List<Button> { btnBack});
         }
 
         protected override void WndProc(ref Message m){

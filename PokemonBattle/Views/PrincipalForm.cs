@@ -28,7 +28,7 @@ namespace PokemonBattle {
             initPositionX = labelStart.Location.X;
             timer.Interval = 1000;
             timer.Start();
-            ButtonTransparentHelper.CustomizeAppearanceButtons(new List<Button> { btnPlayer });
+            ButtonHelper.CustomizeAppearanceButtons(new List<Button> { btnPlayer });
         }
         
         //Init Instances

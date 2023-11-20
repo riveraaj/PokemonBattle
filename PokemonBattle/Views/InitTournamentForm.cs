@@ -28,7 +28,7 @@ namespace PokemonBattle.View {
 
         //Init Components Custom Properties
         private void InitializeComponentCustom() {
-            ButtonTransparentHelper.CustomizeAppearanceButtons(new List<Button> { btnNextPlayersForm });
+            ButtonHelper.CustomizeAppearanceButtons(new List<Button> { btnNextPlayersForm });
             cmbSizeTournament.SelectedIndex = 0;
             cmbNumberPlayer.SelectedIndex = 0;
         }

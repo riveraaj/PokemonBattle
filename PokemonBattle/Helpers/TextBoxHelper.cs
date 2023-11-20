@@ -13,7 +13,7 @@ namespace PokemonBattle.Helpers {
                 Height = 20,
                 TextAlign = HorizontalAlignment.Center,
                 Font = new Font("Segoe UI", 10, FontStyle.Bold),
-                Margin = new Padding(15, 15, 15, 15)
+                Margin = new Padding(15)
             };
         }
     }

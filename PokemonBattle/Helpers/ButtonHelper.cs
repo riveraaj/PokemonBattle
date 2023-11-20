@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 
 namespace PokemonBattle.Utilities {
-    public class ButtonTransparentHelper {
+    public class ButtonHelper {
 
         //Customize the Appearance of the Buttons
         public static void CustomizeAppearanceButtons(List<Button> buttonList){
@@ -23,6 +23,21 @@ namespace PokemonBattle.Utilities {
                 button.MouseDown += (sender, e) => { ButtonMouseDown(button); };
                 button.MouseUp += (sender, e) => { ButtonMouseUp(button); };
             });
+        }
+
+        public static Button CreateDinamicButton(string id) {
+            Button button = new Button {
+                Name = $"btnPlayer{id}",
+                Width = 100,
+                Height = 40,
+                Text = "Go to Pokedex",
+                Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                Margin = new Padding(3),
+                BackgroundImage = Properties.Resources.ButtonChoosePokemon
+            };
+
+            CustomizeAppearanceButtons(new List<Button>() { button });
+            return button;
         }
 
         static void ButtonMouseEnter(Button button) => button.BackColor = Color.FromArgb(50, 255, 255, 255);   
