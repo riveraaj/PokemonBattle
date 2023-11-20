@@ -25,16 +25,19 @@ namespace PokemonBattle.Utilities {
             });
         }
 
-        public static Button CreateDinamicButton(string id) {
+        public static Button CreateDynamicButton(string id) {
             Button button = new Button {
+                BackgroundImage = Properties.Resources.ButtonChoosePokemon,
+                BackgroundImageLayout = ImageLayout.Stretch,
+                Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0),
+                Location = new Point(13, 48),
+                Margin = new Padding(0, 12, 0, 0),
                 Name = $"btnPlayer{id}",
-                Width = 100,
-                Height = 40,
+                Size = new Size(119, 41),
+                TabIndex = 1,
                 Text = "Go to Pokedex",
-                Font = new Font("Segoe UI", 10, FontStyle.Bold),
-                Margin = new Padding(3),
-                BackgroundImage = Properties.Resources.ButtonChoosePokemon
-            };
+                UseVisualStyleBackColor = false
+                };
 
             CustomizeAppearanceButtons(new List<Button>() { button });
             return button;

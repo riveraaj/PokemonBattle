@@ -5,9 +5,8 @@ namespace PokemonBattle.Helpers {
     internal class TextBoxHelper {
 
         //Create a single input
-        public static TextBox CreateDinamicInput(int id){
-            return new TextBox
-            {
+        public static TextBox CreateDynamicInput(int id){
+            return new TextBox {
                 Name = $"txtPlayer{id}",
                 Width = 89,
                 Height = 20,

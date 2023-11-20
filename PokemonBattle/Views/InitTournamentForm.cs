@@ -56,7 +56,7 @@ namespace PokemonBattle.View {
             TextBoxes.Clear();
             layoutNamePlayers.Controls.Clear();
             for (int i = 1; i < NumberPlayers + 1; i++) {
-                var txtBox = TextBoxHelper.CreateDinamicInput(i);
+                var txtBox = TextBoxHelper.CreateDynamicInput(i);
                 layoutNamePlayers.Controls.Add(txtBox);
                 TextBoxes.Add(txtBox);
             }

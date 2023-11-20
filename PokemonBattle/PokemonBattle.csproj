@@ -81,6 +81,7 @@
     <Compile Include="Controllers\PlayersController.cs" />
     <Compile Include="Controllers\PrincipalController.cs" />
     <Compile Include="Helpers\ButtonHelper.cs" />
+    <Compile Include="Helpers\LabelHelper.cs" />
     <Compile Include="Helpers\TextBoxHelper.cs" />
     <Compile Include="Models\Arena.cs">
       <DependentUpon>Model1.tt</DependentUpon>

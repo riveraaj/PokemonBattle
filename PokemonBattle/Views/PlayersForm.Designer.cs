@@ -30,9 +30,13 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlayersForm));
             this.tableLayoutPlayers = new System.Windows.Forms.TableLayoutPanel();
+            this.layoutPanel16 = new System.Windows.Forms.FlowLayoutPanel();
+            this.layoutPanel15 = new System.Windows.Forms.FlowLayoutPanel();
+            this.layoutPanel14 = new System.Windows.Forms.FlowLayoutPanel();
+            this.layoutPanel13 = new System.Windows.Forms.FlowLayoutPanel();
+            this.layoutPanel12 = new System.Windows.Forms.FlowLayoutPanel();
+            this.layoutPanel11 = new System.Windows.Forms.FlowLayoutPanel();
             this.layoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnNext = new System.Windows.Forms.Button();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.layoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.layoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.layoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
@@ -42,13 +46,8 @@
             this.layoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.layoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
             this.layoutPanel10 = new System.Windows.Forms.FlowLayoutPanel();
-            this.layoutPanel11 = new System.Windows.Forms.FlowLayoutPanel();
-            this.layoutPanel12 = new System.Windows.Forms.FlowLayoutPanel();
-            this.layoutPanel13 = new System.Windows.Forms.FlowLayoutPanel();
-            this.layoutPanel14 = new System.Windows.Forms.FlowLayoutPanel();
-            this.layoutPanel15 = new System.Windows.Forms.FlowLayoutPanel();
-            this.layoutPanel16 = new System.Windows.Forms.FlowLayoutPanel();
-            this.Jonathan = new System.Windows.Forms.Label();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tableLayoutPlayers.SuspendLayout();
             this.layoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -88,16 +87,135 @@
             this.tableLayoutPlayers.Size = new System.Drawing.Size(875, 464);
             this.tableLayoutPlayers.TabIndex = 0;
             // 
+            // layoutPanel16
+            // 
+            this.layoutPanel16.Location = new System.Drawing.Point(3, 345);
+            this.layoutPanel16.Name = "layoutPanel16";
+            this.layoutPanel16.Padding = new System.Windows.Forms.Padding(13, 15, 13, 10);
+            this.layoutPanel16.Size = new System.Drawing.Size(146, 116);
+            this.layoutPanel16.TabIndex = 15;
+            // 
+            // layoutPanel15
+            // 
+            this.layoutPanel15.Location = new System.Drawing.Point(698, 222);
+            this.layoutPanel15.Name = "layoutPanel15";
+            this.layoutPanel15.Padding = new System.Windows.Forms.Padding(13, 15, 13, 10);
+            this.layoutPanel15.Size = new System.Drawing.Size(174, 116);
+            this.layoutPanel15.TabIndex = 14;
+            // 
+            // layoutPanel14
+            // 
+            this.layoutPanel14.Location = new System.Drawing.Point(516, 222);
+            this.layoutPanel14.Name = "layoutPanel14";
+            this.layoutPanel14.Padding = new System.Windows.Forms.Padding(13, 15, 13, 10);
+            this.layoutPanel14.Size = new System.Drawing.Size(176, 116);
+            this.layoutPanel14.TabIndex = 13;
+            // 
+            // layoutPanel13
+            // 
+            this.layoutPanel13.Location = new System.Drawing.Point(328, 222);
+            this.layoutPanel13.Name = "layoutPanel13";
+            this.layoutPanel13.Padding = new System.Windows.Forms.Padding(13, 15, 13, 10);
+            this.layoutPanel13.Size = new System.Drawing.Size(182, 116);
+            this.layoutPanel13.TabIndex = 12;
+            // 
+            // layoutPanel12
+            // 
+            this.layoutPanel12.Location = new System.Drawing.Point(155, 222);
+            this.layoutPanel12.Name = "layoutPanel12";
+            this.layoutPanel12.Padding = new System.Windows.Forms.Padding(13, 15, 13, 10);
+            this.layoutPanel12.Size = new System.Drawing.Size(167, 116);
+            this.layoutPanel12.TabIndex = 11;
+            // 
+            // layoutPanel11
+            // 
+            this.layoutPanel11.Location = new System.Drawing.Point(3, 222);
+            this.layoutPanel11.Name = "layoutPanel11";
+            this.layoutPanel11.Padding = new System.Windows.Forms.Padding(13, 15, 13, 10);
+            this.layoutPanel11.Size = new System.Drawing.Size(146, 116);
+            this.layoutPanel11.TabIndex = 10;
+            // 
             // layoutPanel1
             // 
-            this.layoutPanel1.Controls.Add(this.Jonathan);
             this.layoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.layoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.layoutPanel1.Name = "layoutPanel1";
-            this.layoutPanel1.Padding = new System.Windows.Forms.Padding(20, 15, 0, 0);
+            this.layoutPanel1.Padding = new System.Windows.Forms.Padding(13, 15, 13, 10);
             this.layoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.layoutPanel1.Size = new System.Drawing.Size(146, 99);
             this.layoutPanel1.TabIndex = 0;
+            // 
+            // layoutPanel2
+            // 
+            this.layoutPanel2.Location = new System.Drawing.Point(155, 3);
+            this.layoutPanel2.Name = "layoutPanel2";
+            this.layoutPanel2.Padding = new System.Windows.Forms.Padding(13, 15, 13, 10);
+            this.layoutPanel2.Size = new System.Drawing.Size(167, 99);
+            this.layoutPanel2.TabIndex = 1;
+            // 
+            // layoutPanel3
+            // 
+            this.layoutPanel3.Location = new System.Drawing.Point(328, 3);
+            this.layoutPanel3.Name = "layoutPanel3";
+            this.layoutPanel3.Padding = new System.Windows.Forms.Padding(13, 15, 13, 10);
+            this.layoutPanel3.Size = new System.Drawing.Size(182, 99);
+            this.layoutPanel3.TabIndex = 2;
+            // 
+            // layoutPanel6
+            // 
+            this.layoutPanel6.Location = new System.Drawing.Point(3, 108);
+            this.layoutPanel6.Name = "layoutPanel6";
+            this.layoutPanel6.Padding = new System.Windows.Forms.Padding(13, 15, 13, 10);
+            this.layoutPanel6.Size = new System.Drawing.Size(146, 108);
+            this.layoutPanel6.TabIndex = 3;
+            // 
+            // layoutPanel7
+            // 
+            this.layoutPanel7.Location = new System.Drawing.Point(155, 108);
+            this.layoutPanel7.Name = "layoutPanel7";
+            this.layoutPanel7.Padding = new System.Windows.Forms.Padding(13, 15, 13, 10);
+            this.layoutPanel7.Size = new System.Drawing.Size(167, 108);
+            this.layoutPanel7.TabIndex = 4;
+            // 
+            // layoutPanel8
+            // 
+            this.layoutPanel8.Location = new System.Drawing.Point(328, 108);
+            this.layoutPanel8.Name = "layoutPanel8";
+            this.layoutPanel8.Padding = new System.Windows.Forms.Padding(13, 15, 13, 10);
+            this.layoutPanel8.Size = new System.Drawing.Size(182, 108);
+            this.layoutPanel8.TabIndex = 5;
+            // 
+            // layoutPanel4
+            // 
+            this.layoutPanel4.Location = new System.Drawing.Point(516, 3);
+            this.layoutPanel4.Name = "layoutPanel4";
+            this.layoutPanel4.Padding = new System.Windows.Forms.Padding(13, 15, 13, 10);
+            this.layoutPanel4.Size = new System.Drawing.Size(176, 99);
+            this.layoutPanel4.TabIndex = 6;
+            // 
+            // layoutPanel5
+            // 
+            this.layoutPanel5.Location = new System.Drawing.Point(698, 3);
+            this.layoutPanel5.Name = "layoutPanel5";
+            this.layoutPanel5.Padding = new System.Windows.Forms.Padding(13, 15, 13, 10);
+            this.layoutPanel5.Size = new System.Drawing.Size(174, 99);
+            this.layoutPanel5.TabIndex = 7;
+            // 
+            // layoutPanel9
+            // 
+            this.layoutPanel9.Location = new System.Drawing.Point(516, 108);
+            this.layoutPanel9.Name = "layoutPanel9";
+            this.layoutPanel9.Padding = new System.Windows.Forms.Padding(13, 15, 13, 10);
+            this.layoutPanel9.Size = new System.Drawing.Size(176, 108);
+            this.layoutPanel9.TabIndex = 8;
+            // 
+            // layoutPanel10
+            // 
+            this.layoutPanel10.Location = new System.Drawing.Point(698, 108);
+            this.layoutPanel10.Name = "layoutPanel10";
+            this.layoutPanel10.Padding = new System.Windows.Forms.Padding(13, 15, 13, 10);
+            this.layoutPanel10.Size = new System.Drawing.Size(174, 108);
+            this.layoutPanel10.TabIndex = 9;
             // 
             // btnNext
             // 
@@ -108,7 +226,7 @@
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNext.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnNext.Location = new System.Drawing.Point(790, 450);
+            this.btnNext.Location = new System.Drawing.Point(809, 462);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(93, 41);
             this.btnNext.TabIndex = 1;
@@ -119,125 +237,6 @@
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // layoutPanel2
-            // 
-            this.layoutPanel2.Location = new System.Drawing.Point(155, 3);
-            this.layoutPanel2.Name = "layoutPanel2";
-            this.layoutPanel2.Size = new System.Drawing.Size(167, 99);
-            this.layoutPanel2.TabIndex = 1;
-            // 
-            // layoutPanel3
-            // 
-            this.layoutPanel3.Location = new System.Drawing.Point(328, 3);
-            this.layoutPanel3.Name = "layoutPanel3";
-            this.layoutPanel3.Size = new System.Drawing.Size(182, 99);
-            this.layoutPanel3.TabIndex = 2;
-            // 
-            // layoutPanel6
-            // 
-            this.layoutPanel6.Location = new System.Drawing.Point(3, 108);
-            this.layoutPanel6.Name = "layoutPanel6";
-            this.layoutPanel6.Size = new System.Drawing.Size(146, 108);
-            this.layoutPanel6.TabIndex = 3;
-            // 
-            // layoutPanel7
-            // 
-            this.layoutPanel7.Location = new System.Drawing.Point(155, 108);
-            this.layoutPanel7.Name = "layoutPanel7";
-            this.layoutPanel7.Size = new System.Drawing.Size(167, 108);
-            this.layoutPanel7.TabIndex = 4;
-            // 
-            // layoutPanel8
-            // 
-            this.layoutPanel8.Location = new System.Drawing.Point(328, 108);
-            this.layoutPanel8.Name = "layoutPanel8";
-            this.layoutPanel8.Size = new System.Drawing.Size(182, 108);
-            this.layoutPanel8.TabIndex = 5;
-            // 
-            // layoutPanel4
-            // 
-            this.layoutPanel4.Location = new System.Drawing.Point(516, 3);
-            this.layoutPanel4.Name = "layoutPanel4";
-            this.layoutPanel4.Size = new System.Drawing.Size(176, 99);
-            this.layoutPanel4.TabIndex = 6;
-            // 
-            // layoutPanel5
-            // 
-            this.layoutPanel5.Location = new System.Drawing.Point(698, 3);
-            this.layoutPanel5.Name = "layoutPanel5";
-            this.layoutPanel5.Size = new System.Drawing.Size(174, 99);
-            this.layoutPanel5.TabIndex = 7;
-            // 
-            // layoutPanel9
-            // 
-            this.layoutPanel9.Location = new System.Drawing.Point(516, 108);
-            this.layoutPanel9.Name = "layoutPanel9";
-            this.layoutPanel9.Size = new System.Drawing.Size(176, 108);
-            this.layoutPanel9.TabIndex = 8;
-            // 
-            // layoutPanel10
-            // 
-            this.layoutPanel10.Location = new System.Drawing.Point(698, 108);
-            this.layoutPanel10.Name = "layoutPanel10";
-            this.layoutPanel10.Size = new System.Drawing.Size(174, 108);
-            this.layoutPanel10.TabIndex = 9;
-            // 
-            // layoutPanel11
-            // 
-            this.layoutPanel11.Location = new System.Drawing.Point(3, 222);
-            this.layoutPanel11.Name = "layoutPanel11";
-            this.layoutPanel11.Size = new System.Drawing.Size(146, 116);
-            this.layoutPanel11.TabIndex = 10;
-            // 
-            // layoutPanel12
-            // 
-            this.layoutPanel12.Location = new System.Drawing.Point(155, 222);
-            this.layoutPanel12.Name = "layoutPanel12";
-            this.layoutPanel12.Size = new System.Drawing.Size(167, 116);
-            this.layoutPanel12.TabIndex = 11;
-            // 
-            // layoutPanel13
-            // 
-            this.layoutPanel13.Location = new System.Drawing.Point(328, 222);
-            this.layoutPanel13.Name = "layoutPanel13";
-            this.layoutPanel13.Size = new System.Drawing.Size(182, 116);
-            this.layoutPanel13.TabIndex = 12;
-            // 
-            // layoutPanel14
-            // 
-            this.layoutPanel14.Location = new System.Drawing.Point(516, 222);
-            this.layoutPanel14.Name = "layoutPanel14";
-            this.layoutPanel14.Size = new System.Drawing.Size(176, 116);
-            this.layoutPanel14.TabIndex = 13;
-            // 
-            // layoutPanel15
-            // 
-            this.layoutPanel15.Location = new System.Drawing.Point(698, 222);
-            this.layoutPanel15.Name = "layoutPanel15";
-            this.layoutPanel15.Size = new System.Drawing.Size(174, 116);
-            this.layoutPanel15.TabIndex = 14;
-            // 
-            // layoutPanel16
-            // 
-            this.layoutPanel16.Location = new System.Drawing.Point(3, 345);
-            this.layoutPanel16.Name = "layoutPanel16";
-            this.layoutPanel16.Size = new System.Drawing.Size(146, 116);
-            this.layoutPanel16.TabIndex = 15;
-            // 
-            // Jonathan
-            // 
-            this.Jonathan.AutoSize = true;
-            this.Jonathan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.Jonathan.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Jonathan.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.Jonathan.Location = new System.Drawing.Point(27, 15);
-            this.Jonathan.Margin = new System.Windows.Forms.Padding(7, 0, 3, 5);
-            this.Jonathan.Name = "Jonathan";
-            this.Jonathan.Size = new System.Drawing.Size(75, 21);
-            this.Jonathan.TabIndex = 0;
-            this.Jonathan.Text = "Jonathan";
-            this.Jonathan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PlayersForm
             // 
@@ -256,7 +255,6 @@
             this.Text = "Pokemon Battle";
             this.tableLayoutPlayers.ResumeLayout(false);
             this.layoutPanel1.ResumeLayout(false);
-            this.layoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -282,6 +280,5 @@
         private System.Windows.Forms.FlowLayoutPanel layoutPanel9;
         private System.Windows.Forms.FlowLayoutPanel layoutPanel10;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.Label Jonathan;
     }
 }
