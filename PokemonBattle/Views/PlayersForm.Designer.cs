@@ -47,9 +47,7 @@
             this.layoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
             this.layoutPanel10 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnNext = new System.Windows.Forms.Button();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tableLayoutPlayers.SuspendLayout();
-            this.layoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPlayers
@@ -226,17 +224,12 @@
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNext.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnNext.Location = new System.Drawing.Point(809, 462);
+            this.btnNext.Location = new System.Drawing.Point(791, 453);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(93, 41);
             this.btnNext.TabIndex = 1;
             this.btnNext.Text = "SIGUIENTE";
             this.btnNext.UseVisualStyleBackColor = false;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // PlayersForm
             // 
@@ -254,7 +247,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pokemon Battle";
             this.tableLayoutPlayers.ResumeLayout(false);
-            this.layoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -279,6 +271,5 @@
         private System.Windows.Forms.FlowLayoutPanel layoutPanel5;
         private System.Windows.Forms.FlowLayoutPanel layoutPanel9;
         private System.Windows.Forms.FlowLayoutPanel layoutPanel10;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

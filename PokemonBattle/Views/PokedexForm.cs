@@ -1,4 +1,5 @@
-﻿using PokemonBattle.Services;
+﻿using PokemonBattle.Models;
+using PokemonBattle.Services;
 using PokemonBattle.Utilities;
 using PokemonBattle.Views;
 using System;
@@ -10,12 +11,13 @@ namespace PokemonBattle.View
 {
     public partial class PokedexForm : Form {
 
-        private readonly TournamentManager _tournamentServices;
+        //Instances
+        internal readonly bool allPlayersHaveATeam;
 
-        public PokedexForm() {
-            _tournamentServices = TournamentManager.GetInstance;
+        public PokedexForm(bool allPlayersHaveATeam) {
+            this.allPlayersHaveATeam = allPlayersHaveATeam;
             InitializeComponent();
-            LoadPokedexInLayout();
+    
             ButtonHelper.CustomizeAppearanceButtons(new List<Button> { btnBack});
         }
 
