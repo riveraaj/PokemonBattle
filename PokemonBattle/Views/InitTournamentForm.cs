@@ -1,8 +1,8 @@
 ﻿using PokemonBattle.Controllers;
+using PokemonBattle.Helpers;
 using PokemonBattle.Utilities;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace PokemonBattle.View {
@@ -56,22 +56,10 @@ namespace PokemonBattle.View {
             TextBoxes.Clear();
             layoutNamePlayers.Controls.Clear();
             for (int i = 1; i < NumberPlayers + 1; i++) {
-                var txtBox = CreateDinamicInput(i);
+                var txtBox = TextBoxHelper.CreateDinamicInput(i);
                 layoutNamePlayers.Controls.Add(txtBox);
                 TextBoxes.Add(txtBox);
             }
-        }
-
-        //Create a single input
-        private TextBox CreateDinamicInput(int id) {
-            return  new TextBox {
-                Name = $"txtPlayer{id}",
-                Width = 89,
-                Height = 20,
-                TextAlign = HorizontalAlignment.Center,
-                Font = new Font("Segoe UI", 10, FontStyle.Bold),
-                Margin = new Padding(15, 15, 15, 15)
-            };
         }
     }
 }
