@@ -79,6 +79,7 @@
   <ItemGroup>
     <Compile Include="Controllers\InitTournamentController.cs" />
     <Compile Include="Controllers\PlayersController.cs" />
+    <Compile Include="Controllers\PokedexController.cs" />
     <Compile Include="Controllers\PrincipalController.cs" />
     <Compile Include="Helpers\ButtonHelper.cs" />
     <Compile Include="Helpers\LabelHelper.cs" />

@@ -14,10 +14,8 @@ namespace PokemonBattle.View
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
+        protected override void Dispose(bool disposing) {
+            if (disposing && (components != null)) {
                 components.Dispose();
             }
             base.Dispose(disposing);
@@ -45,6 +43,9 @@ namespace PokemonBattle.View
             this.lblName = new System.Windows.Forms.Label();
             this.lblTypeOne = new System.Windows.Forms.Label();
             this.lblTypeTwo = new System.Windows.Forms.Label();
+            this.btnAddPokemon = new System.Windows.Forms.Button();
+            this.btnNextPokemon = new System.Windows.Forms.Button();
+            this.btnPreviousPokemon = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxPokemon1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxPokemon2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxPokemon3)).BeginInit();
@@ -57,7 +58,6 @@ namespace PokemonBattle.View
             // picBoxPokemon1
             // 
             this.picBoxPokemon1.BackColor = System.Drawing.Color.Transparent;
-            this.picBoxPokemon1.BackgroundImage = global::PokemonBattle.Properties.Resources._391;
             this.picBoxPokemon1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picBoxPokemon1.Location = new System.Drawing.Point(56, 25);
             this.picBoxPokemon1.Name = "picBoxPokemon1";
@@ -79,9 +79,7 @@ namespace PokemonBattle.View
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(93, 41);
             this.btnBack.TabIndex = 1;
-            this.btnBack.Text = "ATRAS";
             this.btnBack.UseVisualStyleBackColor = false;
-            this.btnBack.Click += new System.EventHandler(this.Next);
             // 
             // picBoxPokemon2
             // 
@@ -149,56 +147,86 @@ namespace PokemonBattle.View
             this.txtDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDescription.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.txtDescription.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescription.Location = new System.Drawing.Point(82, 373);
+            this.txtDescription.Location = new System.Drawing.Point(82, 389);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.ReadOnly = true;
-            this.txtDescription.Size = new System.Drawing.Size(177, 94);
+            this.txtDescription.Size = new System.Drawing.Size(177, 77);
             this.txtDescription.TabIndex = 10;
             this.txtDescription.Text = "";
             // 
             // lblPokemonID
             // 
-            this.lblPokemonID.AutoSize = true;
             this.lblPokemonID.BackColor = System.Drawing.Color.Transparent;
             this.lblPokemonID.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPokemonID.ForeColor = System.Drawing.Color.Black;
-            this.lblPokemonID.Location = new System.Drawing.Point(152, 315);
+            this.lblPokemonID.Location = new System.Drawing.Point(123, 323);
             this.lblPokemonID.Name = "lblPokemonID";
-            this.lblPokemonID.Size = new System.Drawing.Size(0, 17);
+            this.lblPokemonID.Size = new System.Drawing.Size(98, 17);
             this.lblPokemonID.TabIndex = 11;
+            this.lblPokemonID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblName
             // 
-            this.lblName.AutoSize = true;
             this.lblName.BackColor = System.Drawing.Color.Transparent;
             this.lblName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.ForeColor = System.Drawing.Color.Black;
-            this.lblName.Location = new System.Drawing.Point(141, 341);
+            this.lblName.Location = new System.Drawing.Point(123, 352);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(0, 17);
+            this.lblName.Size = new System.Drawing.Size(98, 17);
             this.lblName.TabIndex = 12;
             // 
             // lblTypeOne
             // 
-            this.lblTypeOne.AutoSize = true;
             this.lblTypeOne.BackColor = System.Drawing.Color.Transparent;
             this.lblTypeOne.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTypeOne.ForeColor = System.Drawing.Color.Black;
-            this.lblTypeOne.Location = new System.Drawing.Point(98, 486);
+            this.lblTypeOne.Location = new System.Drawing.Point(91, 485);
             this.lblTypeOne.Name = "lblTypeOne";
-            this.lblTypeOne.Size = new System.Drawing.Size(0, 17);
+            this.lblTypeOne.Size = new System.Drawing.Size(63, 17);
             this.lblTypeOne.TabIndex = 13;
             // 
             // lblTypeTwo
             // 
-            this.lblTypeTwo.AutoSize = true;
             this.lblTypeTwo.BackColor = System.Drawing.Color.Transparent;
             this.lblTypeTwo.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTypeTwo.ForeColor = System.Drawing.Color.Black;
-            this.lblTypeTwo.Location = new System.Drawing.Point(195, 486);
+            this.lblTypeTwo.Location = new System.Drawing.Point(184, 485);
             this.lblTypeTwo.Name = "lblTypeTwo";
-            this.lblTypeTwo.Size = new System.Drawing.Size(0, 17);
+            this.lblTypeTwo.Size = new System.Drawing.Size(63, 17);
             this.lblTypeTwo.TabIndex = 14;
+            // 
+            // btnAddPokemon
+            // 
+            this.btnAddPokemon.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddPokemon.FlatAppearance.BorderSize = 0;
+            this.btnAddPokemon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddPokemon.Location = new System.Drawing.Point(254, 278);
+            this.btnAddPokemon.Name = "btnAddPokemon";
+            this.btnAddPokemon.Size = new System.Drawing.Size(41, 37);
+            this.btnAddPokemon.TabIndex = 15;
+            this.btnAddPokemon.UseVisualStyleBackColor = false;
+            // 
+            // btnNextPokemon
+            // 
+            this.btnNextPokemon.BackColor = System.Drawing.Color.Transparent;
+            this.btnNextPokemon.FlatAppearance.BorderSize = 0;
+            this.btnNextPokemon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNextPokemon.Location = new System.Drawing.Point(299, 389);
+            this.btnNextPokemon.Name = "btnNextPokemon";
+            this.btnNextPokemon.Size = new System.Drawing.Size(28, 26);
+            this.btnNextPokemon.TabIndex = 16;
+            this.btnNextPokemon.UseVisualStyleBackColor = false;
+            // 
+            // btnPreviousPokemon
+            // 
+            this.btnPreviousPokemon.BackColor = System.Drawing.Color.Transparent;
+            this.btnPreviousPokemon.FlatAppearance.BorderSize = 0;
+            this.btnPreviousPokemon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPreviousPokemon.Location = new System.Drawing.Point(17, 389);
+            this.btnPreviousPokemon.Name = "btnPreviousPokemon";
+            this.btnPreviousPokemon.Size = new System.Drawing.Size(28, 26);
+            this.btnPreviousPokemon.TabIndex = 17;
+            this.btnPreviousPokemon.UseVisualStyleBackColor = false;
             // 
             // PokedexForm
             // 
@@ -207,6 +235,9 @@ namespace PokemonBattle.View
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(914, 515);
+            this.Controls.Add(this.btnPreviousPokemon);
+            this.Controls.Add(this.btnNextPokemon);
+            this.Controls.Add(this.btnAddPokemon);
             this.Controls.Add(this.lblTypeTwo);
             this.Controls.Add(this.lblTypeOne);
             this.Controls.Add(this.lblName);
@@ -236,24 +267,26 @@ namespace PokemonBattle.View
             ((System.ComponentModel.ISupportInitialize)(this.picBoxPokemon6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxPokemon)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox picBoxPokemon1;
-        private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.PictureBox picBoxPokemon2;
-        private System.Windows.Forms.PictureBox picBoxPokemon3;
-        private System.Windows.Forms.PictureBox picBoxPokemon4;
-        private System.Windows.Forms.PictureBox picBoxPokemon5;
-        private System.Windows.Forms.PictureBox picBoxPokemon6;
-        private System.Windows.Forms.PictureBox picBoxPokemon;
-        private System.Windows.Forms.RichTextBox txtDescription;
-        private System.Windows.Forms.Label lblPokemonID;
-        private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.Label lblTypeOne;
-        private System.Windows.Forms.Label lblTypeTwo;
+        public System.Windows.Forms.PictureBox picBoxPokemon1;
+        public System.Windows.Forms.Button btnBack;
+        public System.Windows.Forms.PictureBox picBoxPokemon2;
+        public System.Windows.Forms.PictureBox picBoxPokemon3;
+        public System.Windows.Forms.PictureBox picBoxPokemon4;
+        public System.Windows.Forms.PictureBox picBoxPokemon5;
+        public System.Windows.Forms.PictureBox picBoxPokemon6;
+        public System.Windows.Forms.PictureBox picBoxPokemon;
+        public System.Windows.Forms.RichTextBox txtDescription;
+        public System.Windows.Forms.Label lblPokemonID;
+        public System.Windows.Forms.Label lblName;
+        public System.Windows.Forms.Label lblTypeOne;
+        public System.Windows.Forms.Label lblTypeTwo;
+        public System.Windows.Forms.Button btnAddPokemon;
+        public System.Windows.Forms.Button btnNextPokemon;
+        public System.Windows.Forms.Button btnPreviousPokemon;
     }
 }

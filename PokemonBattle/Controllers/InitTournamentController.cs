@@ -80,7 +80,7 @@ namespace PokemonBattle.Controllers {
                 _initTournamentForm.labelWarning.Visible = true;
                 if (!noDuplicates) {
                     _initTournamentForm.labelWarning.Visible = false;
-                    MessageBox.Show("No se pueden tener nombres duplicados.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Duplicate names are not allowed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

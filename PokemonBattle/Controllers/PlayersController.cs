@@ -23,12 +23,16 @@ namespace PokemonBattle.Controllers{
         //Event to Open a Pokedex Form
         private void OpenPokedex(object sender, EventArgs e) {
             bool allPlayersHaveATeam = true;
+            var btnNamePlayer = sender as Button;
 
             foreach(var player in _tournamentManager.PlayersList) {
-                if (player.Team == null) allPlayersHaveATeam = false;
+                if (player.Team == null) {
+                    allPlayersHaveATeam = false;
+                    break;
+                }
             }
 
-            new PokedexForm(allPlayersHaveATeam).Show();
+            new PokedexForm(btnNamePlayer.Name, allPlayersHaveATeam).Show();
             _playerForm.Close();
         }
 
@@ -41,7 +45,7 @@ namespace PokemonBattle.Controllers{
                 Button btnAux = ButtonHelper.CreateDynamicButton(player.PlayerName);
                 if (!player.PlayerName.Equals("BOT") && player.Team == null) btnAux.Click += new EventHandler(OpenPokedex);
                 FlowLayoutPanel layout = _playerForm.Controls.Find($"layoutPanel{count}", true).FirstOrDefault() as FlowLayoutPanel;
-      
+
                 layout.Controls.Add(lblAux);
                 layout.Controls.Add(btnAux);
                 count++;

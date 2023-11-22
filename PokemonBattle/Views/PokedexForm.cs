@@ -1,24 +1,22 @@
-﻿using PokemonBattle.Models;
-using PokemonBattle.Services;
+﻿using PokemonBattle.Controllers;
 using PokemonBattle.Utilities;
-using PokemonBattle.Views;
-using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Windows.Forms;
 
-namespace PokemonBattle.View
-{
+namespace PokemonBattle.View {
     public partial class PokedexForm : Form {
 
         //Instances
+        private readonly PokedexController _pokedexController;
         internal readonly bool allPlayersHaveATeam;
+        internal readonly string namePlayer;
 
-        public PokedexForm(bool allPlayersHaveATeam) {
+        public PokedexForm(string namePlayer, bool allPlayersHaveATeam) {
             this.allPlayersHaveATeam = allPlayersHaveATeam;
+            this.namePlayer = namePlayer;
             InitializeComponent();
-    
-            ButtonHelper.CustomizeAppearanceButtons(new List<Button> { btnBack});
+            ButtonHelper.CustomizeAppearanceButtons(new List<Button> { btnBack, btnAddPokemon, btnPreviousPokemon, btnNextPokemon});
+            _pokedexController = new PokedexController(this);
         }
 
         protected override void WndProc(ref Message m){
@@ -27,23 +25,6 @@ namespace PokemonBattle.View
 
             if (m.Msg == WM_NCLBUTTONDOWN && (int)m.WParam == HTCAPTION) return;
             base.WndProc(ref m);
-        }
-
-        private void Next(object sender, EventArgs e){
-            new BracketForm().Show();
-            this.Close();
-        }
-
-        public void LoadPokedexInLayout() {
-            lblPokemonID.Text = $"0{_tournamentServices.PokemonsList[3].PokemonID}";
-            picBoxPokemon.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject($"_{_tournamentServices.PokemonsList[3].PokemonID}");
-            lblName.Text = _tournamentServices.PokemonsList[3].PokemonName;
-            lblTypeOne.Text = _tournamentServices.PokemonsList[3].TypeElementOne.TypeElementName;
-            if (_tournamentServices.PokemonsList[3].TypeElementTwoID != null) lblTypeTwo.Text = _tournamentServices.PokemonsList[3].TypeElementTwo.TypeElementName;
-            txtDescription.Text = _tournamentServices.PokemonsList[3].PokemonDescription;
-            txtDescription.SelectionAlignment = HorizontalAlignment.Center;
-            txtDescription.ReadOnly = true;
-            txtDescription.BackColor = Color.White;
         }
     }
 }

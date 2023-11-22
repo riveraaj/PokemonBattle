@@ -14,7 +14,7 @@ namespace PokemonBattle.Services {
             this.PlayersList = new List<Player>();
             this.PokemonsList = (List<Pokemon>) await _pokemon.GetAllAsync();
         }
-
+        
         //Encapsulation
         public int TournamentSize { get; set; }
         public  List<Player> PlayersList { get; set; }
