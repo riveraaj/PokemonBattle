@@ -21,20 +21,28 @@ namespace PokemonBattle.Controllers{
         }
 
         //Event to Open a Pokedex Form
-        private void OpenPokedex(object sender, EventArgs e) {
-            bool allPlayersHaveATeam = true;
+        private void OpenPokedex(object sender, EventArgs e)
+        {
             var btnNamePlayer = sender as Button;
+            bool allPlayersHaveATeam = true;
+            int playersWithoutTeamCount = 0;
 
-            foreach(var player in _tournamentManager.PlayersList) {
+
+            //Returns true if only one player with equipment is missing
+            foreach (var player in _tournamentManager.PlayersList) {
                 if (player.Team == null) {
-                    allPlayersHaveATeam = false;
-                    break;
+                    playersWithoutTeamCount++;
+                    if (playersWithoutTeamCount > 1){
+                        allPlayersHaveATeam = false;
+                        break;
+                    }
                 }
             }
 
             new PokedexForm(btnNamePlayer.Name, allPlayersHaveATeam).Show();
             _playerForm.Close();
         }
+
 
         //Upload players' data so that they can choose their pokémon
         private void LoadLayoutsForPlayers() {

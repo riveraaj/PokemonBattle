@@ -1,10 +1,7 @@
 ﻿using PokemonBattle.Controllers;
-using PokemonBattle.Utilities;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace PokemonBattle.View
-{
+namespace PokemonBattle.View {
     public partial class PlayersForm : Form {
 
         //Instances
@@ -12,7 +9,6 @@ namespace PokemonBattle.View
 
         public PlayersForm() {
             InitializeComponent();
-            ButtonHelper.CustomizeAppearanceButtons(new List<Button> { btnNext});
             _playersController = new PlayersController(this);
         }
 

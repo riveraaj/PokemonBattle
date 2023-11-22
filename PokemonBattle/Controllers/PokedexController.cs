@@ -21,7 +21,6 @@ namespace PokemonBattle.Controllers {
             this._pokedexForm = oPokedexForm;
             InitInstances();
             AddEventsToComponents();
-            InitComponents();
             LoadPokedexInLayout();
         }
 
@@ -31,28 +30,6 @@ namespace PokemonBattle.Controllers {
             this.pokemonCount = 0;
             this._tournamentManager = TournamentManager.GetInstance;
             this._team = new Team();
-        }
-
-        //Init Componentes of Pokedex Form
-        public void InitComponents() {
-            //btnBack
-            if (_pokedexForm.allPlayersHaveATeam) _pokedexForm.btnBack.Text = "NEXT";
-            else _pokedexForm.btnBack.Text = "BACK";
-            //txtDescription
-            _pokedexForm.txtDescription.ReadOnly = true;
-            _pokedexForm.txtDescription.BackColor = Color.White;
-            //lblPokemonID
-            _pokedexForm.lblPokemonID.AutoSize = false;
-            _pokedexForm.lblPokemonID.TextAlign = ContentAlignment.MiddleCenter;
-            //lblName
-            _pokedexForm.lblName.AutoSize = false;
-            _pokedexForm.lblName.TextAlign = ContentAlignment.MiddleCenter;
-            //lblTypeOne
-            _pokedexForm.lblTypeOne.AutoSize = false;
-            _pokedexForm.lblTypeOne.TextAlign = ContentAlignment.MiddleCenter;
-            //lblTypeTwo
-            _pokedexForm.lblTypeTwo.AutoSize = false;
-            _pokedexForm.lblTypeTwo.TextAlign = ContentAlignment.MiddleCenter;
         }
 
         //Adding events to components

@@ -27,7 +27,6 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlayersForm));
             this.tableLayoutPlayers = new System.Windows.Forms.TableLayoutPanel();
             this.layoutPanel16 = new System.Windows.Forms.FlowLayoutPanel();
@@ -46,7 +45,6 @@
             this.layoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.layoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
             this.layoutPanel10 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnNext = new System.Windows.Forms.Button();
             this.tableLayoutPlayers.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -215,22 +213,6 @@
             this.layoutPanel10.Size = new System.Drawing.Size(174, 108);
             this.layoutPanel10.TabIndex = 9;
             // 
-            // btnNext
-            // 
-            this.btnNext.BackColor = System.Drawing.Color.Transparent;
-            this.btnNext.BackgroundImage = global::PokemonBattle.Properties.Resources.ButtonNext;
-            this.btnNext.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnNext.FlatAppearance.BorderSize = 0;
-            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNext.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNext.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.btnNext.Location = new System.Drawing.Point(791, 453);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(93, 41);
-            this.btnNext.TabIndex = 1;
-            this.btnNext.Text = "SIGUIENTE";
-            this.btnNext.UseVisualStyleBackColor = false;
-            // 
             // PlayersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -238,7 +220,6 @@
             this.BackgroundImage = global::PokemonBattle.Properties.Resources.BackgroundPlayersScreen;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(914, 515);
-            this.Controls.Add(this.btnNext);
             this.Controls.Add(this.tableLayoutPlayers);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -255,7 +236,6 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPlayers;
         private System.Windows.Forms.FlowLayoutPanel layoutPanel1;
-        private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.FlowLayoutPanel layoutPanel16;
         private System.Windows.Forms.FlowLayoutPanel layoutPanel15;
         private System.Windows.Forms.FlowLayoutPanel layoutPanel14;
