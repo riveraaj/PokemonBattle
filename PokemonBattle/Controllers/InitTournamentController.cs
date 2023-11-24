@@ -38,8 +38,8 @@ namespace PokemonBattle.Controllers {
         //Generate Bots with Bot Service Class based on the Size of the Tournament and the Numbers of Players
         public void GenerateBots(int size, int numberOfPlayers) {
             int numberOfBots = size - numberOfPlayers;
-            for (int i = 0; i < numberOfBots; i++) {
-                _botService.CreateBot();
+            for (int i = 1; i < numberOfBots + 1; i++) {
+                _botService.CreateBot(i);
             }
         }
 

@@ -16,8 +16,8 @@ namespace PokemonBattle.Services {
         }
         
         //Create a Bot Player
-        public void CreateBot(){
-            _playerService.CreatePlayer("BOT", GenerateTeamBot());
+        public void CreateBot(int ID){
+            _playerService.CreatePlayer($"BOT{ID}", GenerateTeamBot());
         }
 
 
