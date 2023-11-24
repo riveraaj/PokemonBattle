@@ -12,13 +12,14 @@ namespace PokemonBattle.Services {
         public async void InitInstances() {
             this._pokemon = new PokemonRepository(new PokemonEntities());
             this.PlayersList = new List<Player>();
-            this.PokemonsList = (List<Pokemon>) await _pokemon.GetAllAsync();
-        }
+            this.PokemonsList = (List<Pokemon>) await _pokemon.GetAllAsync();          
+    }
         
         //Encapsulation
         public int TournamentSize { get; set; }
         public  List<Player> PlayersList { get; set; }
         public List<Pokemon> PokemonsList { get; set; }
+        public Player Winner { get; set; }
 
         //Checks if a Tournament Manager instance exists, if it does not exist, creates a new one and returns the Tournament Manager instance.
         public static TournamentManager GetInstance {

@@ -13,7 +13,14 @@ namespace PokemonBattle.Models{
         public int PlayerID { get; set; }
         public string PlayerName { get; set; }
         public int TeamID { get; set; }
-    
+
+        //Aux Properties
+        public bool IsInQuarter { get; set; } = false;
+
+        public bool IsInSemi { get; set; } = false;
+
+        public bool IsInFinal { get; set; } = false;
+
         //References ForeignKey
         public virtual ICollection<Battle> BattlesPlayerOne { get; set; }
         public virtual ICollection<Battle> BattlesPlayerTwo { get; set; }

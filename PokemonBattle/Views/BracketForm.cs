@@ -1,22 +1,26 @@
-﻿using System;
+﻿using PokemonBattle.Controllers;
+using System;
 using System.Windows.Forms;
 
-namespace PokemonBattle.Views
-{
+namespace PokemonBattle.Views {
     public partial class BracketForm : Form {
 
-        private readonly Timer timer;
+        private Timer timer;
+        private BracketController _bracketController;
 
         public BracketForm() {
             InitializeComponent();
-            if (panelWinner.BackgroundImage != null) panelHelper.SendToBack();
+            InitTimer();
+            this._bracketController = new BracketController(this);
+        }
 
-            this.timer = new Timer {
-                Interval = 10000 // 10 segundos
+        private void InitTimer(){
+            timer = new Timer {
+                Interval = 100000 // 10 segundos
             };
 
-            this.timer.Tick += Timer_Tick;
-            this.timer.Start();
+            timer.Tick += Timer_Tick;
+            timer.Start();
         }
 
         protected override void WndProc(ref Message m) {

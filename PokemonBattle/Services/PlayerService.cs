@@ -20,7 +20,9 @@ namespace PokemonBattle.Services {
         public void CreatePlayer(string playerName, Team oTeam){
             Player oPlayer = new Player {
                 PlayerName = playerName,
-                Team = oTeam
+                Team = oTeam,       
+                IsInQuarter = (_tournamentServices.TournamentSize == 8),
+                IsInSemi = (_tournamentServices.TournamentSize == 4)
             };
             _tournamentServices.PlayersList.Add(oPlayer);
         }
