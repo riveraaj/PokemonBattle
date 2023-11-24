@@ -125,7 +125,7 @@
     <value>..\Resources\Interface\BackgroundMainScreen.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BackgroundPlayersScreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Interface\BackgroundPlayersScreen.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\Interface\BackgroundPlayersScreen.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BackgroundPokedex" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Interface\BackgroundPokedex.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
