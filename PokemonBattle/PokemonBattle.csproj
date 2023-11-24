@@ -229,7 +229,26 @@
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
     <Content Include="pokeball.ico" />
+    <None Include="Resources\Type\Bug.png" />
+    <None Include="Resources\Type\Dark.png" />
+    <None Include="Resources\Type\Water.png" />
+    <None Include="Resources\Type\Steel.png" />
+    <None Include="Resources\Type\Rock.png" />
+    <None Include="Resources\Type\Psychc.png" />
+    <None Include="Resources\Type\Poison.png" />
+    <None Include="Resources\Type\Normal.png" />
+    <None Include="Resources\Type\Ice.png" />
+    <None Include="Resources\Type\Ground.png" />
+    <None Include="Resources\Type\Grass.png" />
+    <None Include="Resources\Type\Ghost.png" />
+    <None Include="Resources\Type\Flying.png" />
+    <None Include="Resources\Type\Fire.png" />
+    <None Include="Resources\Type\Fight.png" />
+    <None Include="Resources\Type\Fairy.png" />
+    <None Include="Resources\Type\Electr.png" />
+    <None Include="Resources\Type\Dragon.png" />
     <None Include="Resources\Interface\BackgroundPokedex.png" />
+    <None Include="Resources\Interface\ButtonChoosePokemonDisable.png" />
     <None Include="Resources\Interface\BackgroundMainScreen.jpg" />
     <None Include="Resources\Interface\BackgroundInitTournament.jpg" />
     <None Include="Resources\Interface\ButtonNext.png" />

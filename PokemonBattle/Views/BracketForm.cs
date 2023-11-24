@@ -16,7 +16,7 @@ namespace PokemonBattle.Views {
 
         private void InitTimer(){
             timer = new Timer {
-                Interval = 100000 // 10 segundos
+                Interval = 10000 // 10 segundos
             };
 
             timer.Tick += Timer_Tick;

@@ -70,12 +70,12 @@ namespace PokemonBattle.Controllers {
         //Save for each selected pokemon its id to a global variable of type Team.
         private void SavePokemonInTeamPlayer(){
             switch (pokemonCount) {
-                case 0: _team.PokemonOneID = Convert.ToInt32(_pokedexForm.lblPokemonID.Text); break;
-                case 1: _team.PokemonTwoID = Convert.ToInt32(_pokedexForm.lblPokemonID.Text); break;
-                case 2: _team.PokemonThreeID = Convert.ToInt32(_pokedexForm.lblPokemonID.Text); break;
-                case 3: _team.PokemonFourID = Convert.ToInt32(_pokedexForm.lblPokemonID.Text); break;
-                case 4: _team.PokemonFiveID = Convert.ToInt32(_pokedexForm.lblPokemonID.Text); break;
-                case 5: _team.PokemonSixID = Convert.ToInt32(_pokedexForm.lblPokemonID.Text); break;
+                case 0: _team.PokemonOneID = Convert.ToInt32(_pokedexForm.lblPokemonID.Text.Split('#')[1]); break;
+                case 1: _team.PokemonTwoID = Convert.ToInt32(_pokedexForm.lblPokemonID.Text.Split('#')[1]); break;
+                case 2: _team.PokemonThreeID = Convert.ToInt32(_pokedexForm.lblPokemonID.Text.Split('#')[1]); break;
+                case 3: _team.PokemonFourID = Convert.ToInt32(_pokedexForm.lblPokemonID.Text.Split('#')[1]); break;
+                case 4: _team.PokemonFiveID = Convert.ToInt32(_pokedexForm.lblPokemonID.Text.Split('#')[1]); break;
+                case 5: _team.PokemonSixID = Convert.ToInt32(_pokedexForm.lblPokemonID.Text.Split('#')[1]); break;
             }  
         }
 
@@ -114,16 +114,20 @@ namespace PokemonBattle.Controllers {
         }
 
         public void LoadPokedexInLayout() {
+            //Clear PictureBoxTypeElement
+            _pokedexForm.picBoxType1.BackgroundImage = null;
+            _pokedexForm.picBoxType2.BackgroundImage = null;
+
             //Pokemon card
-            _pokedexForm.lblTypeTwo.Text = "";
-            _pokedexForm.lblPokemonID.Text = $"0{_tournamentManager.PokemonsList[pokemonPosition].PokemonID}";
+            _pokedexForm.lblPokemonID.Text = $"#{_tournamentManager.PokemonsList[pokemonPosition].PokemonID}";
             _pokedexForm.picBoxPokemon.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject($"_{_tournamentManager.PokemonsList[pokemonPosition].PokemonID}");
             _pokedexForm.lblName.Text = _tournamentManager.PokemonsList[pokemonPosition].PokemonName;
-            _pokedexForm.lblTypeOne.Text = _tournamentManager.PokemonsList[pokemonPosition].TypeElementOne.TypeElementName;
+            SetImageForPokemonElementType(_pokedexForm.picBoxType1, 1);
+            _pokedexForm.txtDescription.Text = _tournamentManager.PokemonsList[pokemonPosition].PokemonDescription;
 
             //Validate if a pokemon has a second element type
-            if (_tournamentManager.PokemonsList[pokemonPosition].TypeElementTwoID != null) 
-                _pokedexForm.lblTypeTwo.Text = _tournamentManager.PokemonsList[pokemonPosition].TypeElementTwo.TypeElementName;
+            if (_tournamentManager.PokemonsList[pokemonPosition].TypeElementTwoID != null)
+                SetImageForPokemonElementType(_pokedexForm.picBoxType2, 0);
 
             //Movements of the pokemon
             _pokedexForm.lblMovement1.Text = _tournamentManager.PokemonsList[pokemonPosition].MovementOne.MovementName;
@@ -143,6 +147,53 @@ namespace PokemonBattle.Controllers {
             _pokedexForm.lblMovementType3.Text = _tournamentManager.PokemonsList[pokemonPosition].MovementThree.TypeMovement.TypeMovementName;
             _pokedexForm.lblMovementType4.Text = _tournamentManager.PokemonsList[pokemonPosition].MovementFour.TypeMovement.TypeMovementName;
             _pokedexForm.txtDescription.Text = _tournamentManager.PokemonsList[pokemonPosition].PokemonDescription;
+        }
+
+        public void SetImageForPokemonElementType(PictureBox oPictureBox, int numberType) {
+            if (numberType == 1) {
+                switch (_tournamentManager.PokemonsList[pokemonPosition].TypeElementOne.TypeElementName) {
+                    case "Fairy": oPictureBox.BackgroundImage = Properties.Resources.Fairy; break;
+                    case "Steel": oPictureBox.BackgroundImage = Properties.Resources.Steel; break;
+                    case "Dark": oPictureBox.BackgroundImage = Properties.Resources.Dark; break;
+                    case "Dragon": oPictureBox.BackgroundImage = Properties.Resources.Dragon; break;
+                    case "Ghost": oPictureBox.BackgroundImage = Properties.Resources.Ghost; break;
+                    case "Rock": oPictureBox.BackgroundImage = Properties.Resources.Rock; break;
+                    case "Bug": oPictureBox.BackgroundImage = Properties.Resources.Bug; break;
+                    case "Psychc": oPictureBox.BackgroundImage = Properties.Resources.Psychc; break;
+                    case "Flying": oPictureBox.BackgroundImage = Properties.Resources.Flying; break;
+                    case "Ground": oPictureBox.BackgroundImage = Properties.Resources.Ground; break;
+                    case "Poison": oPictureBox.BackgroundImage = Properties.Resources.Poison; break;
+                    case "Fight": oPictureBox.BackgroundImage = Properties.Resources.Fight; break;
+                    case "Ice": oPictureBox.BackgroundImage = Properties.Resources.Ice; break;
+                    case "Grass": oPictureBox.BackgroundImage = Properties.Resources.Grass; break;
+                    case "Electr": oPictureBox.BackgroundImage = Properties.Resources.Electr; break;
+                    case "Water": oPictureBox.BackgroundImage = Properties.Resources.Water; break;
+                    case "Fire": oPictureBox.BackgroundImage = Properties.Resources.Fire; break;
+                    case "Normal": oPictureBox.BackgroundImage = Properties.Resources.Normal; break;
+                }
+            }
+            else {
+                switch (_tournamentManager.PokemonsList[pokemonPosition].TypeElementTwo.TypeElementName) {
+                    case "Fairy": oPictureBox.BackgroundImage = Properties.Resources.Fairy; break;
+                    case "Steel": oPictureBox.BackgroundImage = Properties.Resources.Steel; break;
+                    case "Dark": oPictureBox.BackgroundImage = Properties.Resources.Dark; break;
+                    case "Dragon": oPictureBox.BackgroundImage = Properties.Resources.Dragon; break;
+                    case "Ghost": oPictureBox.BackgroundImage = Properties.Resources.Ghost; break;
+                    case "Rock": oPictureBox.BackgroundImage = Properties.Resources.Rock; break;
+                    case "Bug": oPictureBox.BackgroundImage = Properties.Resources.Bug; break;
+                    case "Psychc": oPictureBox.BackgroundImage = Properties.Resources.Psychc; break;
+                    case "Flying": oPictureBox.BackgroundImage = Properties.Resources.Flying; break;
+                    case "Ground": oPictureBox.BackgroundImage = Properties.Resources.Ground; break;
+                    case "Poison": oPictureBox.BackgroundImage = Properties.Resources.Poison; break;
+                    case "Fight": oPictureBox.BackgroundImage = Properties.Resources.Fight; break;
+                    case "Ice": oPictureBox.BackgroundImage = Properties.Resources.Ice; break;
+                    case "Grass": oPictureBox.BackgroundImage = Properties.Resources.Grass; break;
+                    case "Electr": oPictureBox.BackgroundImage = Properties.Resources.Electr; break;
+                    case "Water": oPictureBox.BackgroundImage = Properties.Resources.Water; break;
+                    case "Fire": oPictureBox.BackgroundImage = Properties.Resources.Fire; break;
+                    case "Normal": oPictureBox.BackgroundImage = Properties.Resources.Normal; break;
+                }
+            }
         }
     }
 }

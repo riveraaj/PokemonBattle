@@ -38,6 +38,7 @@ namespace PokemonBattle.View {
             //txtDescription
             txtDescription.ReadOnly = true;
             txtDescription.BackColor = Color.White;
+            txtDescription.SelectionAlignment = HorizontalAlignment.Center;
             //lblPokemonID
             lblPokemonID.AutoSize = false;
             lblPokemonID.TextAlign = ContentAlignment.MiddleCenter;
@@ -45,11 +46,9 @@ namespace PokemonBattle.View {
             lblName.AutoSize = false;
             lblName.TextAlign = ContentAlignment.MiddleCenter;
             //lblTypeOne
-            lblTypeOne.AutoSize = false;
-            lblTypeOne.TextAlign = ContentAlignment.MiddleCenter;
+            picBoxType1.BackgroundImageLayout = ImageLayout.Stretch;
             //lblTypeTwo
-            lblTypeTwo.AutoSize = false;
-            lblTypeTwo.TextAlign = ContentAlignment.MiddleCenter;
+            picBoxType2.BackgroundImageLayout = ImageLayout.Stretch;
         }
     }
 }

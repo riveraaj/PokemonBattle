@@ -25,9 +25,11 @@ namespace PokemonBattle.Utilities {
             });
         }
 
-        public static Button CreateDynamicButton(string id) {
+        public static Button CreateDynamicButton(string id, bool haveATeam) {
+
+            var img = (haveATeam) ? Properties.Resources.ButtonChoosePokemonDisable : Properties.Resources.ButtonChoosePokemon;
             Button button = new Button {
-                BackgroundImage = Properties.Resources.ButtonChoosePokemon,
+                BackgroundImage = img,
                 BackgroundImageLayout = ImageLayout.Stretch,
                 Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0),
                 Location = new Point(13, 48),

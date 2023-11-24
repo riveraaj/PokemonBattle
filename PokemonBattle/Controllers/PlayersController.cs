@@ -49,8 +49,8 @@ namespace PokemonBattle.Controllers{
             int count = 1;
 
             foreach (var player in _tournamentManager.PlayersList) {
-                Label lblAux = LabelHelper.CreateDynamicLabel(player.PlayerName);
-                Button btnAux = ButtonHelper.CreateDynamicButton(player.PlayerName);
+                Label lblAux = LabelHelper.CreateDynamicLabel(player.PlayerName); 
+                Button btnAux = ButtonHelper.CreateDynamicButton(player.PlayerName, (player.Team != null));
                 if (!player.PlayerName.Equals("BOT") && player.Team == null) btnAux.Click += new EventHandler(OpenPokedex);
                 FlowLayoutPanel layout = _playerForm.Controls.Find($"layoutPanel{count}", true).FirstOrDefault() as FlowLayoutPanel;
 
