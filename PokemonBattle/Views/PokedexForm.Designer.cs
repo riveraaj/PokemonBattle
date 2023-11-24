@@ -46,6 +46,18 @@ namespace PokemonBattle.View
             this.btnAddPokemon = new System.Windows.Forms.Button();
             this.btnNextPokemon = new System.Windows.Forms.Button();
             this.btnPreviousPokemon = new System.Windows.Forms.Button();
+            this.lblMovement1 = new System.Windows.Forms.Label();
+            this.lblMovement2 = new System.Windows.Forms.Label();
+            this.lblMovement4 = new System.Windows.Forms.Label();
+            this.lblMovement3 = new System.Windows.Forms.Label();
+            this.lblMovementType4 = new System.Windows.Forms.Label();
+            this.lblMovementType3 = new System.Windows.Forms.Label();
+            this.lblMovementType2 = new System.Windows.Forms.Label();
+            this.lblMovementType1 = new System.Windows.Forms.Label();
+            this.lblMovementPower4 = new System.Windows.Forms.Label();
+            this.lblMovementPower3 = new System.Windows.Forms.Label();
+            this.lblMovementPower2 = new System.Windows.Forms.Label();
+            this.lblMovementPower1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxPokemon1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxPokemon2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxPokemon3)).BeginInit();
@@ -228,6 +240,126 @@ namespace PokemonBattle.View
             this.btnPreviousPokemon.TabIndex = 17;
             this.btnPreviousPokemon.UseVisualStyleBackColor = false;
             // 
+            // lblMovement1
+            // 
+            this.lblMovement1.BackColor = System.Drawing.Color.Transparent;
+            this.lblMovement1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMovement1.ForeColor = System.Drawing.Color.Black;
+            this.lblMovement1.Location = new System.Drawing.Point(357, 323);
+            this.lblMovement1.Name = "lblMovement1";
+            this.lblMovement1.Size = new System.Drawing.Size(102, 23);
+            this.lblMovement1.TabIndex = 18;
+            // 
+            // lblMovement2
+            // 
+            this.lblMovement2.BackColor = System.Drawing.Color.Transparent;
+            this.lblMovement2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMovement2.ForeColor = System.Drawing.Color.Black;
+            this.lblMovement2.Location = new System.Drawing.Point(357, 371);
+            this.lblMovement2.Name = "lblMovement2";
+            this.lblMovement2.Size = new System.Drawing.Size(102, 23);
+            this.lblMovement2.TabIndex = 19;
+            // 
+            // lblMovement4
+            // 
+            this.lblMovement4.BackColor = System.Drawing.Color.Transparent;
+            this.lblMovement4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMovement4.ForeColor = System.Drawing.Color.Black;
+            this.lblMovement4.Location = new System.Drawing.Point(357, 465);
+            this.lblMovement4.Name = "lblMovement4";
+            this.lblMovement4.Size = new System.Drawing.Size(102, 23);
+            this.lblMovement4.TabIndex = 21;
+            // 
+            // lblMovement3
+            // 
+            this.lblMovement3.BackColor = System.Drawing.Color.Transparent;
+            this.lblMovement3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMovement3.ForeColor = System.Drawing.Color.Black;
+            this.lblMovement3.Location = new System.Drawing.Point(357, 417);
+            this.lblMovement3.Name = "lblMovement3";
+            this.lblMovement3.Size = new System.Drawing.Size(102, 23);
+            this.lblMovement3.TabIndex = 20;
+            // 
+            // lblMovementType4
+            // 
+            this.lblMovementType4.BackColor = System.Drawing.Color.Transparent;
+            this.lblMovementType4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMovementType4.ForeColor = System.Drawing.Color.Black;
+            this.lblMovementType4.Location = new System.Drawing.Point(534, 465);
+            this.lblMovementType4.Name = "lblMovementType4";
+            this.lblMovementType4.Size = new System.Drawing.Size(102, 23);
+            this.lblMovementType4.TabIndex = 25;
+            // 
+            // lblMovementType3
+            // 
+            this.lblMovementType3.BackColor = System.Drawing.Color.Transparent;
+            this.lblMovementType3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMovementType3.ForeColor = System.Drawing.Color.Black;
+            this.lblMovementType3.Location = new System.Drawing.Point(534, 417);
+            this.lblMovementType3.Name = "lblMovementType3";
+            this.lblMovementType3.Size = new System.Drawing.Size(102, 23);
+            this.lblMovementType3.TabIndex = 24;
+            // 
+            // lblMovementType2
+            // 
+            this.lblMovementType2.BackColor = System.Drawing.Color.Transparent;
+            this.lblMovementType2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMovementType2.ForeColor = System.Drawing.Color.Black;
+            this.lblMovementType2.Location = new System.Drawing.Point(534, 371);
+            this.lblMovementType2.Name = "lblMovementType2";
+            this.lblMovementType2.Size = new System.Drawing.Size(102, 23);
+            this.lblMovementType2.TabIndex = 23;
+            // 
+            // lblMovementType1
+            // 
+            this.lblMovementType1.BackColor = System.Drawing.Color.Transparent;
+            this.lblMovementType1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMovementType1.ForeColor = System.Drawing.Color.Black;
+            this.lblMovementType1.Location = new System.Drawing.Point(534, 323);
+            this.lblMovementType1.Name = "lblMovementType1";
+            this.lblMovementType1.Size = new System.Drawing.Size(102, 23);
+            this.lblMovementType1.TabIndex = 22;
+            // 
+            // lblMovementPower4
+            // 
+            this.lblMovementPower4.BackColor = System.Drawing.Color.Transparent;
+            this.lblMovementPower4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMovementPower4.ForeColor = System.Drawing.Color.Black;
+            this.lblMovementPower4.Location = new System.Drawing.Point(662, 465);
+            this.lblMovementPower4.Name = "lblMovementPower4";
+            this.lblMovementPower4.Size = new System.Drawing.Size(102, 23);
+            this.lblMovementPower4.TabIndex = 29;
+            // 
+            // lblMovementPower3
+            // 
+            this.lblMovementPower3.BackColor = System.Drawing.Color.Transparent;
+            this.lblMovementPower3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMovementPower3.ForeColor = System.Drawing.Color.Black;
+            this.lblMovementPower3.Location = new System.Drawing.Point(662, 417);
+            this.lblMovementPower3.Name = "lblMovementPower3";
+            this.lblMovementPower3.Size = new System.Drawing.Size(102, 23);
+            this.lblMovementPower3.TabIndex = 28;
+            // 
+            // lblMovementPower2
+            // 
+            this.lblMovementPower2.BackColor = System.Drawing.Color.Transparent;
+            this.lblMovementPower2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMovementPower2.ForeColor = System.Drawing.Color.Black;
+            this.lblMovementPower2.Location = new System.Drawing.Point(662, 371);
+            this.lblMovementPower2.Name = "lblMovementPower2";
+            this.lblMovementPower2.Size = new System.Drawing.Size(102, 23);
+            this.lblMovementPower2.TabIndex = 27;
+            // 
+            // lblMovementPower1
+            // 
+            this.lblMovementPower1.BackColor = System.Drawing.Color.Transparent;
+            this.lblMovementPower1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMovementPower1.ForeColor = System.Drawing.Color.Black;
+            this.lblMovementPower1.Location = new System.Drawing.Point(662, 323);
+            this.lblMovementPower1.Name = "lblMovementPower1";
+            this.lblMovementPower1.Size = new System.Drawing.Size(102, 23);
+            this.lblMovementPower1.TabIndex = 26;
+            // 
             // PokedexForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -235,6 +367,18 @@ namespace PokemonBattle.View
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(914, 515);
+            this.Controls.Add(this.lblMovementPower4);
+            this.Controls.Add(this.lblMovementPower3);
+            this.Controls.Add(this.lblMovementPower2);
+            this.Controls.Add(this.lblMovementPower1);
+            this.Controls.Add(this.lblMovementType4);
+            this.Controls.Add(this.lblMovementType3);
+            this.Controls.Add(this.lblMovementType2);
+            this.Controls.Add(this.lblMovementType1);
+            this.Controls.Add(this.lblMovement4);
+            this.Controls.Add(this.lblMovement3);
+            this.Controls.Add(this.lblMovement2);
+            this.Controls.Add(this.lblMovement1);
             this.Controls.Add(this.btnPreviousPokemon);
             this.Controls.Add(this.btnNextPokemon);
             this.Controls.Add(this.btnAddPokemon);
@@ -272,21 +416,33 @@ namespace PokemonBattle.View
 
         #endregion
 
-        public System.Windows.Forms.PictureBox picBoxPokemon1;
-        public System.Windows.Forms.Button btnBack;
-        public System.Windows.Forms.PictureBox picBoxPokemon2;
-        public System.Windows.Forms.PictureBox picBoxPokemon3;
-        public System.Windows.Forms.PictureBox picBoxPokemon4;
-        public System.Windows.Forms.PictureBox picBoxPokemon5;
-        public System.Windows.Forms.PictureBox picBoxPokemon6;
-        public System.Windows.Forms.PictureBox picBoxPokemon;
-        public System.Windows.Forms.RichTextBox txtDescription;
-        public System.Windows.Forms.Label lblPokemonID;
-        public System.Windows.Forms.Label lblName;
-        public System.Windows.Forms.Label lblTypeOne;
-        public System.Windows.Forms.Label lblTypeTwo;
-        public System.Windows.Forms.Button btnAddPokemon;
-        public System.Windows.Forms.Button btnNextPokemon;
-        public System.Windows.Forms.Button btnPreviousPokemon;
+        internal System.Windows.Forms.PictureBox picBoxPokemon1;
+        internal System.Windows.Forms.Button btnBack;
+        internal System.Windows.Forms.PictureBox picBoxPokemon2;
+        internal System.Windows.Forms.PictureBox picBoxPokemon3;
+        internal System.Windows.Forms.PictureBox picBoxPokemon4;
+        internal System.Windows.Forms.PictureBox picBoxPokemon5;
+        internal System.Windows.Forms.PictureBox picBoxPokemon6;
+        internal System.Windows.Forms.PictureBox picBoxPokemon;
+        internal System.Windows.Forms.RichTextBox txtDescription;
+        internal System.Windows.Forms.Label lblPokemonID;
+        internal System.Windows.Forms.Label lblName;
+        internal System.Windows.Forms.Label lblTypeOne;
+        internal System.Windows.Forms.Label lblTypeTwo;
+        internal System.Windows.Forms.Button btnAddPokemon;
+        internal System.Windows.Forms.Button btnNextPokemon;
+        internal System.Windows.Forms.Button btnPreviousPokemon;
+        internal System.Windows.Forms.Label lblMovement1;
+        internal System.Windows.Forms.Label lblMovement2;
+        internal System.Windows.Forms.Label lblMovement4;
+        internal System.Windows.Forms.Label lblMovement3;
+        internal System.Windows.Forms.Label lblMovementType4;
+        internal System.Windows.Forms.Label lblMovementType3;
+        internal System.Windows.Forms.Label lblMovementType2;
+        internal System.Windows.Forms.Label lblMovementType1;
+        internal System.Windows.Forms.Label lblMovementPower4;
+        internal System.Windows.Forms.Label lblMovementPower3;
+        internal System.Windows.Forms.Label lblMovementPower2;
+        internal System.Windows.Forms.Label lblMovementPower1;
     }
 }

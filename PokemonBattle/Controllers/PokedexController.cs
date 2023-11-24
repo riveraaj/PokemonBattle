@@ -49,12 +49,14 @@ namespace PokemonBattle.Controllers {
                 case 3: LoadPokemonInPctureBox(_pokedexForm.picBoxPokemon4); break;
                 case 4: LoadPokemonInPctureBox(_pokedexForm.picBoxPokemon5); break;
                 case 5: LoadPokemonInPctureBox(_pokedexForm.picBoxPokemon6); break;
+                default: MessageBox.Show("You have already selected all your equipment", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); break;
             }
         }
 
         //Load pokemon added in the PictureBox
         private void LoadPokemonInPctureBox(PictureBox oPictureBox){
             int pokemonID = _tournamentManager.PokemonsList[pokemonPosition].PokemonID;
+            //Validate that the selected pokemon is not in the team.
             if (_team.PokemonOneID != pokemonID && _team.PokemonTwoID != pokemonID
                  && _team.PokemonThreeID != pokemonID && _team.PokemonFourID != pokemonID
                  && _team.PokemonFiveID != pokemonID && _team.PokemonSixID != pokemonID) {
@@ -65,7 +67,7 @@ namespace PokemonBattle.Controllers {
             }  else MessageBox.Show("No two pokemon can be the same in the team.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        //
+        //Save for each selected pokemon its id to a global variable of type Team.
         private void SavePokemonInTeamPlayer(){
             switch (pokemonCount) {
                 case 0: _team.PokemonOneID = Convert.ToInt32(_pokedexForm.lblPokemonID.Text); break;
@@ -93,14 +95,18 @@ namespace PokemonBattle.Controllers {
 
         //Event to Go to bracket form if all players have a team or Go to Player Form
         private void OpenBracketFormOrPlayersForm(object sender, EventArgs e) {
+            //Validate if the equipment is already complete
             if (_team.PokemonOneID != 0 && _team.PokemonTwoID != 0 
                 && _team.PokemonThreeID != 0 && _team.PokemonFourID != 0 
                 && _team.PokemonFiveID != 0 && _team.PokemonSixID != 0)  {
                 string prefix = "btnPlayer";
                 string playerName = _pokedexForm.namePlayer.Substring(prefix.Length);
 
+                //Search for a player by name to assign equipment
                 Player oPlayer = _tournamentManager.PlayersList.FirstOrDefault(x => x.PlayerName == playerName);
                 oPlayer.Team = _team;
+
+                //Validate if all players already have an equipment
                 if (_pokedexForm.allPlayersHaveATeam) new BracketForm().Show();
                 else new PlayersForm().Show();
                 _pokedexForm.Close();
@@ -108,12 +114,34 @@ namespace PokemonBattle.Controllers {
         }
 
         public void LoadPokedexInLayout() {
+            //Pokemon card
             _pokedexForm.lblTypeTwo.Text = "";
             _pokedexForm.lblPokemonID.Text = $"0{_tournamentManager.PokemonsList[pokemonPosition].PokemonID}";
             _pokedexForm.picBoxPokemon.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject($"_{_tournamentManager.PokemonsList[pokemonPosition].PokemonID}");
             _pokedexForm.lblName.Text = _tournamentManager.PokemonsList[pokemonPosition].PokemonName;
             _pokedexForm.lblTypeOne.Text = _tournamentManager.PokemonsList[pokemonPosition].TypeElementOne.TypeElementName;
-            if (_tournamentManager.PokemonsList[pokemonPosition].TypeElementTwoID != null) _pokedexForm.lblTypeTwo.Text = _tournamentManager.PokemonsList[pokemonPosition].TypeElementTwo.TypeElementName;
+
+            //Validate if a pokemon has a second element type
+            if (_tournamentManager.PokemonsList[pokemonPosition].TypeElementTwoID != null) 
+                _pokedexForm.lblTypeTwo.Text = _tournamentManager.PokemonsList[pokemonPosition].TypeElementTwo.TypeElementName;
+
+            //Movements of the pokemon
+            _pokedexForm.lblMovement1.Text = _tournamentManager.PokemonsList[pokemonPosition].MovementOne.MovementName;
+            _pokedexForm.lblMovement2.Text = _tournamentManager.PokemonsList[pokemonPosition].MovementTwo.MovementName;
+            _pokedexForm.lblMovement3.Text = _tournamentManager.PokemonsList[pokemonPosition].MovementThree.MovementName;
+            _pokedexForm.lblMovement4.Text = _tournamentManager.PokemonsList[pokemonPosition].MovementFour.MovementName;
+
+            //Power of pokemon movements
+            _pokedexForm.lblMovementPower1.Text = _tournamentManager.PokemonsList[pokemonPosition].MovementOne.MovementPower.ToString();
+            _pokedexForm.lblMovementPower2.Text = _tournamentManager.PokemonsList[pokemonPosition].MovementTwo.MovementPower.ToString();
+            _pokedexForm.lblMovementPower3.Text = _tournamentManager.PokemonsList[pokemonPosition].MovementThree.MovementPower.ToString();
+            _pokedexForm.lblMovementPower4.Text = _tournamentManager.PokemonsList[pokemonPosition].MovementFour.MovementPower.ToString();
+
+            //Type of pokemon movements
+            _pokedexForm.lblMovementType1.Text = _tournamentManager.PokemonsList[pokemonPosition].MovementOne.TypeMovement.TypeMovementName;
+            _pokedexForm.lblMovementType2.Text = _tournamentManager.PokemonsList[pokemonPosition].MovementTwo.TypeMovement.TypeMovementName;
+            _pokedexForm.lblMovementType3.Text = _tournamentManager.PokemonsList[pokemonPosition].MovementThree.TypeMovement.TypeMovementName;
+            _pokedexForm.lblMovementType4.Text = _tournamentManager.PokemonsList[pokemonPosition].MovementFour.TypeMovement.TypeMovementName;
             _pokedexForm.txtDescription.Text = _tournamentManager.PokemonsList[pokemonPosition].PokemonDescription;
         }
     }
