@@ -23,7 +23,7 @@ namespace PokemonBattle {
         }
 
         //Init Components Custom Properties
-        private void InitializeComponentCustom(){
+        private void InitializeComponentCustom() {
             oSoundPlayer.Play();
             initPositionX = labelStart.Location.X;
             timer.Interval = 1000;
