@@ -131,6 +131,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Repositories\PokemonRepository.cs" />
+    <Compile Include="Services\BracketService.cs" />
     <Compile Include="Services\PlayerService.cs" />
     <Compile Include="Services\BotService.cs" />
     <Compile Include="Models\TournamentManager.cs" />

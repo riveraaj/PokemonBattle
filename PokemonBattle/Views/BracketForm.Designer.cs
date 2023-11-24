@@ -1,33 +1,24 @@
-﻿namespace PokemonBattle.Views
-{
-    partial class BracketForm
-    {
+﻿namespace PokemonBattle.Views {
+    partial class BracketForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
+        protected override void Dispose(bool disposing) {
+            if (disposing && (components != null)) components.Dispose();
             base.Dispose(disposing);
         }
 
         #region Windows Form Designer generated code
-
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BracketForm));
             this.picBoxUser1 = new System.Windows.Forms.PictureBox();
             this.picBoxUser9 = new System.Windows.Forms.PictureBox();
@@ -453,7 +444,7 @@
             // 
             this.lblUser1.BackColor = System.Drawing.Color.Transparent;
             this.lblUser1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser1.Location = new System.Drawing.Point(52, 26);
+            this.lblUser1.Location = new System.Drawing.Point(52, 27);
             this.lblUser1.Name = "lblUser1";
             this.lblUser1.Size = new System.Drawing.Size(63, 17);
             this.lblUser1.TabIndex = 33;
@@ -462,7 +453,7 @@
             // 
             this.lblUser2.BackColor = System.Drawing.Color.Transparent;
             this.lblUser2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser2.Location = new System.Drawing.Point(52, 80);
+            this.lblUser2.Location = new System.Drawing.Point(52, 82);
             this.lblUser2.Name = "lblUser2";
             this.lblUser2.Size = new System.Drawing.Size(63, 17);
             this.lblUser2.TabIndex = 34;
@@ -480,7 +471,7 @@
             // 
             this.lblUser4.BackColor = System.Drawing.Color.Transparent;
             this.lblUser4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser4.Location = new System.Drawing.Point(52, 212);
+            this.lblUser4.Location = new System.Drawing.Point(52, 214);
             this.lblUser4.Name = "lblUser4";
             this.lblUser4.Size = new System.Drawing.Size(63, 17);
             this.lblUser4.TabIndex = 36;
@@ -489,7 +480,7 @@
             // 
             this.lblUser5.BackColor = System.Drawing.Color.Transparent;
             this.lblUser5.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser5.Location = new System.Drawing.Point(52, 288);
+            this.lblUser5.Location = new System.Drawing.Point(52, 289);
             this.lblUser5.Name = "lblUser5";
             this.lblUser5.Size = new System.Drawing.Size(63, 17);
             this.lblUser5.TabIndex = 37;
@@ -498,7 +489,7 @@
             // 
             this.lblUser6.BackColor = System.Drawing.Color.Transparent;
             this.lblUser6.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser6.Location = new System.Drawing.Point(52, 343);
+            this.lblUser6.Location = new System.Drawing.Point(52, 345);
             this.lblUser6.Name = "lblUser6";
             this.lblUser6.Size = new System.Drawing.Size(63, 17);
             this.lblUser6.TabIndex = 38;
@@ -507,7 +498,7 @@
             // 
             this.lblUser7.BackColor = System.Drawing.Color.Transparent;
             this.lblUser7.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser7.Location = new System.Drawing.Point(52, 416);
+            this.lblUser7.Location = new System.Drawing.Point(52, 418);
             this.lblUser7.Name = "lblUser7";
             this.lblUser7.Size = new System.Drawing.Size(63, 17);
             this.lblUser7.TabIndex = 39;
@@ -516,7 +507,7 @@
             // 
             this.lblUser8.BackColor = System.Drawing.Color.Transparent;
             this.lblUser8.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser8.Location = new System.Drawing.Point(52, 473);
+            this.lblUser8.Location = new System.Drawing.Point(52, 474);
             this.lblUser8.Name = "lblUser8";
             this.lblUser8.Size = new System.Drawing.Size(63, 17);
             this.lblUser8.TabIndex = 40;
@@ -534,7 +525,7 @@
             // 
             this.lblUser15.BackColor = System.Drawing.Color.Transparent;
             this.lblUser15.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser15.Location = new System.Drawing.Point(800, 416);
+            this.lblUser15.Location = new System.Drawing.Point(800, 417);
             this.lblUser15.Name = "lblUser15";
             this.lblUser15.Size = new System.Drawing.Size(60, 17);
             this.lblUser15.TabIndex = 47;
@@ -543,7 +534,7 @@
             // 
             this.lblUser14.BackColor = System.Drawing.Color.Transparent;
             this.lblUser14.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser14.Location = new System.Drawing.Point(800, 343);
+            this.lblUser14.Location = new System.Drawing.Point(800, 344);
             this.lblUser14.Name = "lblUser14";
             this.lblUser14.Size = new System.Drawing.Size(60, 17);
             this.lblUser14.TabIndex = 46;
@@ -561,7 +552,7 @@
             // 
             this.lblUser12.BackColor = System.Drawing.Color.Transparent;
             this.lblUser12.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser12.Location = new System.Drawing.Point(800, 212);
+            this.lblUser12.Location = new System.Drawing.Point(800, 213);
             this.lblUser12.Name = "lblUser12";
             this.lblUser12.Size = new System.Drawing.Size(60, 17);
             this.lblUser12.TabIndex = 44;
@@ -570,7 +561,7 @@
             // 
             this.lblUser11.BackColor = System.Drawing.Color.Transparent;
             this.lblUser11.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser11.Location = new System.Drawing.Point(800, 156);
+            this.lblUser11.Location = new System.Drawing.Point(800, 157);
             this.lblUser11.Name = "lblUser11";
             this.lblUser11.Size = new System.Drawing.Size(60, 17);
             this.lblUser11.TabIndex = 43;
@@ -579,7 +570,7 @@
             // 
             this.lblUser10.BackColor = System.Drawing.Color.Transparent;
             this.lblUser10.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser10.Location = new System.Drawing.Point(800, 80);
+            this.lblUser10.Location = new System.Drawing.Point(800, 82);
             this.lblUser10.Name = "lblUser10";
             this.lblUser10.Size = new System.Drawing.Size(60, 17);
             this.lblUser10.TabIndex = 42;
@@ -615,7 +606,7 @@
             // 
             this.lblUserQuarter6.BackColor = System.Drawing.Color.Transparent;
             this.lblUserQuarter6.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserQuarter6.Location = new System.Drawing.Point(695, 213);
+            this.lblUserQuarter6.Location = new System.Drawing.Point(695, 211);
             this.lblUserQuarter6.Name = "lblUserQuarter6";
             this.lblUserQuarter6.Size = new System.Drawing.Size(65, 17);
             this.lblUserQuarter6.TabIndex = 51;
@@ -624,7 +615,7 @@
             // 
             this.lblUserFinal1.BackColor = System.Drawing.Color.Transparent;
             this.lblUserFinal1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserFinal1.Location = new System.Drawing.Point(361, 279);
+            this.lblUserFinal1.Location = new System.Drawing.Point(361, 277);
             this.lblUserFinal1.Name = "lblUserFinal1";
             this.lblUserFinal1.Size = new System.Drawing.Size(65, 17);
             this.lblUserFinal1.TabIndex = 52;
@@ -634,7 +625,7 @@
             // 
             this.lblUserFinal2.BackColor = System.Drawing.Color.Transparent;
             this.lblUserFinal2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserFinal2.Location = new System.Drawing.Point(488, 279);
+            this.lblUserFinal2.Location = new System.Drawing.Point(488, 277);
             this.lblUserFinal2.Name = "lblUserFinal2";
             this.lblUserFinal2.Size = new System.Drawing.Size(63, 17);
             this.lblUserFinal2.TabIndex = 53;
@@ -653,7 +644,7 @@
             // 
             this.lblUserSemi4.BackColor = System.Drawing.Color.Transparent;
             this.lblUserSemi4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserSemi4.Location = new System.Drawing.Point(590, 410);
+            this.lblUserSemi4.Location = new System.Drawing.Point(590, 407);
             this.lblUserSemi4.Name = "lblUserSemi4";
             this.lblUserSemi4.Size = new System.Drawing.Size(65, 17);
             this.lblUserSemi4.TabIndex = 55;
@@ -662,7 +653,7 @@
             // 
             this.lblUserSemi2.BackColor = System.Drawing.Color.Transparent;
             this.lblUserSemi2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserSemi2.Location = new System.Drawing.Point(255, 410);
+            this.lblUserSemi2.Location = new System.Drawing.Point(255, 407);
             this.lblUserSemi2.Name = "lblUserSemi2";
             this.lblUserSemi2.Size = new System.Drawing.Size(63, 17);
             this.lblUserSemi2.TabIndex = 56;
@@ -671,7 +662,7 @@
             // 
             this.lblUserQuarter7.BackColor = System.Drawing.Color.Transparent;
             this.lblUserQuarter7.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserQuarter7.Location = new System.Drawing.Point(695, 343);
+            this.lblUserQuarter7.Location = new System.Drawing.Point(695, 341);
             this.lblUserQuarter7.Name = "lblUserQuarter7";
             this.lblUserQuarter7.Size = new System.Drawing.Size(65, 17);
             this.lblUserQuarter7.TabIndex = 57;
@@ -680,7 +671,7 @@
             // 
             this.lblUserQuarter8.BackColor = System.Drawing.Color.Transparent;
             this.lblUserQuarter8.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserQuarter8.Location = new System.Drawing.Point(695, 473);
+            this.lblUserQuarter8.Location = new System.Drawing.Point(695, 471);
             this.lblUserQuarter8.Name = "lblUserQuarter8";
             this.lblUserQuarter8.Size = new System.Drawing.Size(65, 17);
             this.lblUserQuarter8.TabIndex = 58;
@@ -698,7 +689,7 @@
             // 
             this.lblUserQuarter3.BackColor = System.Drawing.Color.Transparent;
             this.lblUserQuarter3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserQuarter3.Location = new System.Drawing.Point(153, 343);
+            this.lblUserQuarter3.Location = new System.Drawing.Point(153, 342);
             this.lblUserQuarter3.Name = "lblUserQuarter3";
             this.lblUserQuarter3.Size = new System.Drawing.Size(64, 17);
             this.lblUserQuarter3.TabIndex = 60;
@@ -833,25 +824,23 @@
             this.ResumeLayout(false);
 
         }
-
-
         #endregion
 
-        public System.Windows.Forms.PictureBox picBoxUser1;
-        public System.Windows.Forms.PictureBox picBoxUser9;
-        public System.Windows.Forms.PictureBox picBoxUser2;
-        public System.Windows.Forms.PictureBox picBoxUser4;
-        public System.Windows.Forms.PictureBox picBoxUser5;
-        public System.Windows.Forms.PictureBox picBoxUser6;
-        public System.Windows.Forms.PictureBox picBoxUser7;
-        public System.Windows.Forms.PictureBox picBoxUser8;
-        public System.Windows.Forms.PictureBox picBoxUser10;
-        public System.Windows.Forms.PictureBox picBoxUser11;
-        public System.Windows.Forms.PictureBox picBoxUser12;
-        public System.Windows.Forms.PictureBox picBoxUser13;
-        public System.Windows.Forms.PictureBox picBoxUser14;
-        public System.Windows.Forms.PictureBox picBoxUser15;
-        public System.Windows.Forms.PictureBox picBoxUser16;
+        internal System.Windows.Forms.PictureBox picBoxUser1;
+        internal System.Windows.Forms.PictureBox picBoxUser9;
+        internal System.Windows.Forms.PictureBox picBoxUser2;
+        internal System.Windows.Forms.PictureBox picBoxUser4;
+        internal System.Windows.Forms.PictureBox picBoxUser5;
+        internal System.Windows.Forms.PictureBox picBoxUser6;
+        internal System.Windows.Forms.PictureBox picBoxUser7;
+        internal System.Windows.Forms.PictureBox picBoxUser8;
+        internal System.Windows.Forms.PictureBox picBoxUser10;
+        internal System.Windows.Forms.PictureBox picBoxUser11;
+        internal System.Windows.Forms.PictureBox picBoxUser12;
+        internal System.Windows.Forms.PictureBox picBoxUser13;
+        internal System.Windows.Forms.PictureBox picBoxUser14;
+        internal System.Windows.Forms.PictureBox picBoxUser15;
+        internal System.Windows.Forms.PictureBox picBoxUser16;
         public System.Windows.Forms.PictureBox picBoxUserQuarter1;
         public System.Windows.Forms.PictureBox picBoxUserQuarter2;
         public System.Windows.Forms.PictureBox picBoxUserQuarter3;
