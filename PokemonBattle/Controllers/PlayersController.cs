@@ -6,49 +6,33 @@ using System;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace PokemonBattle.Controllers{
+namespace PokemonBattle.Controllers {
     internal class PlayersController {
 
         //Instances
         private PlayersForm _playerForm;
-        private TournamentManager _tournamentManager;
+        private PlayersService _playersService;
 
         public PlayersController(PlayersForm oPlayerForm) { 
             //Init Instances
             _playerForm = oPlayerForm;
-            _tournamentManager = TournamentManager.GetInstance;
+            _playersService = new PlayersService();
             LoadLayoutsForPlayers();
         }
 
         //Event to Open a Pokedex Form
-        private void OpenPokedex(object sender, EventArgs e)
-        {
+        private void OpenPokedex(object sender, EventArgs e) {
             var btnNamePlayer = sender as Button;
-            bool allPlayersHaveATeam = true;
-            int playersWithoutTeamCount = 0;
-
-
-            //Returns true if only one player with equipment is missing
-            foreach (var player in _tournamentManager.PlayersList) {
-                if (player.Team == null) {
-                    playersWithoutTeamCount++;
-                    if (playersWithoutTeamCount > 1){
-                        allPlayersHaveATeam = false;
-                        break;
-                    }
-                }
-            }
-
-            new PokedexForm(btnNamePlayer.Name, allPlayersHaveATeam).Show();
+            new PokedexForm(btnNamePlayer.Name, _playersService.GetAPlayerNameAndVerifyHaveAnTeam()).Show();
             _playerForm.Close();
         }
-
 
         //Upload players' data so that they can choose their pokémon
         private void LoadLayoutsForPlayers() {
             int count = 1;
 
-            foreach (var player in _tournamentManager.PlayersList) {
+            //Scrolls through all players and assigns as needed
+            foreach (var player in _playersService.GetPlayerList()) {
                 Label lblAux = LabelHelper.CreateDynamicLabel(player.PlayerName); 
                 Button btnAux = ButtonHelper.CreateDynamicButton(player.PlayerName, (player.Team != null));
                 if (!player.PlayerName.Equals("BOT") && player.Team == null) btnAux.Click += new EventHandler(OpenPokedex);
