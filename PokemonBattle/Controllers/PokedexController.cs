@@ -4,17 +4,16 @@ using PokemonBattle.View;
 using PokemonBattle.Views;
 using System;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace PokemonBattle.Controllers {
-    internal class PokedexController {
+    internal class PokedexController{
 
-        //Intances
+        //Intances and variables
         private int pokemonPosition;
         private int pokemonCount;
         private PokedexForm _pokedexForm;
-        private TournamentManager _tournamentManager;
+        private PokedexService _pokedexService;
         private Team _team;
 
         public PokedexController(PokedexForm oPokedexForm) {
@@ -28,7 +27,7 @@ namespace PokemonBattle.Controllers {
         private void InitInstances() {
             this.pokemonPosition = 0;
             this.pokemonCount = 0;
-            this._tournamentManager = TournamentManager.GetInstance;
+            this._pokedexService = new PokedexService();
             this._team = new Team();
         }
 
@@ -39,7 +38,7 @@ namespace PokemonBattle.Controllers {
             _pokedexForm.btnPreviousPokemon.Click += new EventHandler(PreviousPokemon);
             _pokedexForm.btnAddPokemon.Click += new EventHandler(AddPokemon);
         }
-        
+
         //Event to move to the next pokemon on the list
         private void AddPokemon(object sender, EventArgs e) {
             switch (pokemonCount) {
@@ -54,8 +53,8 @@ namespace PokemonBattle.Controllers {
         }
 
         //Load pokemon added in the PictureBox
-        private void LoadPokemonInPctureBox(PictureBox oPictureBox){
-            int pokemonID = _tournamentManager.PokemonsList[pokemonPosition].PokemonID;
+        private void LoadPokemonInPctureBox(PictureBox oPictureBox) {
+            int pokemonID = _pokedexService.GetPokemonByPositionOnList(pokemonPosition).PokemonID;
             //Validate that the selected pokemon is not in the team.
             if (_team.PokemonOneID != pokemonID && _team.PokemonTwoID != pokemonID
                  && _team.PokemonThreeID != pokemonID && _team.PokemonFourID != pokemonID
@@ -64,11 +63,12 @@ namespace PokemonBattle.Controllers {
                 oPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
                 SavePokemonInTeamPlayer();
                 pokemonCount++;
-            }  else MessageBox.Show("No two pokemon can be the same in the team.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else MessageBox.Show("No two pokemon can be the same in the team.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         //Save for each selected pokemon its id to a global variable of type Team.
-        private void SavePokemonInTeamPlayer(){
+        private void SavePokemonInTeamPlayer() {
             switch (pokemonCount) {
                 case 0: _team.PokemonOneID = Convert.ToInt32(_pokedexForm.lblPokemonID.Text.Split('#')[1]); break;
                 case 1: _team.PokemonTwoID = Convert.ToInt32(_pokedexForm.lblPokemonID.Text.Split('#')[1]); break;
@@ -76,7 +76,7 @@ namespace PokemonBattle.Controllers {
                 case 3: _team.PokemonFourID = Convert.ToInt32(_pokedexForm.lblPokemonID.Text.Split('#')[1]); break;
                 case 4: _team.PokemonFiveID = Convert.ToInt32(_pokedexForm.lblPokemonID.Text.Split('#')[1]); break;
                 case 5: _team.PokemonSixID = Convert.ToInt32(_pokedexForm.lblPokemonID.Text.Split('#')[1]); break;
-            }  
+            }
         }
 
         //Event to move to the next pokemon on the list
@@ -87,7 +87,7 @@ namespace PokemonBattle.Controllers {
         }
 
         //Event to move to the previous pokemon on the list
-        private void PreviousPokemon(object sender, EventArgs e){
+        private void PreviousPokemon(object sender, EventArgs e) {
             if (pokemonPosition == 0) pokemonPosition = 106;
             else pokemonPosition--;
             LoadPokedexInLayout();
@@ -96,104 +96,68 @@ namespace PokemonBattle.Controllers {
         //Event to Go to bracket form if all players have a team or Go to Player Form
         private void OpenBracketFormOrPlayersForm(object sender, EventArgs e) {
             //Validate if the equipment is already complete
-            if (_team.PokemonOneID != 0 && _team.PokemonTwoID != 0 
-                && _team.PokemonThreeID != 0 && _team.PokemonFourID != 0 
-                && _team.PokemonFiveID != 0 && _team.PokemonSixID != 0)  {
+            if (_team.PokemonOneID != 0 && _team.PokemonTwoID != 0
+                && _team.PokemonThreeID != 0 && _team.PokemonFourID != 0
+                && _team.PokemonFiveID != 0 && _team.PokemonSixID != 0) {
+
                 string prefix = "btnPlayer";
                 string playerName = _pokedexForm.namePlayer.Substring(prefix.Length);
 
-                //Search for a player by name to assign equipment
-                Player oPlayer = _tournamentManager.PlayersList.FirstOrDefault(x => x.PlayerName == playerName);
-                oPlayer.Team = _team;
+                //Assign equipment
+                _pokedexService.SaveTeamPlayer(_team, playerName);
 
                 //Validate if all players already have an equipment
                 if (_pokedexForm.allPlayersHaveATeam) new BracketForm().Show();
                 else new PlayersForm().Show();
                 _pokedexForm.Close();
-            } else MessageBox.Show("You have to choose your entire team.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+            }
+            else MessageBox.Show("You have to choose your entire team.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         public void LoadPokedexInLayout() {
+            //Instance Aux
+            Pokemon oPokemon = _pokedexService.GetPokemonByPositionOnList(pokemonPosition);
+
             //Clear PictureBoxTypeElement
             _pokedexForm.picBoxType1.BackgroundImage = null;
             _pokedexForm.picBoxType2.BackgroundImage = null;
 
             //Pokemon card
-            _pokedexForm.lblPokemonID.Text = $"#{_tournamentManager.PokemonsList[pokemonPosition].PokemonID}";
-            _pokedexForm.picBoxPokemon.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject($"_{_tournamentManager.PokemonsList[pokemonPosition].PokemonID}");
-            _pokedexForm.lblName.Text = _tournamentManager.PokemonsList[pokemonPosition].PokemonName;
+            _pokedexForm.lblPokemonID.Text = $"#{oPokemon.PokemonID}";
+            _pokedexForm.picBoxPokemon.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject($"_{oPokemon.PokemonID}");
+            _pokedexForm.lblName.Text = oPokemon.PokemonName;
             SetImageForPokemonElementType(_pokedexForm.picBoxType1, 1);
-            _pokedexForm.txtDescription.Text = _tournamentManager.PokemonsList[pokemonPosition].PokemonDescription;
+            _pokedexForm.txtDescription.Text = oPokemon.PokemonDescription;
 
             //Validate if a pokemon has a second element type
-            if (_tournamentManager.PokemonsList[pokemonPosition].TypeElementTwoID != null)
+            if (oPokemon.TypeElementTwoID != null)
                 SetImageForPokemonElementType(_pokedexForm.picBoxType2, 0);
 
             //Movements of the pokemon
-            _pokedexForm.lblMovement1.Text = _tournamentManager.PokemonsList[pokemonPosition].MovementOne.MovementName;
-            _pokedexForm.lblMovement2.Text = _tournamentManager.PokemonsList[pokemonPosition].MovementTwo.MovementName;
-            _pokedexForm.lblMovement3.Text = _tournamentManager.PokemonsList[pokemonPosition].MovementThree.MovementName;
-            _pokedexForm.lblMovement4.Text = _tournamentManager.PokemonsList[pokemonPosition].MovementFour.MovementName;
+            _pokedexForm.lblMovement1.Text = oPokemon.MovementOne.MovementName;
+            _pokedexForm.lblMovement2.Text = oPokemon.MovementTwo.MovementName;
+            _pokedexForm.lblMovement3.Text = oPokemon.MovementThree.MovementName;
+            _pokedexForm.lblMovement4.Text = oPokemon.MovementFour.MovementName;
 
             //Power of pokemon movements
-            _pokedexForm.lblMovementPower1.Text = _tournamentManager.PokemonsList[pokemonPosition].MovementOne.MovementPower.ToString();
-            _pokedexForm.lblMovementPower2.Text = _tournamentManager.PokemonsList[pokemonPosition].MovementTwo.MovementPower.ToString();
-            _pokedexForm.lblMovementPower3.Text = _tournamentManager.PokemonsList[pokemonPosition].MovementThree.MovementPower.ToString();
-            _pokedexForm.lblMovementPower4.Text = _tournamentManager.PokemonsList[pokemonPosition].MovementFour.MovementPower.ToString();
+            _pokedexForm.lblMovementPower1.Text = oPokemon.MovementOne.MovementPower.ToString();
+            _pokedexForm.lblMovementPower2.Text = oPokemon.MovementTwo.MovementPower.ToString();
+            _pokedexForm.lblMovementPower3.Text = oPokemon.MovementThree.MovementPower.ToString();
+            _pokedexForm.lblMovementPower4.Text = oPokemon.MovementFour.MovementPower.ToString();
 
             //Type of pokemon movements
-            _pokedexForm.lblMovementType1.Text = _tournamentManager.PokemonsList[pokemonPosition].MovementOne.TypeMovement.TypeMovementName;
-            _pokedexForm.lblMovementType2.Text = _tournamentManager.PokemonsList[pokemonPosition].MovementTwo.TypeMovement.TypeMovementName;
-            _pokedexForm.lblMovementType3.Text = _tournamentManager.PokemonsList[pokemonPosition].MovementThree.TypeMovement.TypeMovementName;
-            _pokedexForm.lblMovementType4.Text = _tournamentManager.PokemonsList[pokemonPosition].MovementFour.TypeMovement.TypeMovementName;
-            _pokedexForm.txtDescription.Text = _tournamentManager.PokemonsList[pokemonPosition].PokemonDescription;
+            _pokedexForm.lblMovementType1.Text = oPokemon.MovementOne.TypeMovement.TypeMovementName;
+            _pokedexForm.lblMovementType2.Text = oPokemon.MovementTwo.TypeMovement.TypeMovementName;
+            _pokedexForm.lblMovementType3.Text = oPokemon.MovementThree.TypeMovement.TypeMovementName;
+            _pokedexForm.lblMovementType4.Text = oPokemon.MovementFour.TypeMovement.TypeMovementName;
+            _pokedexForm.txtDescription.Text = oPokemon.PokemonDescription;
         }
 
+        //Adds an image to a picture box according to the picturebox and item number
         public void SetImageForPokemonElementType(PictureBox oPictureBox, int numberType) {
-            if (numberType == 1) {
-                switch (_tournamentManager.PokemonsList[pokemonPosition].TypeElementOne.TypeElementName) {
-                    case "Fairy": oPictureBox.BackgroundImage = Properties.Resources.Fairy; break;
-                    case "Steel": oPictureBox.BackgroundImage = Properties.Resources.Steel; break;
-                    case "Dark": oPictureBox.BackgroundImage = Properties.Resources.Dark; break;
-                    case "Dragon": oPictureBox.BackgroundImage = Properties.Resources.Dragon; break;
-                    case "Ghost": oPictureBox.BackgroundImage = Properties.Resources.Ghost; break;
-                    case "Rock": oPictureBox.BackgroundImage = Properties.Resources.Rock; break;
-                    case "Bug": oPictureBox.BackgroundImage = Properties.Resources.Bug; break;
-                    case "Psychc": oPictureBox.BackgroundImage = Properties.Resources.Psychc; break;
-                    case "Flying": oPictureBox.BackgroundImage = Properties.Resources.Flying; break;
-                    case "Ground": oPictureBox.BackgroundImage = Properties.Resources.Ground; break;
-                    case "Poison": oPictureBox.BackgroundImage = Properties.Resources.Poison; break;
-                    case "Fight": oPictureBox.BackgroundImage = Properties.Resources.Fight; break;
-                    case "Ice": oPictureBox.BackgroundImage = Properties.Resources.Ice; break;
-                    case "Grass": oPictureBox.BackgroundImage = Properties.Resources.Grass; break;
-                    case "Electr": oPictureBox.BackgroundImage = Properties.Resources.Electr; break;
-                    case "Water": oPictureBox.BackgroundImage = Properties.Resources.Water; break;
-                    case "Fire": oPictureBox.BackgroundImage = Properties.Resources.Fire; break;
-                    case "Normal": oPictureBox.BackgroundImage = Properties.Resources.Normal; break;
-                }
-            }
-            else {
-                switch (_tournamentManager.PokemonsList[pokemonPosition].TypeElementTwo.TypeElementName) {
-                    case "Fairy": oPictureBox.BackgroundImage = Properties.Resources.Fairy; break;
-                    case "Steel": oPictureBox.BackgroundImage = Properties.Resources.Steel; break;
-                    case "Dark": oPictureBox.BackgroundImage = Properties.Resources.Dark; break;
-                    case "Dragon": oPictureBox.BackgroundImage = Properties.Resources.Dragon; break;
-                    case "Ghost": oPictureBox.BackgroundImage = Properties.Resources.Ghost; break;
-                    case "Rock": oPictureBox.BackgroundImage = Properties.Resources.Rock; break;
-                    case "Bug": oPictureBox.BackgroundImage = Properties.Resources.Bug; break;
-                    case "Psychc": oPictureBox.BackgroundImage = Properties.Resources.Psychc; break;
-                    case "Flying": oPictureBox.BackgroundImage = Properties.Resources.Flying; break;
-                    case "Ground": oPictureBox.BackgroundImage = Properties.Resources.Ground; break;
-                    case "Poison": oPictureBox.BackgroundImage = Properties.Resources.Poison; break;
-                    case "Fight": oPictureBox.BackgroundImage = Properties.Resources.Fight; break;
-                    case "Ice": oPictureBox.BackgroundImage = Properties.Resources.Ice; break;
-                    case "Grass": oPictureBox.BackgroundImage = Properties.Resources.Grass; break;
-                    case "Electr": oPictureBox.BackgroundImage = Properties.Resources.Electr; break;
-                    case "Water": oPictureBox.BackgroundImage = Properties.Resources.Water; break;
-                    case "Fire": oPictureBox.BackgroundImage = Properties.Resources.Fire; break;
-                    case "Normal": oPictureBox.BackgroundImage = Properties.Resources.Normal; break;
-                }
-            }
+            string typeElement = _pokedexService.GetTypeElementName(pokemonPosition, numberType);
+            //Verify that the string is not null
+            if (typeElement != "") oPictureBox.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject(typeElement);
         }
     }
 }

@@ -135,6 +135,7 @@
     <Compile Include="Services\BotService.cs" />
     <Compile Include="Models\TournamentManager.cs" />
     <Compile Include="Services\PlayersService.cs" />
+    <Compile Include="Services\PokedexService.cs" />
     <Compile Include="Views\BattleForm.cs">
       <SubType>Form</SubType>
     </Compile>

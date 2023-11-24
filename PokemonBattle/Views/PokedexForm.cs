@@ -13,14 +13,19 @@ namespace PokemonBattle.View {
         internal readonly string namePlayer;
 
         public PokedexForm(string namePlayer, bool allPlayersHaveATeam) {
+            //Get parameters
             this.allPlayersHaveATeam = allPlayersHaveATeam;
             this.namePlayer = namePlayer;
+
             InitializeComponent();
             InitComponents();
+
+            //Configure button actions to be transparent
             ButtonHelper.CustomizeAppearanceButtons(new List<Button> { btnBack, btnAddPokemon, btnPreviousPokemon, btnNextPokemon});
             _pokedexController = new PokedexController(this);
         }
 
+        //Cancel the ability to move the screen
         protected override void WndProc(ref Message m){
             const int WM_NCLBUTTONDOWN = 0xA1;
             const int HTCAPTION = 0x2;
@@ -29,10 +34,9 @@ namespace PokemonBattle.View {
             base.WndProc(ref m);
         }
 
-
         //Init Componentes of Pokedex Form
         public void InitComponents() {
-            //btnBack
+            //Verify if all players have a team except one
             if (allPlayersHaveATeam) btnBack.Text = "NEXT";
             else btnBack.Text = "BACK";
             //txtDescription
