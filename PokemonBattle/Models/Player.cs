@@ -21,6 +21,8 @@ namespace PokemonBattle.Models{
 
         public bool IsInFinal { get; set; } = false;
 
+        public bool IsEliminated { get; set; } = false;
+
         //References ForeignKey
         public virtual ICollection<Battle> BattlesPlayerOne { get; set; }
         public virtual ICollection<Battle> BattlesPlayerTwo { get; set; }

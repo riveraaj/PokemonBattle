@@ -6,23 +6,12 @@ namespace PokemonBattle.Views {
     public partial class BracketForm : Form {
 
         //Instances and variables
-        private Timer timer;
+        internal Timer timer;
         private BracketController _bracketController;
 
         public BracketForm() {
             InitializeComponent();
-            InitTimer();
             this._bracketController = new BracketController(this);
-        }
-
-        //Init Timer
-        private void InitTimer(){
-            timer = new Timer {
-                Interval = 10000 // 10 segundos
-            };
-
-            timer.Tick += Timer_Tick;
-            timer.Start();
         }
 
         //Cancel the ability to move the screen
@@ -32,13 +21,6 @@ namespace PokemonBattle.Views {
 
             if (m.Msg == WM_NCLBUTTONDOWN && (int)m.WParam == HTCAPTION) return;
             base.WndProc(ref m);
-        }
-
-        //Event to open a fomr after the set time of the timer
-        private void Timer_Tick(object sender, EventArgs e){
-            this.timer.Stop();
-            new BattleForm().Show();
-            this.Close();
         }
     }
 }

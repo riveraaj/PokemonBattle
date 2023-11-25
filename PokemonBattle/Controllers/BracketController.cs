@@ -2,6 +2,7 @@
 using PokemonBattle.Properties;
 using PokemonBattle.Services;
 using PokemonBattle.Views;
+using System;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -19,6 +20,7 @@ namespace PokemonBattle.Controllers {
             this._bracketForm = oBracketForm;
             InitInstances();
             InitLoad();
+            InitTimer();
         }
 
         //Init Instances and viariables
@@ -35,6 +37,23 @@ namespace PokemonBattle.Controllers {
             if (tournamentSize == 16) LoadLayout(Resources.TournamentSixteen);
             else if (tournamentSize == 8) LoadLayout(Resources.TournamentEight);
             else LoadLayout(Resources.TournamentFour);
+        }
+
+        //Init Timer
+        private void InitTimer(){
+            _bracketForm.timer = new Timer {
+                Interval = 10000 // 10 segundos
+            };
+
+            _bracketForm.timer.Tick += Timer_Tick;
+            _bracketForm.timer.Start();
+        }
+
+        //Event to open a form after the set time of the timer
+        private void Timer_Tick(object sender, EventArgs e){
+            _bracketForm.timer.Stop();
+            new BattleForm(_bracketService.GetNextBattle()).Show();
+            _bracketForm.Close();
         }
 
         private void LoadLayout(Image backgroundImage) {

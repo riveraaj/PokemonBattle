@@ -8,10 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PokemonBattle.Views
-{
+namespace PokemonBattle.Views {
     public partial class BattleForm : Form {
-        public BattleForm() {
+
+        //Variables
+        internal (string playerOneID, string playerTwoID, bool inFinals) values;
+
+        public BattleForm((string playerOneID, string playerTwoID, bool inFinals) values){
+            this.values = values;
             InitializeComponent();
         }
 
@@ -20,7 +24,6 @@ namespace PokemonBattle.Views
             const int HTCAPTION = 0x2;
 
             if (m.Msg == WM_NCLBUTTONDOWN && (int)m.WParam == HTCAPTION) return;
-
             base.WndProc(ref m);
         }
     }
