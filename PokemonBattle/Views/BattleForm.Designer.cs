@@ -56,6 +56,8 @@
             this.lblHealthPlayerOne = new System.Windows.Forms.Label();
             this.lblPlayerNameTwo = new System.Windows.Forms.Label();
             this.lblPlayerNameOne = new System.Windows.Forms.Label();
+            this.txtStatsPlayerTwo = new System.Windows.Forms.RichTextBox();
+            this.txtStatsPlayerOne = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxPokemonPlayer2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxPokemonPlayer1)).BeginInit();
             this.SuspendLayout();
@@ -325,25 +327,47 @@
             // 
             // lblPlayerNameTwo
             // 
-            this.lblPlayerNameTwo.BackColor = System.Drawing.Color.Transparent;
+            this.lblPlayerNameTwo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblPlayerNameTwo.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayerNameTwo.ForeColor = System.Drawing.Color.White;
-            this.lblPlayerNameTwo.Location = new System.Drawing.Point(791, 108);
+            this.lblPlayerNameTwo.Location = new System.Drawing.Point(797, 114);
             this.lblPlayerNameTwo.Name = "lblPlayerNameTwo";
             this.lblPlayerNameTwo.Size = new System.Drawing.Size(97, 28);
             this.lblPlayerNameTwo.TabIndex = 32;
-            this.lblPlayerNameTwo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblPlayerNameTwo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblPlayerNameOne
             // 
-            this.lblPlayerNameOne.BackColor = System.Drawing.Color.Transparent;
+            this.lblPlayerNameOne.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblPlayerNameOne.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlayerNameOne.ForeColor = System.Drawing.Color.White;
-            this.lblPlayerNameOne.Location = new System.Drawing.Point(17, 379);
+            this.lblPlayerNameOne.Location = new System.Drawing.Point(10, 384);
             this.lblPlayerNameOne.Name = "lblPlayerNameOne";
             this.lblPlayerNameOne.Size = new System.Drawing.Size(97, 28);
             this.lblPlayerNameOne.TabIndex = 33;
-            this.lblPlayerNameOne.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblPlayerNameOne.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtStatsPlayerTwo
+            // 
+            this.txtStatsPlayerTwo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtStatsPlayerTwo.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStatsPlayerTwo.Location = new System.Drawing.Point(797, 145);
+            this.txtStatsPlayerTwo.Name = "txtStatsPlayerTwo";
+            this.txtStatsPlayerTwo.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.txtStatsPlayerTwo.Size = new System.Drawing.Size(97, 118);
+            this.txtStatsPlayerTwo.TabIndex = 37;
+            this.txtStatsPlayerTwo.Text = "";
+            // 
+            // txtStatsPlayerOne
+            // 
+            this.txtStatsPlayerOne.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtStatsPlayerOne.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStatsPlayerOne.Location = new System.Drawing.Point(10, 263);
+            this.txtStatsPlayerOne.Name = "txtStatsPlayerOne";
+            this.txtStatsPlayerOne.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.txtStatsPlayerOne.Size = new System.Drawing.Size(97, 118);
+            this.txtStatsPlayerOne.TabIndex = 38;
+            this.txtStatsPlayerOne.Text = "";
             // 
             // BattleForm
             // 
@@ -352,6 +376,8 @@
             this.BackgroundImage = global::PokemonBattle.Properties.Resources.ButtonsBattle;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(914, 515);
+            this.Controls.Add(this.txtStatsPlayerOne);
+            this.Controls.Add(this.txtStatsPlayerTwo);
             this.Controls.Add(this.lblPlayerNameOne);
             this.Controls.Add(this.lblPlayerNameTwo);
             this.Controls.Add(this.lblHealthPlayerOne);
@@ -421,5 +447,7 @@
         internal System.Windows.Forms.Label lblHealthPlayerOne;
         internal System.Windows.Forms.Label lblPlayerNameTwo;
         internal System.Windows.Forms.Label lblPlayerNameOne;
+        internal System.Windows.Forms.RichTextBox txtStatsPlayerTwo;
+        internal System.Windows.Forms.RichTextBox txtStatsPlayerOne;
     }
 }

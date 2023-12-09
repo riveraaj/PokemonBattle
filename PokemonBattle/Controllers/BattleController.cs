@@ -131,35 +131,53 @@ namespace PokemonBattle.Controllers {
             if (healthPokemonPlayerTwo > 0) {
                 var movement = _battleService.GetMovement(oButton.Text);
                 //If the movement is of the defense type, the protection will be activated.
-                if (movement.TypeMovementID == 2) pokemonPlayerOneProtected = true;
-                else {
+                if (movement.TypeMovementID == 2) {
+                    _battleForm.txtStatsPlayerOne.Text = $"{playerList[0].PlayerName} has used {movement.MovementName}...";
+                    pokemonPlayerOneProtected = true;
+                }
+                else
+                {
                     //If a pokemon is protected, it cannot be harmed.
-                    if (pokemonPlayerTwoProtected) {
-                        MessageBox.Show("The pokemon is protected", "Wait...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (pokemonPlayerTwoProtected)
+                    {
+                        _battleForm.txtStatsPlayerOne.Text = $"{playerList[0].PlayerName} has used {movement.MovementName}...";
+                        _battleForm.txtStatsPlayerOne.Text += $"\nThe {playerList[1].PlayerName}'s pokemon is protected";
                         pokemonPlayerTwoProtected = false;
                         pokemonPlayerOneProtected = false;
-                    } else {                       
+                    }
+                    else
+                    {
+                        _battleForm.txtStatsPlayerOne.Text = $"{playerList[0].PlayerName} has used {movement.MovementName}...";
                         healthPokemonPlayerTwo -= movement.MovementPower;
                         _battleForm.lblHealthPlayerTwo.Text = (healthPokemonPlayerTwo < 0) ? "0/100" : $"{healthPokemonPlayerTwo}/100";
                         //Validate that the pokemon has less than 0 health
-                        if (healthPokemonPlayerTwo <= 0) {
+                        if (healthPokemonPlayerTwo <= 0)
+                        {
                             _battleForm.progressPokemonPlayer2.Value = 0;
                             //Validate if the player has already lost his first 4 pokémon.
-                            if (numberOfPokemonPlayerTwo == 4) {
+                            if (numberOfPokemonPlayerTwo == 4)
+                            {
                                 //It validates if the player is in which stage and depending on that the battle is created and the player's mapping is updated.
-                                if (playerList[0].IsInFinal) {
+                                if (playerList[0].IsInFinal)
+                                {
                                     _battleService.CreateBattle(playerList, oArena.ArenaID, true, numberOfPokemonPlayerOne);
                                     _battleService.SaveBattles(playerList[0]);
                                     playerList[1].IsEliminated = true;
-                                } else if (playerList[0].IsInSemi) {
+                                }
+                                else if (playerList[0].IsInSemi)
+                                {
                                     _battleService.CreateBattle(playerList, oArena.ArenaID, true, numberOfPokemonPlayerOne);
                                     playerList[1].IsEliminated = true;
                                     playerList[0].IsInFinal = true;
-                                } else if (playerList[0].IsInQuarter) {
+                                }
+                                else if (playerList[0].IsInQuarter)
+                                {
                                     _battleService.CreateBattle(playerList, oArena.ArenaID, true, numberOfPokemonPlayerOne);
                                     playerList[1].IsEliminated = true;
                                     playerList[0].IsInSemi = true;
-                                } else {
+                                }
+                                else
+                                {
                                     _battleService.CreateBattle(playerList, oArena.ArenaID, true, numberOfPokemonPlayerOne);
                                     playerList[1].IsEliminated = true;
                                     playerList[0].IsInQuarter = true;
@@ -168,13 +186,17 @@ namespace PokemonBattle.Controllers {
                                 //The braket is reopened
                                 new BracketForm().Show();
                                 _battleForm.Close();
-                            } else{
-                                MessageBox.Show("Player one has eliminated the pokemon", "Wait...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                _battleForm.txtStatsPlayerOne.Text += $"\n{playerList[0].PlayerName} has eliminated the pokemon";
+                                //MessageBox.Show("Player one has eliminated the pokemon", "Wait...", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 numberOfPokemonPlayerTwo++;
                                 healthPokemonPlayerTwo = 100;
                                 ChangePokemon();
                             }
-                        } else _battleForm.progressPokemonPlayer2.Value = healthPokemonPlayerTwo;
+                        }
+                        else _battleForm.progressPokemonPlayer2.Value = healthPokemonPlayerTwo;
                     }
                 }
             } else {
@@ -191,35 +213,54 @@ namespace PokemonBattle.Controllers {
             if (healthPokemonPlayerOne > 0) {
                 var movement = _battleService.GetMovement(oButton.Text);
                 //If the movement is of the defense type, the protection will be activated.
-                if (movement.TypeMovementID == 2) pokemonPlayerTwoProtected = true;      
-                else {
+                if (movement.TypeMovementID == 2) {
+                    _battleForm.txtStatsPlayerTwo.Text = $"{playerList[1].PlayerName} has used {movement.MovementName}...";
+                    pokemonPlayerTwoProtected = true;
+                }
+                else
+                {
                     //If a pokemon is protected, it cannot be harmed.
-                    if (pokemonPlayerOneProtected)  {
-                        MessageBox.Show("The pokemon is protected", "Wait...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (pokemonPlayerOneProtected)
+                    {
+                        _battleForm.txtStatsPlayerTwo.Text = $"{playerList[1].PlayerName} has used {movement.MovementName}...";
+                        _battleForm.txtStatsPlayerTwo.Text += $"\nThe {playerList[0].PlayerName}'s pokemon is protected";
+                        //MessageBox.Show("The pokemon is protected", "Wait...", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         pokemonPlayerOneProtected = false;
                         pokemonPlayerTwoProtected = false;
-                    } else { 
+                    }
+                    else
+                    {
+                        _battleForm.txtStatsPlayerTwo.Text = $"{playerList[1].PlayerName} has used {movement.MovementName}...";
                         healthPokemonPlayerOne -= movement.MovementPower;
                         _battleForm.lblHealthPlayerOne.Text = (healthPokemonPlayerOne < 0) ? "0/100" : $"{healthPokemonPlayerOne}/100";
                         //Validate that the pokemon has less than 0 health
-                        if (healthPokemonPlayerOne <= 0) {
+                        if (healthPokemonPlayerOne <= 0)
+                        {
                             _battleForm.progressPokemonPlayer1.Value = 0;
                             //Validate if the player has already lost his first 4 pokémon.
-                            if (numberOfPokemonPlayerOne == 4) {
+                            if (numberOfPokemonPlayerOne == 4)
+                            {
                                 //It validates if the player is in which stage and depending on that the battle is created and the player's mapping is updated.
-                                if (playerList[1].IsInFinal) {
+                                if (playerList[1].IsInFinal)
+                                {
                                     _battleService.CreateBattle(playerList, oArena.ArenaID, false, numberOfPokemonPlayerTwo);
                                     _battleService.SaveBattles(playerList[1]);
                                     playerList[0].IsEliminated = true;
-                                } else if (playerList[1].IsInSemi) {
+                                }
+                                else if (playerList[1].IsInSemi)
+                                {
                                     _battleService.CreateBattle(playerList, oArena.ArenaID, false, numberOfPokemonPlayerTwo);
                                     playerList[0].IsEliminated = true;
                                     playerList[1].IsInFinal = true;
-                                } else if (playerList[1].IsInQuarter) {
+                                }
+                                else if (playerList[1].IsInQuarter)
+                                {
                                     _battleService.CreateBattle(playerList, oArena.ArenaID, false, numberOfPokemonPlayerTwo);
                                     playerList[0].IsEliminated = true;
                                     playerList[1].IsInSemi = true;
-                                } else {
+                                }
+                                else
+                                {
                                     _battleService.CreateBattle(playerList, oArena.ArenaID, false, numberOfPokemonPlayerTwo);
                                     playerList[0].IsEliminated = true;
                                     playerList[1].IsInQuarter = true;
@@ -228,13 +269,17 @@ namespace PokemonBattle.Controllers {
                                 //The braket is reopened
                                 new BracketForm().Show();
                                 _battleForm.Close();
-                            } else {
-                                MessageBox.Show("Player two has eliminated the pokemon", "Wait...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                _battleForm.txtStatsPlayerTwo.Text += $"\n{playerList[1].PlayerName} has eliminated the pokemon";
+                                //MessageBox.Show("Player two has eliminated the pokemon", "Wait...", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 numberOfPokemonPlayerOne++;
                                 healthPokemonPlayerOne = 100;
                                 ChangePokemon();
                             }
-                        } else _battleForm.progressPokemonPlayer1.Value = healthPokemonPlayerOne;
+                        }
+                        else _battleForm.progressPokemonPlayer1.Value = healthPokemonPlayerOne;
                     }
                 }
             } else {
@@ -287,7 +332,7 @@ namespace PokemonBattle.Controllers {
 
         //This method will simulate bot attacks.
         private async Task SimulateBotAttackAsync() {
-            await Task.Delay(5000); //Wait 5 seconds to perform the action
+            await Task.Delay(2000); //Wait 2 seconds to perform the action
 
             Random random = new Random();
             int randomAttack = random.Next(1, 5);
