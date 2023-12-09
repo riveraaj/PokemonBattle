@@ -2,7 +2,10 @@
 using System;
 
 namespace PokemonBattle.Services {
-    internal class PokemonTypeService {
+    internal class TypeService {
+
+        //Variable
+        private const double ArenaModifier = 1.05; // 5% 
 
         //Function for calculating the damage adjusted between two types
         public double CalculateAdjustedDamage(double baseDamage, string attackerType1, string attackerType2, string defenderType1, string defenderType2) {
@@ -36,7 +39,7 @@ namespace PokemonBattle.Services {
             IsStrongAgainstSingleType(attackerType, defenderType1) || IsStrongAgainstSingleType(attackerType, defenderType2);
         
         //Function to check if a type is strong against a single type
-        private bool IsStrongAgainstSingleType(string attackerType, string defenderType) {
+        public bool IsStrongAgainstSingleType(string attackerType, string defenderType) {
             switch (attackerType) {
                 case "Fairy":
                     return defenderType == "Fight" || defenderType == "Dragon" || defenderType == "Dark";
@@ -190,6 +193,12 @@ namespace PokemonBattle.Services {
                     break;
             }
             return (attackerType1, attackerType2);
+        }
+
+        public double CalculateArenaTypeModifier(string arenaType, string pokemonType) {
+            if (arenaType == pokemonType) return 1;
+            else if (IsStrongAgainstSingleType(arenaType, pokemonType)) return ArenaModifier;
+            else return -ArenaModifier;
         }
     }
 }

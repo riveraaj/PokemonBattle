@@ -15,7 +15,7 @@ namespace PokemonBattle.Controllers {
         private Pokemon oPokemon;
         private List<Player> playerList;
         private BattleService _battleService;
-        private PokemonTypeService _pokemonTypeService;
+        private TypeService _pokemonTypeService;
         private readonly BattleForm _battleForm;
         private (string playerOneName, string playerTwoName) values;
         private bool turnPlayerOne, pokemonPlayerOneProtected, pokemonPlayerTwoProtected;
@@ -48,7 +48,7 @@ namespace PokemonBattle.Controllers {
             pokemonPlayerOneProtected = false;
             pokemonPlayerTwoProtected = false;
             _battleService = new BattleService();
-            _pokemonTypeService = new PokemonTypeService();
+            _pokemonTypeService = new TypeService();
         }
 
         //Initialize the view on first appearance
@@ -149,16 +149,22 @@ namespace PokemonBattle.Controllers {
                     }
                     else
                     {
-                        // Obtain the types of attacker and defender.
+                        //Obtain the types of attacker and defender.
                         (string attackerType1, string attackerType2) = _pokemonTypeService.GetTypesOfAttacker(numberOfPokemonPlayerOne, playerList[0]);
                         (string defenderType1, string defenderType2) = _pokemonTypeService.GetTypesOfDefender(numberOfPokemonPlayerTwo, playerList[1]);
 
-                        // Calculates adjusted damage using type logic
-                        double adjustedDamage = _pokemonTypeService.CalculateAdjustedDamage(movement.MovementPower, attackerType1, 
+                        //Calculates adjusted damage using type logic
+                        double adjustedDamageByType = _pokemonTypeService.CalculateAdjustedDamage(movement.MovementPower, attackerType1, 
                                                                                         attackerType2, defenderType1, defenderType2);
+                        //Calculates adjusted damage using type arena logic
+                        double adjustedDamageByArena = _pokemonTypeService.CalculateArenaTypeModifier(oArena.TypeElement.TypeElementName, attackerType1);
 
                         _battleForm.txtStatsPlayerOne.Text = $"{playerList[0].PlayerName} has used {movement.MovementName}...";
-                        healthPokemonPlayerTwo -= (int) adjustedDamage;
+
+                        if (adjustedDamageByArena >= 0) healthPokemonPlayerTwo -= (int)(adjustedDamageByType * adjustedDamageByArena);
+                        else healthPokemonPlayerTwo += (int)(adjustedDamageByType / adjustedDamageByArena); 
+
+                        //healthPokemonPlayerTwo -= (adjustedDamageByArena > 0) ? (int)(adjustedDamageByType * adjustedDamageByArena) : (int)(adjustedDamageByType / adjustedDamageByArena);
                         _battleForm.lblHealthPlayerTwo.Text = (healthPokemonPlayerTwo < 0) ? "0/100" : $"{healthPokemonPlayerTwo}/100";
                         //Validate that the pokemon has less than 0 health
                         if (healthPokemonPlayerTwo <= 0)
@@ -241,15 +247,22 @@ namespace PokemonBattle.Controllers {
                     else {
 
                         // Obtain the types of attacker and defender.
-                        (string attackerType1, string attackerType2) attacker = _pokemonTypeService.GetTypesOfAttacker(numberOfPokemonPlayerTwo, playerList[1]);
-                        (string defenderType1, string defenderType2) defender = _pokemonTypeService.GetTypesOfDefender(numberOfPokemonPlayerOne, playerList[0]);
+                        (string attackerType1, string attackerType2) = _pokemonTypeService.GetTypesOfAttacker(numberOfPokemonPlayerTwo, playerList[1]);
+                        (string defenderType1, string defenderType2) = _pokemonTypeService.GetTypesOfDefender(numberOfPokemonPlayerOne, playerList[0]);
 
                         // Calcula el daño ajustado usando la lógica de tipos
-                        double adjustedDamage = _pokemonTypeService.CalculateAdjustedDamage(movement.MovementPower, attacker.attackerType1, 
-                                                                                        attacker.attackerType2, defender.defenderType1, defender.defenderType2);
+                        double adjustedDamageByType = _pokemonTypeService.CalculateAdjustedDamage(movement.MovementPower, attackerType1, 
+                                                                                        attackerType2, defenderType1, defenderType2);
+
+                        //Calculates adjusted damage using type arena logic
+                        double adjustedDamageByArena = _pokemonTypeService.CalculateArenaTypeModifier(oArena.TypeElement.TypeElementName, attackerType1);
 
                         _battleForm.txtStatsPlayerTwo.Text = $"{playerList[1].PlayerName} has used {movement.MovementName}...";
-                        healthPokemonPlayerOne -= (int) adjustedDamage;
+
+                        if (adjustedDamageByArena >= 0) healthPokemonPlayerOne -= (int)(adjustedDamageByType * adjustedDamageByArena);
+                        else healthPokemonPlayerOne += (int)(adjustedDamageByType / adjustedDamageByArena);
+                        
+                        //healthPokemonPlayerOne -= (adjustedDamageByArena > 0) ? (int) (adjustedDamageByType * adjustedDamageByArena) : (int) (adjustedDamageByType / adjustedDamageByArena);
                         _battleForm.lblHealthPlayerOne.Text = (healthPokemonPlayerOne < 0) ? "0/100" : $"{healthPokemonPlayerOne}/100";
                         //Validate that the pokemon has less than 0 health
                         if (healthPokemonPlayerOne <= 0)
