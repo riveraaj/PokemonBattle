@@ -26,6 +26,7 @@ namespace PokemonBattle.Controllers {
 
         //Event to Open a Init Tournament Form
         private void OpenInitTournamentForm(object sender, KeyPressEventArgs e) {
+            _tournamentServices.Reset();
             new InitTournamentForm().Show();
             _principalForm.Hide();
         }

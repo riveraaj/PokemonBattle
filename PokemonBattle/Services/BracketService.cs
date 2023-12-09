@@ -13,27 +13,37 @@ namespace PokemonBattle.Services {
 
         public int GetSizeTournament() => _tournamentManager.TournamentSize;
 
+        public void CleanTorunamentManager() => _tournamentManager.Reset();
+
         public Player GetWinner() => _tournamentManager.Winner;
 
         public Player GetPlayerByPositionOnList(int position) => _tournamentManager.PlayersList[position];
 
-        public (string playerOneName, string playerTwoName, bool inFinals) GetNextBattle() {
+        public (string playerOneName, string playerTwoName) GetNextBattle() {
             int howManyInFinals = GetPlayerList().Where(x => x.IsInFinal).Count();
-            bool inFinals = false;
+            int howManyInSemiFinals = GetPlayerList().Where(x => x.IsInSemi).Count();
+            int howManyInQuarters = GetPlayerList().Where(x => x.IsInQuarter).Count();
             string playerOneName, playerTwoName;
 
             if (howManyInFinals == 2){
                 var playersForBattle = GetPlayerList().Where(x => x.IsInFinal).Take(2).ToList();
                 playerOneName = playersForBattle[0].PlayerName;
                 playerTwoName = playersForBattle[1].PlayerName;
-                inFinals = true;
+            } else if (howManyInSemiFinals == 4) {
+                var playersForBattle = GetPlayerList().Where(x => !x.IsEliminated && x.IsInSemi && !x.IsInFinal).Take(2).ToList();
+                playerOneName = playersForBattle[0].PlayerName;
+                playerTwoName = playersForBattle[1].PlayerName;
+            } else if (howManyInQuarters == 8) {
+                var playersForBattle = GetPlayerList().Where(x => !x.IsEliminated && x.IsInQuarter && !x.IsInFinal && !x.IsInSemi).Take(2).ToList();
+                playerOneName = playersForBattle[0].PlayerName;
+                playerTwoName = playersForBattle[1].PlayerName;
             } else {
-                var playersForBattle = GetPlayerList().Where(x => !x.IsInFinal && !x.IsEliminated).Take(2).ToList();
+                var playersForBattle = GetPlayerList().Where(x => !x.IsInFinal && !x.IsEliminated && !x.IsInSemi && !x.IsInQuarter).Take(2).ToList();
                 playerOneName = playersForBattle[0].PlayerName;
                 playerTwoName = playersForBattle[1].PlayerName;
             }
 
-            return (playerOneName, playerTwoName, inFinals);
+            return (playerOneName, playerTwoName);
         }
     }
 }

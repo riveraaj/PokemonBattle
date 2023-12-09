@@ -1443,6 +1443,16 @@ namespace PokemonBattle.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Versus {
+            get {
+                object obj = ResourceManager.GetObject("Versus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Water {
             get {
                 object obj = ResourceManager.GetObject("Water", resourceCulture);

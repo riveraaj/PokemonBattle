@@ -77,11 +77,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\BattleController.cs" />
     <Compile Include="Controllers\BracketController.cs" />
     <Compile Include="Controllers\InitTournamentController.cs" />
     <Compile Include="Controllers\PlayersController.cs" />
     <Compile Include="Controllers\PokedexController.cs" />
     <Compile Include="Controllers\PrincipalController.cs" />
+    <Compile Include="Controllers\VersusController.cs" />
     <Compile Include="Helpers\ButtonHelper.cs" />
     <Compile Include="Helpers\LabelHelper.cs" />
     <Compile Include="Helpers\TextBoxHelper.cs" />
@@ -130,7 +132,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Repositories\ArenasRepository.cs" />
+    <Compile Include="Repositories\BattleRepository.cs" />
+    <Compile Include="Repositories\LogRepository.cs" />
+    <Compile Include="Repositories\MovementRepository.cs" />
+    <Compile Include="Repositories\PlayerRepository.cs" />
     <Compile Include="Repositories\PokemonRepository.cs" />
+    <Compile Include="Repositories\TeamRepository.cs" />
+    <Compile Include="Repositories\TournamentRepository.cs" />
+    <Compile Include="Services\BattleService.cs" />
     <Compile Include="Services\BracketService.cs" />
     <Compile Include="Services\PlayerService.cs" />
     <Compile Include="Services\BotService.cs" />
@@ -175,6 +185,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\VersusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\VersusForm.Designer.cs">
+      <DependentUpon>VersusForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Views\BattleForm.resx">
       <DependentUpon>BattleForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -197,6 +213,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\VersusForm.resx">
+      <DependentUpon>VersusForm.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="Models\Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -232,6 +251,10 @@
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
     <Content Include="pokeball.ico" />
+    <Content Include="Resources\Interface\TournamentEight.png" />
+    <Content Include="Resources\Interface\TournamentFour.png" />
+    <Content Include="Resources\Interface\TournamentSixteen.png" />
+    <None Include="Resources\Interface\Versus.png" />
     <None Include="Resources\Interface\BackgroundPlayersScreen.jpg" />
     <None Include="Resources\Type\Bug.png" />
     <None Include="Resources\Type\Dark.png" />
@@ -259,9 +282,6 @@
     <None Include="Resources\Interface\ButtonStop.png" />
     <None Include="Resources\Interface\ButtonPlay.png" />
     <None Include="Resources\Interface\ButtonChoosePokemon.png" />
-    <None Include="Resources\Interface\TournamentEight.png" />
-    <None Include="Resources\Interface\TournamentFour.png" />
-    <None Include="Resources\Interface\TournamentSixteen.png" />
     <None Include="Resources\Interface\ButtonsBattle.png" />
     <None Include="Resources\Pokemon\387.png" />
     <None Include="Resources\Pokemon\388.png" />

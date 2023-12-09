@@ -9,7 +9,7 @@ namespace PokemonBattle.Services {
 
         public PlayersService() => this._tournamentManager = TournamentManager.GetInstance;
 
-        public List<Player> GetPlayerList() => _tournamentManager.PlayersList;
+        public List<Player> GetPlayerList() => _tournamentManager.AuxPlayersList;
 
         public bool GetAPlayerNameAndVerifyHaveAnTeam() {
 
@@ -17,7 +17,7 @@ namespace PokemonBattle.Services {
             int playersWithoutTeamCount = 0;
 
             //Returns true if only one player with equipment is missing
-            foreach (var player in _tournamentManager.PlayersList) {
+            foreach (var player in _tournamentManager.AuxPlayersList) {
                 if (player.Team == null) {
                     playersWithoutTeamCount++;
                     if (playersWithoutTeamCount > 1) {

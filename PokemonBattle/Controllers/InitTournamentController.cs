@@ -71,7 +71,7 @@ namespace PokemonBattle.Controllers {
                 _initTournamentForm.labelWarning.Visible = false;
                 SaveTournamentSize(_initTournamentForm.SizeTournament);
                 GenerateBots(_initTournamentForm.SizeTournament, _initTournamentForm.NumberPlayers);
-                _initTournamentForm.TextBoxes.ForEach(x => playersName.Add(x.Text));
+                _initTournamentForm.TextBoxes.ForEach(x => playersName.Add((x.Text.ToLower()[0].ToString().ToUpper()) + x.Text.ToLower().Substring(1)));
                 GeneratePlayers(playersName);
                 new PlayersForm().Show();
                 _initTournamentForm.Close();

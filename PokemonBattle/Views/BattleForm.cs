@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PokemonBattle.Controllers;
+using PokemonBattle.Utilities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,11 +14,18 @@ namespace PokemonBattle.Views {
     public partial class BattleForm : Form {
 
         //Variables
-        internal (string playerOneID, string playerTwoID, bool inFinals) values;
+        internal (string playerOneName, string playerTwoName) values;
+        private readonly BattleController _battleController;
 
-        public BattleForm((string playerOneID, string playerTwoID, bool inFinals) values){
+        public BattleForm((string playerOneName, string playerTwoName) values){
             this.values = values;
             InitializeComponent();
+
+            ButtonHelper.CustomizeAppearanceButtons(new List<Button> { btnAttakFourPlayerOne, btnAttakFourPlayerTwo,
+               btnAttakOnePlayerTwo, btnAttakOnePlayerOne, 
+               btnAttakThreePlayerOne, btnAttakThreePlayerTwo,
+               btnAttakTwoPlayerOne,btnAttakTwoPlayerTwo});       
+            _battleController = new BattleController(this);
         }
 
         protected override void WndProc(ref Message m){
