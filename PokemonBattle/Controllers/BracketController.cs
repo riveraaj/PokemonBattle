@@ -12,10 +12,10 @@ namespace PokemonBattle.Controllers {
     internal class BracketController {
 
         //Instances and variables
-        private int tournamentSize, countForSemiFinals, countForQuarterFinals;
         private Player _playerWinner;
         private BracketForm _bracketForm;
         private BracketService _bracketService;
+        private int tournamentSize, countForSemiFinals, countForQuarterFinals;
 
         public BracketController(BracketForm oBracketForm) {
             this._bracketForm = oBracketForm;
@@ -81,18 +81,12 @@ namespace PokemonBattle.Controllers {
             for (int i = 0; i <= tournamentSize + 1; i++) {
                 //Validates that the components exist
                 if (_bracketForm.Controls.Find($"{labelName}{i + 1}", true).FirstOrDefault() is Label playerLabel 
-                    && _bracketForm.Controls.Find($"{pictureBoxName}{i + 1}", true).FirstOrDefault() is PictureBox playerPictureBox)
-                {
+                    && _bracketForm.Controls.Find($"{pictureBoxName}{i + 1}", true).FirstOrDefault() is PictureBox playerPictureBox) {
                     var player = _bracketService.GetPlayerByPositionOnList(playerIndex);
 
-                    if (player != null)
-                    {
+                    if (player != null) {
                         playerLabel.Text = player.PlayerName;
-                        playerLabel.Size = new Size(63, 17);
-                        playerLabel.TextAlign = ContentAlignment.MiddleCenter;
-
                         playerPictureBox.BackgroundImage = Resources.DefaultPlayerImage;
-                        playerPictureBox.BackgroundImageLayout = ImageLayout.Stretch;
                     }
                 }
                 playerIndex--;
@@ -115,8 +109,6 @@ namespace PokemonBattle.Controllers {
             //Validate if there is a winner in the tournament
             if (_playerWinner != null) {
                 _bracketForm.lblWinner.Text = _playerWinner.PlayerName;
-                _bracketForm.lblWinner.Size = new Size(275, 50);
-                _bracketForm.lblWinner.TextAlign = ContentAlignment.MiddleCenter;
                 _bracketForm.panelWinner.BackgroundImage = Resources.DefaultPlayerImage;
             }
         }
@@ -128,65 +120,41 @@ namespace PokemonBattle.Controllers {
                 if (_bracketForm.picBoxUserQuarter8.BackgroundImage != null) {
                     // Update the display for quarterfinal slot 
                     _bracketForm.lblUserQuarter7.Text = oPlayer.PlayerName;
-                    _bracketForm.lblUserQuarter7.Size = new Size(63, 17);
-                    _bracketForm.lblUserQuarter7.TextAlign = ContentAlignment.MiddleCenter;
-                    _bracketForm.picBoxUserQuarter7.BackgroundImageLayout = ImageLayout.Stretch;
                     _bracketForm.picBoxUserQuarter7.BackgroundImage = Resources.DefaultPlayerImage;
                     countForQuarterFinals++;
                 } else {
                     // Update the display for quarterfinal slot 
                     _bracketForm.lblUserQuarter8.Text = oPlayer.PlayerName;
-                    _bracketForm.lblUserQuarter8.Size = new Size(63, 17);
-                    _bracketForm.lblUserQuarter8.TextAlign = ContentAlignment.MiddleCenter;
-                    _bracketForm.picBoxUserQuarter8.BackgroundImageLayout = ImageLayout.Stretch;
                     _bracketForm.picBoxUserQuarter8.BackgroundImage = Resources.DefaultPlayerImage;
                     countForQuarterFinals++;
                 }
             } else if (countForQuarterFinals <= 3) {
                 if (_bracketForm.picBoxUserQuarter6.BackgroundImage != null)  {
                     _bracketForm.lblUserQuarter5.Text = oPlayer.PlayerName;
-                    _bracketForm.lblUserQuarter5.Size = new Size(63, 17);
-                    _bracketForm.lblUserQuarter5.TextAlign = ContentAlignment.MiddleCenter;
-                    _bracketForm.picBoxUserQuarter5.BackgroundImageLayout = ImageLayout.Stretch;
                     _bracketForm.picBoxUserQuarter5.BackgroundImage = Resources.DefaultPlayerImage;
                     countForQuarterFinals++;
                 } else {
                     _bracketForm.lblUserQuarter6.Text = oPlayer.PlayerName;
-                    _bracketForm.lblUserQuarter6.Size = new Size(63, 17);
-                    _bracketForm.lblUserQuarter6.TextAlign = ContentAlignment.MiddleCenter;
-                    _bracketForm.picBoxUserQuarter6.BackgroundImageLayout = ImageLayout.Stretch;
                     _bracketForm.picBoxUserQuarter6.BackgroundImage = Resources.DefaultPlayerImage;
                     countForQuarterFinals++;
                 }
             } else if (countForQuarterFinals <= 5) {
                 if (_bracketForm.picBoxUserQuarter4.BackgroundImage != null) {
                     _bracketForm.lblUserQuarter3.Text = oPlayer.PlayerName;
-                    _bracketForm.lblUserQuarter3.Size = new Size(63, 17);
-                    _bracketForm.lblUserQuarter3.TextAlign = ContentAlignment.MiddleCenter;
-                    _bracketForm.picBoxUserQuarter3.BackgroundImageLayout = ImageLayout.Stretch;
                     _bracketForm.picBoxUserQuarter3.BackgroundImage = Resources.DefaultPlayerImage;
                     countForQuarterFinals++;
                 } else {
                     _bracketForm.lblUserQuarter4.Text = oPlayer.PlayerName;
-                    _bracketForm.lblUserQuarter4.Size = new Size(63, 17);
-                    _bracketForm.lblUserQuarter4.TextAlign = ContentAlignment.MiddleCenter;
-                    _bracketForm.picBoxUserQuarter4.BackgroundImageLayout = ImageLayout.Stretch;
                     _bracketForm.picBoxUserQuarter4.BackgroundImage = Resources.DefaultPlayerImage;
                     countForQuarterFinals++;
                 }
             } else {
                 if (_bracketForm.picBoxUserQuarter2.BackgroundImage != null){
                     _bracketForm.lblUserQuarter1.Text = oPlayer.PlayerName;
-                    _bracketForm.lblUserQuarter1.Size = new Size(63, 17);
-                    _bracketForm.lblUserQuarter1.TextAlign = ContentAlignment.MiddleCenter;
-                    _bracketForm.picBoxUserQuarter1.BackgroundImageLayout = ImageLayout.Stretch;
                     _bracketForm.picBoxUserQuarter1.BackgroundImage = Resources.DefaultPlayerImage;
                     countForQuarterFinals++;
                 } else {
                     _bracketForm.lblUserQuarter2.Text = oPlayer.PlayerName;
-                    _bracketForm.lblUserQuarter2.Size = new Size(63, 17);
-                    _bracketForm.lblUserQuarter2.TextAlign = ContentAlignment.MiddleCenter;
-                    _bracketForm.picBoxUserQuarter2.BackgroundImageLayout = ImageLayout.Stretch;
                     _bracketForm.picBoxUserQuarter2.BackgroundImage = Resources.DefaultPlayerImage;
                     countForQuarterFinals++;
                 }
@@ -200,32 +168,20 @@ namespace PokemonBattle.Controllers {
                 if (_bracketForm.picBoxUserSemi4.BackgroundImage != null) {
                     // Update the display for semifinal slot 
                     _bracketForm.lblUserSemi3.Text = oPlayer.PlayerName;
-                    //_bracketForm.lblUserSemi3.Size = new Size(63, 17);
-                    //_bracketForm.lblUserSemi3.TextAlign = ContentAlignment.MiddleCenter;
-                    //_bracketForm.picBoxUserSemi3.BackgroundImageLayout = ImageLayout.Stretch;
                     _bracketForm.picBoxUserSemi3.BackgroundImage = Resources.DefaultPlayerImage;
                     countForSemiFinals++;
                 } else {
                     // Update the display for semifinal slot 
                     _bracketForm.lblUserSemi4.Text = oPlayer.PlayerName;
-                   // _bracketForm.lblUserSemi4.Size = new Size(63, 17);
-                    //_bracketForm.lblUserSemi4.TextAlign = ContentAlignment.MiddleCenter;
-                    //_bracketForm.picBoxUserSemi4.BackgroundImageLayout = ImageLayout.Stretch;
                     _bracketForm.picBoxUserSemi4.BackgroundImage = Resources.DefaultPlayerImage;
                     countForSemiFinals++;
                 }
             } else {
                 if (_bracketForm.picBoxUserSemi2.BackgroundImage != null) {
                     _bracketForm.lblUserSemi1.Text = oPlayer.PlayerName;
-                    //_bracketForm.lblUserSemi1.Size = new Size(63, 17);
-                    //_bracketForm.lblUserSemi1.TextAlign = ContentAlignment.MiddleCenter;
-                    //_bracketForm.picBoxUserSemi1.BackgroundImageLayout = ImageLayout.Stretch;
                     _bracketForm.picBoxUserSemi1.BackgroundImage = Resources.DefaultPlayerImage;
                 } else {
                     _bracketForm.lblUserSemi2.Text = oPlayer.PlayerName;
-                    //_bracketForm.lblUserSemi2.Size = new Size(63, 17);
-                    //_bracketForm.lblUserSemi2.TextAlign = ContentAlignment.MiddleCenter;
-                    //_bracketForm.picBoxUserSemi2.BackgroundImageLayout = ImageLayout.Stretch;
                     _bracketForm.picBoxUserSemi2.BackgroundImage = Resources.DefaultPlayerImage;
                 }
             }
@@ -236,17 +192,11 @@ namespace PokemonBattle.Controllers {
             if (_bracketForm.picBoxUserFinal2.BackgroundImage != null) {
                 // Update the display for final slot 
                 _bracketForm.lblUserFinal1.Text = oPlayer.PlayerName;
-                //_bracketForm.lblUserFinal1.Size = new Size(63, 17);
-                //_bracketForm.lblUserFinal1.TextAlign = ContentAlignment.MiddleCenter;
                 _bracketForm.picBoxUserFinal1.BackgroundImage = Resources.DefaultPlayerImage;
-                //_bracketForm.picBoxUserFinal1.BackgroundImageLayout = ImageLayout.Stretch;
             } else {
                 // Update the display for final slot 
                 _bracketForm.lblUserFinal2.Text = oPlayer.PlayerName;
-                //_bracketForm.lblUserFinal2.Size = new Size(63, 17);
-                //_bracketForm.lblUserFinal2.TextAlign = ContentAlignment.MiddleCenter;
                 _bracketForm.picBoxUserFinal2.BackgroundImage = Resources.DefaultPlayerImage;
-                //_bracketForm.picBoxUserFinal2.BackgroundImageLayout = ImageLayout.Stretch;
             }
         }
     }

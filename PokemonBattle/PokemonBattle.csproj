@@ -140,6 +140,7 @@
     <Compile Include="Repositories\PokemonRepository.cs" />
     <Compile Include="Repositories\TeamRepository.cs" />
     <Compile Include="Repositories\TournamentRepository.cs" />
+    <Compile Include="Services\ArenaType.cs" />
     <Compile Include="Services\BattleService.cs" />
     <Compile Include="Services\BracketService.cs" />
     <Compile Include="Services\PlayerService.cs" />
@@ -147,6 +148,7 @@
     <Compile Include="Models\TournamentManager.cs" />
     <Compile Include="Services\PlayersService.cs" />
     <Compile Include="Services\PokedexService.cs" />
+    <Compile Include="Services\PokemonTypeService.cs" />
     <Compile Include="Views\BattleForm.cs">
       <SubType>Form</SubType>
     </Compile>

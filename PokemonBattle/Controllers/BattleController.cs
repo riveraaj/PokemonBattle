@@ -15,6 +15,7 @@ namespace PokemonBattle.Controllers {
         private Pokemon oPokemon;
         private List<Player> playerList;
         private BattleService _battleService;
+        private PokemonTypeService _pokemonTypeService;
         private readonly BattleForm _battleForm;
         private (string playerOneName, string playerTwoName) values;
         private bool turnPlayerOne, pokemonPlayerOneProtected, pokemonPlayerTwoProtected;
@@ -47,6 +48,7 @@ namespace PokemonBattle.Controllers {
             pokemonPlayerOneProtected = false;
             pokemonPlayerTwoProtected = false;
             _battleService = new BattleService();
+            _pokemonTypeService = new PokemonTypeService();
         }
 
         //Initialize the view on first appearance
@@ -147,15 +149,23 @@ namespace PokemonBattle.Controllers {
                     }
                     else
                     {
+                        // Obtain the types of attacker and defender.
+                        (string attackerType1, string attackerType2) = _pokemonTypeService.GetTypesOfAttacker(numberOfPokemonPlayerOne, playerList[0]);
+                        (string defenderType1, string defenderType2) = _pokemonTypeService.GetTypesOfDefender(numberOfPokemonPlayerTwo, playerList[1]);
+
+                        // Calculates adjusted damage using type logic
+                        double adjustedDamage = _pokemonTypeService.CalculateAdjustedDamage(movement.MovementPower, attackerType1, 
+                                                                                        attackerType2, defenderType1, defenderType2);
+
                         _battleForm.txtStatsPlayerOne.Text = $"{playerList[0].PlayerName} has used {movement.MovementName}...";
-                        healthPokemonPlayerTwo -= movement.MovementPower;
+                        healthPokemonPlayerTwo -= (int) adjustedDamage;
                         _battleForm.lblHealthPlayerTwo.Text = (healthPokemonPlayerTwo < 0) ? "0/100" : $"{healthPokemonPlayerTwo}/100";
                         //Validate that the pokemon has less than 0 health
                         if (healthPokemonPlayerTwo <= 0)
                         {
                             _battleForm.progressPokemonPlayer2.Value = 0;
                             //Validate if the player has already lost his first 4 pokémon.
-                            if (numberOfPokemonPlayerTwo == 4)
+                            if (numberOfPokemonPlayerTwo == 3)
                             {
                                 //It validates if the player is in which stage and depending on that the battle is created and the player's mapping is updated.
                                 if (playerList[0].IsInFinal)
@@ -228,17 +238,25 @@ namespace PokemonBattle.Controllers {
                         pokemonPlayerOneProtected = false;
                         pokemonPlayerTwoProtected = false;
                     }
-                    else
-                    {
+                    else {
+
+                        // Obtain the types of attacker and defender.
+                        (string attackerType1, string attackerType2) attacker = _pokemonTypeService.GetTypesOfAttacker(numberOfPokemonPlayerTwo, playerList[1]);
+                        (string defenderType1, string defenderType2) defender = _pokemonTypeService.GetTypesOfDefender(numberOfPokemonPlayerOne, playerList[0]);
+
+                        // Calcula el daño ajustado usando la lógica de tipos
+                        double adjustedDamage = _pokemonTypeService.CalculateAdjustedDamage(movement.MovementPower, attacker.attackerType1, 
+                                                                                        attacker.attackerType2, defender.defenderType1, defender.defenderType2);
+
                         _battleForm.txtStatsPlayerTwo.Text = $"{playerList[1].PlayerName} has used {movement.MovementName}...";
-                        healthPokemonPlayerOne -= movement.MovementPower;
+                        healthPokemonPlayerOne -= (int) adjustedDamage;
                         _battleForm.lblHealthPlayerOne.Text = (healthPokemonPlayerOne < 0) ? "0/100" : $"{healthPokemonPlayerOne}/100";
                         //Validate that the pokemon has less than 0 health
                         if (healthPokemonPlayerOne <= 0)
                         {
                             _battleForm.progressPokemonPlayer1.Value = 0;
                             //Validate if the player has already lost his first 4 pokémon.
-                            if (numberOfPokemonPlayerOne == 4)
+                            if (numberOfPokemonPlayerOne == 3)
                             {
                                 //It validates if the player is in which stage and depending on that the battle is created and the player's mapping is updated.
                                 if (playerList[1].IsInFinal)
