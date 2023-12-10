@@ -11,10 +11,10 @@ using System.Windows.Forms;
 namespace PokemonBattle.Controllers {
     internal class BracketController {
 
-        //Instances and variables
-        private Player _playerWinner;
-        private BracketForm _bracketForm;
+        //Instances & Variables
+        private Player _playerWinner;  
         private BracketService _bracketService;
+        private readonly BracketForm _bracketForm;
         private int tournamentSize, countForSemiFinals, countForQuarterFinals;
 
         public BracketController(BracketForm oBracketForm) {
@@ -53,18 +53,19 @@ namespace PokemonBattle.Controllers {
         //Event to open a form after the set time of the timer
         private void Timer_Tick(object sender, EventArgs e){
             _bracketForm.timer.Stop();
-            if(_playerWinner != null){        
+            //Validates if there is a winner of the tournament
+            if (_playerWinner != null){        
                 DialogResult result = MessageBox.Show("Do you want to create another tournament or close the game?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                //Validates if the yes button was clicked.
                 if (result == DialogResult.Yes) {
                     _bracketService.CleanTorunamentManager();
                     new InitTournamentForm().Show();
-                }
-                else Application.Exit();
-                
-            }else new VersusForm(_bracketService.GetNextBattle()).Show();
+                } else Application.Exit();     
+            } else new VersusForm(_bracketService.GetNextBattle()).Show();
             _bracketForm.Close();
         }
 
+        //Load the information to the alyout of the form
         private void LoadLayout(Image backgroundImage) {
             // Sets the background image for the tournament
             _bracketForm.BackgroundImage = backgroundImage;
@@ -83,8 +84,8 @@ namespace PokemonBattle.Controllers {
                 if (_bracketForm.Controls.Find($"{labelName}{i + 1}", true).FirstOrDefault() is Label playerLabel 
                     && _bracketForm.Controls.Find($"{pictureBoxName}{i + 1}", true).FirstOrDefault() is PictureBox playerPictureBox) {
                     var player = _bracketService.GetPlayerByPositionOnList(playerIndex);
-
-                    if (player != null) {
+                    //Validates that a player exists
+                    if (player != null) { 
                         playerLabel.Text = player.PlayerName;
                         playerPictureBox.BackgroundImage = Resources.DefaultPlayerImage;
                     }
@@ -105,6 +106,7 @@ namespace PokemonBattle.Controllers {
             }
         }
 
+        //If there is a winner, this method is called to load the winner's name and image.
         public void ConfigWinner() {
             //Validate if there is a winner in the tournament
             if (_playerWinner != null) {
@@ -113,6 +115,7 @@ namespace PokemonBattle.Controllers {
             }
         }
 
+        //Upload information for the Quarterfinal round
         public void ConfigQuarterFinals(Player oPlayer) {
             // Check the count to determine the appropriate quarterfinal slot
             if (countForQuarterFinals <= 1) {
@@ -161,6 +164,7 @@ namespace PokemonBattle.Controllers {
             }
         }
 
+        //Upload information for the Semifinal round
         public void ConfigSemiFinals(Player oPlayer) {
             // Check the count to determine the appropriate semifinal slot
             if (countForSemiFinals <= 1) {
@@ -187,6 +191,7 @@ namespace PokemonBattle.Controllers {
             }
         }
 
+        //Upload information for the Final round
         public void ConfigFinals(Player oPlayer) {
             // Check the availability of the background image
             if (_bracketForm.picBoxUserFinal2.BackgroundImage != null) {
