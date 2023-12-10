@@ -353,6 +353,7 @@
             this.txtStatsPlayerTwo.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStatsPlayerTwo.Location = new System.Drawing.Point(797, 145);
             this.txtStatsPlayerTwo.Name = "txtStatsPlayerTwo";
+            this.txtStatsPlayerTwo.ReadOnly = true;
             this.txtStatsPlayerTwo.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
             this.txtStatsPlayerTwo.Size = new System.Drawing.Size(97, 118);
             this.txtStatsPlayerTwo.TabIndex = 37;
@@ -364,6 +365,7 @@
             this.txtStatsPlayerOne.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStatsPlayerOne.Location = new System.Drawing.Point(10, 263);
             this.txtStatsPlayerOne.Name = "txtStatsPlayerOne";
+            this.txtStatsPlayerOne.ReadOnly = true;
             this.txtStatsPlayerOne.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
             this.txtStatsPlayerOne.Size = new System.Drawing.Size(97, 118);
             this.txtStatsPlayerOne.TabIndex = 38;
