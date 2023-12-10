@@ -187,6 +187,7 @@
             // picBoxUser7
             // 
             this.picBoxUser7.BackColor = System.Drawing.Color.Transparent;
+            this.picBoxUser7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picBoxUser7.Location = new System.Drawing.Point(14, 409);
             this.picBoxUser7.Name = "picBoxUser7";
             this.picBoxUser7.Size = new System.Drawing.Size(33, 35);
@@ -196,6 +197,7 @@
             // picBoxUser8
             // 
             this.picBoxUser8.BackColor = System.Drawing.Color.Transparent;
+            this.picBoxUser8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picBoxUser8.Location = new System.Drawing.Point(15, 465);
             this.picBoxUser8.Name = "picBoxUser8";
             this.picBoxUser8.Size = new System.Drawing.Size(33, 35);
@@ -429,6 +431,8 @@
             this.lblUserQuarter1.Name = "lblUserQuarter1";
             this.lblUserQuarter1.Size = new System.Drawing.Size(64, 17);
             this.lblUserQuarter1.TabIndex = 32;
+            this.lblUserQuarter1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUserQuarter1.UseMnemonic = false;
             // 
             // lblUser1
             // 
@@ -438,6 +442,8 @@
             this.lblUser1.Name = "lblUser1";
             this.lblUser1.Size = new System.Drawing.Size(63, 17);
             this.lblUser1.TabIndex = 33;
+            this.lblUser1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUser1.UseMnemonic = false;
             // 
             // lblUser2
             // 
@@ -447,6 +453,8 @@
             this.lblUser2.Name = "lblUser2";
             this.lblUser2.Size = new System.Drawing.Size(63, 17);
             this.lblUser2.TabIndex = 34;
+            this.lblUser2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUser2.UseMnemonic = false;
             // 
             // lblUser3
             // 
@@ -456,6 +464,8 @@
             this.lblUser3.Name = "lblUser3";
             this.lblUser3.Size = new System.Drawing.Size(64, 17);
             this.lblUser3.TabIndex = 35;
+            this.lblUser3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUser3.UseMnemonic = false;
             // 
             // lblUser4
             // 
@@ -465,6 +475,8 @@
             this.lblUser4.Name = "lblUser4";
             this.lblUser4.Size = new System.Drawing.Size(63, 17);
             this.lblUser4.TabIndex = 36;
+            this.lblUser4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUser4.UseMnemonic = false;
             // 
             // lblUser5
             // 
@@ -474,6 +486,8 @@
             this.lblUser5.Name = "lblUser5";
             this.lblUser5.Size = new System.Drawing.Size(63, 17);
             this.lblUser5.TabIndex = 37;
+            this.lblUser5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUser5.UseMnemonic = false;
             // 
             // lblUser6
             // 
@@ -483,6 +497,8 @@
             this.lblUser6.Name = "lblUser6";
             this.lblUser6.Size = new System.Drawing.Size(63, 17);
             this.lblUser6.TabIndex = 38;
+            this.lblUser6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUser6.UseMnemonic = false;
             // 
             // lblUser7
             // 
@@ -492,6 +508,8 @@
             this.lblUser7.Name = "lblUser7";
             this.lblUser7.Size = new System.Drawing.Size(63, 17);
             this.lblUser7.TabIndex = 39;
+            this.lblUser7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUser7.UseMnemonic = false;
             // 
             // lblUser8
             // 
@@ -501,6 +519,8 @@
             this.lblUser8.Name = "lblUser8";
             this.lblUser8.Size = new System.Drawing.Size(63, 17);
             this.lblUser8.TabIndex = 40;
+            this.lblUser8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUser8.UseMnemonic = false;
             // 
             // lblUser16
             // 
@@ -510,6 +530,8 @@
             this.lblUser16.Name = "lblUser16";
             this.lblUser16.Size = new System.Drawing.Size(60, 17);
             this.lblUser16.TabIndex = 48;
+            this.lblUser16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUser16.UseMnemonic = false;
             // 
             // lblUser15
             // 
@@ -519,6 +541,8 @@
             this.lblUser15.Name = "lblUser15";
             this.lblUser15.Size = new System.Drawing.Size(60, 17);
             this.lblUser15.TabIndex = 47;
+            this.lblUser15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUser15.UseMnemonic = false;
             // 
             // lblUser14
             // 
@@ -528,6 +552,8 @@
             this.lblUser14.Name = "lblUser14";
             this.lblUser14.Size = new System.Drawing.Size(60, 17);
             this.lblUser14.TabIndex = 46;
+            this.lblUser14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUser14.UseMnemonic = false;
             // 
             // lblUser13
             // 
@@ -537,6 +563,8 @@
             this.lblUser13.Name = "lblUser13";
             this.lblUser13.Size = new System.Drawing.Size(60, 17);
             this.lblUser13.TabIndex = 45;
+            this.lblUser13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUser13.UseMnemonic = false;
             // 
             // lblUser12
             // 
@@ -546,6 +574,8 @@
             this.lblUser12.Name = "lblUser12";
             this.lblUser12.Size = new System.Drawing.Size(60, 17);
             this.lblUser12.TabIndex = 44;
+            this.lblUser12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUser12.UseMnemonic = false;
             // 
             // lblUser11
             // 
@@ -555,6 +585,8 @@
             this.lblUser11.Name = "lblUser11";
             this.lblUser11.Size = new System.Drawing.Size(60, 17);
             this.lblUser11.TabIndex = 43;
+            this.lblUser11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUser11.UseMnemonic = false;
             // 
             // lblUser10
             // 
@@ -564,6 +596,8 @@
             this.lblUser10.Name = "lblUser10";
             this.lblUser10.Size = new System.Drawing.Size(60, 17);
             this.lblUser10.TabIndex = 42;
+            this.lblUser10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUser10.UseMnemonic = false;
             // 
             // lblUser9
             // 
@@ -573,6 +607,8 @@
             this.lblUser9.Name = "lblUser9";
             this.lblUser9.Size = new System.Drawing.Size(60, 17);
             this.lblUser9.TabIndex = 41;
+            this.lblUser9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUser9.UseMnemonic = false;
             // 
             // lblUserQuarter5
             // 
@@ -582,6 +618,8 @@
             this.lblUserQuarter5.Name = "lblUserQuarter5";
             this.lblUserQuarter5.Size = new System.Drawing.Size(65, 17);
             this.lblUserQuarter5.TabIndex = 49;
+            this.lblUserQuarter5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUserQuarter5.UseMnemonic = false;
             // 
             // lblUserQuarter2
             // 
@@ -591,6 +629,8 @@
             this.lblUserQuarter2.Name = "lblUserQuarter2";
             this.lblUserQuarter2.Size = new System.Drawing.Size(64, 17);
             this.lblUserQuarter2.TabIndex = 50;
+            this.lblUserQuarter2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUserQuarter2.UseMnemonic = false;
             // 
             // lblUserQuarter6
             // 
@@ -600,6 +640,8 @@
             this.lblUserQuarter6.Name = "lblUserQuarter6";
             this.lblUserQuarter6.Size = new System.Drawing.Size(65, 17);
             this.lblUserQuarter6.TabIndex = 51;
+            this.lblUserQuarter6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUserQuarter6.UseMnemonic = false;
             // 
             // lblUserFinal1
             // 
@@ -610,6 +652,7 @@
             this.lblUserFinal1.Size = new System.Drawing.Size(65, 17);
             this.lblUserFinal1.TabIndex = 52;
             this.lblUserFinal1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUserFinal1.UseMnemonic = false;
             // 
             // lblUserFinal2
             // 
@@ -620,6 +663,7 @@
             this.lblUserFinal2.Size = new System.Drawing.Size(63, 17);
             this.lblUserFinal2.TabIndex = 53;
             this.lblUserFinal2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUserFinal2.UseMnemonic = false;
             // 
             // lblUserSemi3
             // 
@@ -629,6 +673,8 @@
             this.lblUserSemi3.Name = "lblUserSemi3";
             this.lblUserSemi3.Size = new System.Drawing.Size(65, 17);
             this.lblUserSemi3.TabIndex = 54;
+            this.lblUserSemi3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUserSemi3.UseMnemonic = false;
             // 
             // lblUserSemi4
             // 
@@ -638,6 +684,8 @@
             this.lblUserSemi4.Name = "lblUserSemi4";
             this.lblUserSemi4.Size = new System.Drawing.Size(65, 17);
             this.lblUserSemi4.TabIndex = 55;
+            this.lblUserSemi4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUserSemi4.UseMnemonic = false;
             // 
             // lblUserSemi2
             // 
@@ -647,6 +695,8 @@
             this.lblUserSemi2.Name = "lblUserSemi2";
             this.lblUserSemi2.Size = new System.Drawing.Size(63, 17);
             this.lblUserSemi2.TabIndex = 56;
+            this.lblUserSemi2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUserSemi2.UseMnemonic = false;
             // 
             // lblUserQuarter7
             // 
@@ -656,6 +706,8 @@
             this.lblUserQuarter7.Name = "lblUserQuarter7";
             this.lblUserQuarter7.Size = new System.Drawing.Size(65, 17);
             this.lblUserQuarter7.TabIndex = 57;
+            this.lblUserQuarter7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUserQuarter7.UseMnemonic = false;
             // 
             // lblUserQuarter8
             // 
@@ -665,6 +717,8 @@
             this.lblUserQuarter8.Name = "lblUserQuarter8";
             this.lblUserQuarter8.Size = new System.Drawing.Size(65, 17);
             this.lblUserQuarter8.TabIndex = 58;
+            this.lblUserQuarter8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUserQuarter8.UseMnemonic = false;
             // 
             // lblUserSemi1
             // 
@@ -674,6 +728,8 @@
             this.lblUserSemi1.Name = "lblUserSemi1";
             this.lblUserSemi1.Size = new System.Drawing.Size(63, 17);
             this.lblUserSemi1.TabIndex = 59;
+            this.lblUserSemi1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUserSemi1.UseMnemonic = false;
             // 
             // lblUserQuarter3
             // 
@@ -683,6 +739,8 @@
             this.lblUserQuarter3.Name = "lblUserQuarter3";
             this.lblUserQuarter3.Size = new System.Drawing.Size(64, 17);
             this.lblUserQuarter3.TabIndex = 60;
+            this.lblUserQuarter3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUserQuarter3.UseMnemonic = false;
             // 
             // lblUserQuarter4
             // 
@@ -692,6 +750,8 @@
             this.lblUserQuarter4.Name = "lblUserQuarter4";
             this.lblUserQuarter4.Size = new System.Drawing.Size(64, 17);
             this.lblUserQuarter4.TabIndex = 61;
+            this.lblUserQuarter4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUserQuarter4.UseMnemonic = false;
             // 
             // lblWinner
             // 
