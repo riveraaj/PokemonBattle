@@ -31,7 +31,6 @@ namespace PokemonBattle.Controllers {
         //Adding events to components
         private void AddEventsToComponents() => _initTournamentForm.btnNextPlayersForm.Click += new EventHandler(OpenPlayersForm);
         
-
         //Save Tournament Size in Singleton Tournament Manager
         public void SaveTournamentSize(int size) => _tournamentManager.TournamentSize = size;
 
@@ -57,8 +56,7 @@ namespace PokemonBattle.Controllers {
                 if (string.IsNullOrEmpty(textBox.Text)) {
                     allNoEmpty = false;
                     break; // You can exit the loop as soon as you find an empty one, or you can continue and mark all the empty ones.
-                }
-                else {
+                } else {
                     if (enteredNames.Contains(textBox.Text)) { // Check whether the name has already been entered
                         noDuplicates = false;
                         break; // You can exit the loop as soon as you find a duplicate name.
@@ -69,14 +67,13 @@ namespace PokemonBattle.Controllers {
 
             if (allNoEmpty && noDuplicates)  { //If no gaps or duplicates are found, the information is stored in the TournamnetManager singleton.
                 _initTournamentForm.labelWarning.Visible = false;
-                SaveTournamentSize(_initTournamentForm.SizeTournament);
-                GenerateBots(_initTournamentForm.SizeTournament, _initTournamentForm.NumberPlayers);
+                SaveTournamentSize(_initTournamentForm.SizeTournament); //Saves the tournament size
+                GenerateBots(_initTournamentForm.SizeTournament, _initTournamentForm.NumberPlayers); //Generate necessary bots
                 _initTournamentForm.TextBoxes.ForEach(x => playersName.Add((x.Text.ToLower()[0].ToString().ToUpper()) + x.Text.ToLower().Substring(1)));
-                GeneratePlayers(playersName);
+                GeneratePlayers(playersName); //Generate Players
                 new PlayersForm().Show();
                 _initTournamentForm.Close();
-            }
-            else { //Show an error message
+            } else { //Show an error message
                 _initTournamentForm.labelWarning.Visible = true;
                 if (!noDuplicates) {
                     _initTournamentForm.labelWarning.Visible = false;

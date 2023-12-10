@@ -8,7 +8,7 @@ using System.Windows.Forms;
 namespace PokemonBattle.View {
     internal partial class InitTournamentForm : Form {
 
-        //Instances
+        //Instance & Variable
         internal List<TextBox> TextBoxes;
         internal int SizeTournament, NumberPlayers;
             
@@ -16,18 +16,20 @@ namespace PokemonBattle.View {
             InitInstance();
             InitializeComponent();
             InitializeComponentCustom();
+            this.FormClosing += FormClose;
             new InitTournamentController(this);
         }
 
-        //Init Instances
-        private void InitInstance() {
-            TextBoxes = new List<TextBox>();
+        //Init Instances & Variables
+        private void InitInstance() {  
+            NumberPlayers = 0;
             SizeTournament = 0;
-            NumberPlayers = 0;   
+            TextBoxes = new List<TextBox>();
         }
 
         //Init Components Custom Properties
         private void InitializeComponentCustom() {
+            //This helps us to customize a list of buttons
             ButtonHelper.CustomizeAppearanceButtons(new List<Button> { btnNextPlayersForm });
             cmbSizeTournament.SelectedIndex = 0;
             cmbNumberPlayer.SelectedIndex = 0;
@@ -61,5 +63,8 @@ namespace PokemonBattle.View {
                 TextBoxes.Add(txtBox);
             }
         }
+
+        //Event that closes the application if the user closes the window.
+        private void FormClose(object sender, FormClosingEventArgs e) => Application.Exit();
     }
 }
