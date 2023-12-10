@@ -31,6 +31,7 @@
             this.labelStart.AutoSize = true;
             this.labelStart.BackColor = System.Drawing.Color.Transparent;
             this.labelStart.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelStart.ForeColor = System.Drawing.Color.White;
             this.labelStart.Location = new System.Drawing.Point(370, 456);
             this.labelStart.Name = "labelStart";
             this.labelStart.Size = new System.Drawing.Size(170, 21);
@@ -66,6 +67,7 @@
             this.ClientSize = new System.Drawing.Size(914, 515);
             this.Controls.Add(this.btnPlayer);
             this.Controls.Add(this.labelStart);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;

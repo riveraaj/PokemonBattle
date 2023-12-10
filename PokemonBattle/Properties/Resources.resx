@@ -122,7 +122,7 @@
     <value>..\Resources\Interface\BackgroundInitTournament.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BackgroundMainScreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Interface\BackgroundMainScreen.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\Interface\BackgroundMainScreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BackgroundPlayersScreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Interface\BackgroundPlayersScreen.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -145,10 +145,16 @@
   <data name="ButtonPlay" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Interface\ButtonPlay.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ButtonPlay1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Interface\ButtonPlay.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ButtonsBattle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Interface\ButtonsBattle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ButtonStop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Interface\ButtonStop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ButtonStop1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Interface\ButtonStop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Dark" type="System.Resources.ResXFileRef, System.Windows.Forms">

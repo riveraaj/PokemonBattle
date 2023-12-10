@@ -339,6 +339,10 @@
     <None Include="Resources\Pokemon\807.png" />
     <None Include="Resources\Pokemon\808.png" />
     <None Include="Resources\Pokemon\809.png" />
+    <None Include="Resources\Interface\ButtonPlay.png" />
+    <None Include="Resources\Interface\ButtonStop.png" />
+    <None Include="Resources\Interface\BackgroundMainScreen.png" />
+    <None Include="Resources\BackgroundMainScreen.png" />
     <Content Include="Resources\Interface\TournamentEight.png" />
     <Content Include="Resources\Interface\TournamentFour.png" />
     <Content Include="Resources\Interface\TournamentSixteen.png" />
@@ -364,11 +368,8 @@
     <None Include="Resources\Type\Dragon.png" />
     <None Include="Resources\Interface\BackgroundPokedex.png" />
     <None Include="Resources\Interface\ButtonChoosePokemonDisable.png" />
-    <None Include="Resources\Interface\BackgroundMainScreen.jpg" />
     <None Include="Resources\Interface\BackgroundInitTournament.jpg" />
     <None Include="Resources\Interface\ButtonNext.png" />
-    <None Include="Resources\Interface\ButtonStop.png" />
-    <None Include="Resources\Interface\ButtonPlay.png" />
     <None Include="Resources\Interface\ButtonChoosePokemon.png" />
     <None Include="Resources\Interface\ButtonsBattle.png" />
     <None Include="Resources\Battle\DefaultPlayerImage.png" />
