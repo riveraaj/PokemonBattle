@@ -342,7 +342,7 @@ namespace PokemonBattle.View {
             // 
             this.picBoxType1.BackColor = System.Drawing.Color.Transparent;
             this.picBoxType1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picBoxType1.Location = new System.Drawing.Point(123, 462);
+            this.picBoxType1.Location = new System.Drawing.Point(123, 467);
             this.picBoxType1.Name = "picBoxType1";
             this.picBoxType1.Size = new System.Drawing.Size(35, 35);
             this.picBoxType1.TabIndex = 30;
@@ -352,7 +352,7 @@ namespace PokemonBattle.View {
             // 
             this.picBoxType2.BackColor = System.Drawing.Color.Transparent;
             this.picBoxType2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picBoxType2.Location = new System.Drawing.Point(181, 462);
+            this.picBoxType2.Location = new System.Drawing.Point(181, 467);
             this.picBoxType2.Name = "picBoxType2";
             this.picBoxType2.Size = new System.Drawing.Size(35, 35);
             this.picBoxType2.TabIndex = 31;
@@ -411,6 +411,7 @@ namespace PokemonBattle.View {
             ((System.ComponentModel.ISupportInitialize)(this.picBoxType1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxType2)).EndInit();
             this.ResumeLayout(false);
+
         }
         #endregion
 
