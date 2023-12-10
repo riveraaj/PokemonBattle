@@ -1,16 +1,7 @@
 ﻿using PokemonBattle.Controllers;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PokemonBattle.Views
-{
+namespace PokemonBattle.Views { 
     public partial class VersusForm : Form {
         //Instances and variables
         internal Timer timer;

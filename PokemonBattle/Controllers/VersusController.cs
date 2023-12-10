@@ -8,12 +8,14 @@ using System.Windows.Forms;
 namespace PokemonBattle.Controllers {
     internal class VersusController{
 
+        //Instances & Variables
         private Arena oArena;
         private List<Player> playerList;
         private readonly VersusForm _versusForm;
         private readonly BattleService _battleService;
         private (string playerOneName, string playerTwoName) values;
 
+        //Init Instances & Variables
         public VersusController(VersusForm oVersusForm) {
             this._versusForm = oVersusForm;
             this.values = _versusForm.values;
@@ -35,6 +37,7 @@ namespace PokemonBattle.Controllers {
         //Event to open a form after the set time of the timer
         private void Timer_Tick(object sender, EventArgs e) {
             _versusForm.timer.Stop();
+            //Validate if the two players facing each other are bots
             if (values.playerOneName.StartsWith("BOT") && values.playerTwoName.StartsWith("BOT")) {
                 ConfigBots();
                 new BracketForm().Show();
@@ -42,6 +45,7 @@ namespace PokemonBattle.Controllers {
             _versusForm.Close();
         }
 
+        //Init the form layout with information
         private void InitLayout() {
             _versusForm.lblPLayerOneName.Text = values.playerOneName;
             _versusForm.lblPLayerTwoName.Text = values.playerTwoName;
@@ -49,12 +53,17 @@ namespace PokemonBattle.Controllers {
             _versusForm.picBoxPLayerTwoImage.BackgroundImage = Properties.Resources.DefaultPlayerImage;
         }
 
+        //Configure who will go into battle and who will not
         private void ConfigBots(){
+            //Get the list of players who are going to fight and the arena in which they are going to fight
             playerList = _battleService.GetPlayersByName(values.playerOneName, values.playerTwoName);
             oArena = _battleService.GetRandomArena();
+            //Get a random number
             int numberRandom = _battleService.GetRandomNumber(1, 2);
 
+            //The random number is validated to know which of the two bots is assigned as the winner
             if (numberRandom == 1) {
+                //These validations are used to know what they are doing and thus update the status of the bots.
                 if (playerList[0].IsInFinal) {
                     _battleService.CreateBattle(playerList, oArena.ArenaID, true, 3);
                     _battleService.SaveBattles(playerList[0]);
@@ -74,6 +83,7 @@ namespace PokemonBattle.Controllers {
                 }
             }
             else {
+                //These validations are used to know what they are doing and thus update the status of the bots.
                 if (playerList[1].IsInFinal) {
                     _battleService.CreateBattle(playerList, oArena.ArenaID, false, 3);
                     _battleService.SaveBattles(playerList[1]);
