@@ -1,26 +1,19 @@
 ﻿using PokemonBattle.Controllers;
 using PokemonBattle.Utilities;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PokemonBattle.Views {
     public partial class BattleForm : Form {
 
-        //Variables
+        //Instance & Variables
         internal (string playerOneName, string playerTwoName) values;
         private readonly BattleController _battleController;
 
         public BattleForm((string playerOneName, string playerTwoName) values){
             this.values = values;
             InitializeComponent();
-
+            //This helps us to customize a list of buttons
             ButtonHelper.CustomizeAppearanceButtons(new List<Button> { btnAttakFourPlayerOne, btnAttakFourPlayerTwo,
                btnAttakOnePlayerTwo, btnAttakOnePlayerOne, 
                btnAttakThreePlayerOne, btnAttakThreePlayerTwo,
@@ -28,6 +21,7 @@ namespace PokemonBattle.Views {
             _battleController = new BattleController(this);
         }
 
+        //Cancel the ability to move the screen
         protected override void WndProc(ref Message m){
             const int WM_NCLBUTTONDOWN = 0xA1;
             const int HTCAPTION = 0x2;
