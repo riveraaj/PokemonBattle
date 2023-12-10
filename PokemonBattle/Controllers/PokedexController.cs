@@ -9,12 +9,12 @@ using System.Windows.Forms;
 namespace PokemonBattle.Controllers {
     internal class PokedexController{
 
-        //Intances and variables
-        private int pokemonPosition;
-        private int pokemonCount;
-        private PokedexForm _pokedexForm;
-        private PokedexService _pokedexService;
+        //Intances & Variables
         private Team _team;
+        private int pokemonCount;
+        private int pokemonPosition;
+        private PokedexForm _pokedexForm;
+        private PokedexService _pokedexService; 
 
         public PokedexController(PokedexForm oPokedexForm) {
             this._pokedexForm = oPokedexForm;
@@ -42,18 +42,18 @@ namespace PokemonBattle.Controllers {
         //Event to move to the next pokemon on the list
         private void AddPokemon(object sender, EventArgs e) {
             switch (pokemonCount) {
-                case 0: LoadPokemonInPctureBox(_pokedexForm.picBoxPokemon1); break;
-                case 1: LoadPokemonInPctureBox(_pokedexForm.picBoxPokemon2); break;
-                case 2: LoadPokemonInPctureBox(_pokedexForm.picBoxPokemon3); break;
-                case 3: LoadPokemonInPctureBox(_pokedexForm.picBoxPokemon4); break;
-                case 4: LoadPokemonInPctureBox(_pokedexForm.picBoxPokemon5); break;
-                case 5: LoadPokemonInPctureBox(_pokedexForm.picBoxPokemon6); break;
+                case 0: LoadPokemonInPictureBox(_pokedexForm.picBoxPokemon1); break;
+                case 1: LoadPokemonInPictureBox(_pokedexForm.picBoxPokemon2); break;
+                case 2: LoadPokemonInPictureBox(_pokedexForm.picBoxPokemon3); break;
+                case 3: LoadPokemonInPictureBox(_pokedexForm.picBoxPokemon4); break;
+                case 4: LoadPokemonInPictureBox(_pokedexForm.picBoxPokemon5); break;
+                case 5: LoadPokemonInPictureBox(_pokedexForm.picBoxPokemon6); break;
                 default: MessageBox.Show("You have already selected all your equipment", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); break;
             }
         }
 
         //Load pokemon added in the PictureBox
-        private void LoadPokemonInPctureBox(PictureBox oPictureBox) {
+        private void LoadPokemonInPictureBox(PictureBox oPictureBox) {
             int pokemonID = _pokedexService.GetPokemonByPositionOnList(pokemonPosition).PokemonID;
             //Validate that the selected pokemon is not in the team.
             if (_team.PokemonOneID != pokemonID && _team.PokemonTwoID != pokemonID
