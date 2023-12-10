@@ -1,9 +1,5 @@
 ﻿using PokemonBattle.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PokemonBattle.Repositories {
     internal class ArenasRepository {
@@ -14,7 +10,7 @@ namespace PokemonBattle.Repositories {
         //Init Intance
         public ArenasRepository(PokemonEntities pokemonEntities) => this._pokemonEntities = pokemonEntities;
 
+        //Get sand based on ID
         public Arena GetArenaByID(int ID) => _pokemonEntities.Arenas.FirstOrDefault(x => x.ArenaID == ID);
-
     }
 }

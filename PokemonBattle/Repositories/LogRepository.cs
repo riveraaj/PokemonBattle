@@ -1,9 +1,5 @@
 ﻿using PokemonBattle.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PokemonBattle.Repositories
 {
@@ -14,10 +10,13 @@ namespace PokemonBattle.Repositories
         //Init Intance
         public LogRepository(PokemonEntities pokemonEntities) => this._pokemonEntities = pokemonEntities;
 
+        //Get the last record from the database
         public Log GetLastLogInsert() => _pokemonEntities.Logs.OrderByDescending(x => x.LogID).FirstOrDefault();
 
+        //Do the insert into the database
         public void InsertLog(Log oLog) => _pokemonEntities.Logs.Add(oLog);
 
+        //Save Changes
         public void SaveChanges() => _pokemonEntities.SaveChanges();
     }
 }

@@ -1,9 +1,5 @@
 ﻿using PokemonBattle.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PokemonBattle.Repositories {
     internal class TournamentRepository {
@@ -14,12 +10,13 @@ namespace PokemonBattle.Repositories {
         //Init Intance
         public TournamentRepository(PokemonEntities pokemonEntities) => this._pokemonEntities = pokemonEntities;
 
+        //Get the last tournament that was saved
         public Tournament GetLastTournamentInsert() => _pokemonEntities.Tournaments.OrderByDescending(x => x.TournamentID).FirstOrDefault();
 
+        //Make the insertion into the database
         public void InsertTournament(Tournament oTournament) => _pokemonEntities.Tournaments.Add(oTournament);
 
+        //Save Changes
         public void SaveChanges() => _pokemonEntities.SaveChanges();
-
-
     }
 }

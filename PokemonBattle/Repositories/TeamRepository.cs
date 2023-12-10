@@ -1,9 +1,5 @@
 ﻿using PokemonBattle.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PokemonBattle.Repositories {
     internal class TeamRepository {
@@ -13,10 +9,13 @@ namespace PokemonBattle.Repositories {
         //Init Intance
         public TeamRepository(PokemonEntities pokemonEntities) => this._pokemonEntities = pokemonEntities;
 
+        //Get the last record from the database
         public Team GetLastTeamInsert() => _pokemonEntities.Teams.OrderByDescending(x => x.TeamID).FirstOrDefault();
 
+        //Make the insertion into the database
         public void InsertTeam(Team oTeam) => _pokemonEntities.Teams.Add(oTeam);
 
+        //Save Changes
         public void SaveChanges() => _pokemonEntities.SaveChanges();
     }
 }
