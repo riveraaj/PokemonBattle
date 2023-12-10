@@ -43,6 +43,6 @@ namespace PokemonBattle.Services {
         }
 
         //Generate a random number between 722 and 809
-        private int GetRandomNumber() => _random.Next(387, 809 + 1);
+        private int GetRandomNumber() => _random.Next(722, 809 + 1);
     }
 }
