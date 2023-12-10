@@ -16,7 +16,6 @@ namespace PokemonBattle.View {
             InitInstance();
             InitializeComponent();
             InitializeComponentCustom();
-            this.FormClosing += FormClose;
             new InitTournamentController(this);
         }
 
@@ -63,8 +62,5 @@ namespace PokemonBattle.View {
                 TextBoxes.Add(txtBox);
             }
         }
-
-        //Event that closes the application if the user closes the window.
-        private void FormClose(object sender, FormClosingEventArgs e) => Application.Exit();
     }
 }
