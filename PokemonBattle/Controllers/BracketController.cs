@@ -43,7 +43,7 @@ namespace PokemonBattle.Controllers {
         //Init Timer
         private void InitTimer(){
             _bracketForm.timer = new Timer {
-                Interval = 10000 // 10 segundos
+                Interval = 10000 // 10 seconds
             };
 
             _bracketForm.timer.Tick += Timer_Tick;

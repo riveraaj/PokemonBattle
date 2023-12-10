@@ -1,23 +1,18 @@
 ﻿using PokemonBattle.Models;
 using PokemonBattle.Services;
-using PokemonBattle.View;
 using PokemonBattle.Views;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PokemonBattle.Controllers
-{
+namespace PokemonBattle.Controllers {
     internal class VersusController{
 
-        private (string playerOneName, string playerTwoName) values;
-        private BattleService _battleService;
-        private readonly VersusForm _versusForm;
-        private List<Player> playerList;
         private Arena oArena;
+        private List<Player> playerList;
+        private readonly VersusForm _versusForm;
+        private readonly BattleService _battleService;
+        private (string playerOneName, string playerTwoName) values;
 
         public VersusController(VersusForm oVersusForm) {
             this._versusForm = oVersusForm;
@@ -29,8 +24,7 @@ namespace PokemonBattle.Controllers
 
         //Init Timer
         private void InitTimer() {
-            _versusForm.timer = new Timer
-            {
+            _versusForm.timer = new Timer {
                 Interval = 10000 // 10 seconds
             };
 
