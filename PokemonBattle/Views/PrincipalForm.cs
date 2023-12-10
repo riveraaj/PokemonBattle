@@ -8,12 +8,12 @@ using System.Windows.Forms;
 
 namespace PokemonBattle {
     internal partial class PrincipalForm : Form {
- 
-        //Intances
-        private int initPositionX;
+
+        //Intances & Variables
         private bool pulsating;
-        private SoundPlayer oSoundPlayer;
+        private int initPositionX;
         private bool isMusicPlaying;
+        private SoundPlayer oSoundPlayer;
 
         public PrincipalForm() {
             InitInstance();
@@ -28,6 +28,7 @@ namespace PokemonBattle {
             initPositionX = labelStart.Location.X;
             timer.Interval = 1000;
             timer.Start();
+            //This helps us to customize a list of buttons
             ButtonHelper.CustomizeAppearanceButtons(new List<Button> { btnPlayer });
         }
         
@@ -49,6 +50,7 @@ namespace PokemonBattle {
 
         //Event for timer and animation for label startup
         private void Timer_Tick(object sender, EventArgs e) {
+            //If the text is beating, the size of the text is reduced.
             if (pulsating) {
                 labelStart.Font = new System.Drawing.Font(labelStart.Font.FontFamily, labelStart.Font.Size - 2, labelStart.Font.Style);
                 labelStart.Location = new Point(initPositionX, labelStart.Location.Y);
@@ -65,7 +67,8 @@ namespace PokemonBattle {
 
         //Event to stop or play the music
         private void MusicManager(object sender, EventArgs e) {
-            if (isMusicPlaying) {
+            //If the music is playing it stops
+            if (isMusicPlaying){  
                 isMusicPlaying = false;
                 oSoundPlayer.Stop();
                 btnPlayer.BackgroundImage = Properties.Resources.ButtonPlay;
