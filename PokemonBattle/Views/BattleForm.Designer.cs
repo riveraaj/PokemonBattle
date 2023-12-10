@@ -58,6 +58,7 @@
             this.lblPlayerNameOne = new System.Windows.Forms.Label();
             this.txtStatsPlayerTwo = new System.Windows.Forms.RichTextBox();
             this.txtStatsPlayerOne = new System.Windows.Forms.RichTextBox();
+            this.lblWinner = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxPokemonPlayer2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxPokemonPlayer1)).BeginInit();
             this.SuspendLayout();
@@ -371,6 +372,19 @@
             this.txtStatsPlayerOne.TabIndex = 38;
             this.txtStatsPlayerOne.Text = "";
             // 
+            // lblWinner
+            // 
+            this.lblWinner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblWinner.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWinner.ForeColor = System.Drawing.Color.White;
+            this.lblWinner.Location = new System.Drawing.Point(291, 148);
+            this.lblWinner.Name = "lblWinner";
+            this.lblWinner.Size = new System.Drawing.Size(395, 172);
+            this.lblWinner.TabIndex = 39;
+            this.lblWinner.Text = "The winner is Messias";
+            this.lblWinner.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblWinner.Visible = false;
+            // 
             // BattleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -378,6 +392,7 @@
             this.BackgroundImage = global::PokemonBattle.Properties.Resources.ButtonsBattle;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(914, 515);
+            this.Controls.Add(this.lblWinner);
             this.Controls.Add(this.txtStatsPlayerOne);
             this.Controls.Add(this.txtStatsPlayerTwo);
             this.Controls.Add(this.lblPlayerNameOne);
@@ -451,5 +466,6 @@
         internal System.Windows.Forms.Label lblPlayerNameOne;
         internal System.Windows.Forms.RichTextBox txtStatsPlayerTwo;
         internal System.Windows.Forms.RichTextBox txtStatsPlayerOne;
+        internal System.Windows.Forms.Label lblWinner;
     }
 }

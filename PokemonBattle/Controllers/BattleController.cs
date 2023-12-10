@@ -5,6 +5,7 @@ using PokemonBattle.Views;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -128,7 +129,7 @@ namespace PokemonBattle.Controllers {
         }
 
         //This method executes the attack by player one and updates the required fields.
-        private void AttakPlayerOne(Button oButton) {
+        private async void AttakPlayerOne(Button oButton) {
             var movement = _battleService.GetMovement(oButton.Text);
             //If the movement is of the defense type, the protection will be activated.
             if (movement.TypeMovementID == 2) {
@@ -182,7 +183,13 @@ namespace PokemonBattle.Controllers {
                                 playerList[1].IsEliminated = true;
                                 playerList[0].IsInQuarter = true;
                             }
-                            MessageBox.Show($"The Winner is {playerList[0].PlayerName}", "Wait...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //Show Winner
+                            _battleForm.lblWinner.Text = $"The Winner is {playerList[0].PlayerName}";
+                            _battleForm.lblWinner.Visible = true;
+
+                            //Use Task.Delay to pause execution for 5 seconds
+                            await Task.Delay(5000);
+
                             //The braket is reopened
                             new BracketForm().Show();
                             _battleForm.Close();
@@ -199,7 +206,7 @@ namespace PokemonBattle.Controllers {
         }
 
         //This method executes the attack by player two and updates the required fields.
-        private void AttakPlayerTwo(Button oButton) {
+        private async void AttakPlayerTwo(Button oButton) {
             var movement = _battleService.GetMovement(oButton.Text);
             //If the movement is of the defense type, the protection will be activated.
             if (movement.TypeMovementID == 2) {
@@ -254,7 +261,13 @@ namespace PokemonBattle.Controllers {
                                 playerList[0].IsEliminated = true;
                                 playerList[1].IsInQuarter = true;
                             }
-                            MessageBox.Show($"The Winner is {playerList[1].PlayerName}", "Wait...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            //Show Winner
+                            _battleForm.lblWinner.Text = $"The Winner is {playerList[1].PlayerName}";
+                            _battleForm.lblWinner.Visible = true;
+
+                            //Use Task.Delay to pause execution for 5 seconds
+                            await Task.Delay(5000);
+
                             //The braket is reopened
                             new BracketForm().Show();
                             _battleForm.Close();
