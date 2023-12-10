@@ -42,7 +42,7 @@ namespace PokemonBattle.Services {
             return oTeam;
         }
 
-        //Generate a random number between 347 and 493
-        private int GetRandomNumber() => _random.Next(387, 493 + 1);
+        //Generate a random number between 722 and 809
+        private int GetRandomNumber() => _random.Next(387, 809 + 1);
     }
 }
