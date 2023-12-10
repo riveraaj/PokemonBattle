@@ -1,5 +1,6 @@
 ﻿using PokemonBattle.Services;
 using PokemonBattle.View;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace PokemonBattle.Controllers {
@@ -27,8 +28,22 @@ namespace PokemonBattle.Controllers {
         //Event to Open a Init Tournament Form
         private void OpenInitTournamentForm(object sender, KeyPressEventArgs e) {
             _tournamentServices.Reset();
+            CloseFormsOpen();
             new InitTournamentForm().Show();
-            _principalForm.Hide();
+        }
+
+        //This event closes all open forms
+        private void CloseFormsOpen() {
+            // Create a temporary list to store the forms to be closed.
+            List<Form> formsToClose = new List<Form>();
+
+            // Iterate through the collection of open forms.
+            foreach (Form form in Application.OpenForms) 
+                // Check if the form is not the main form.
+                if (form != _principalForm) formsToClose.Add(form);
+
+            // Close the forms stored in the temporary list.
+            foreach (Form form in formsToClose) form.Close();
         }
     }
 }
