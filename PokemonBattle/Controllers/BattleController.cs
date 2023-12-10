@@ -1,4 +1,5 @@
-﻿using PokemonBattle.Models;
+﻿using PokemonBattle.Helper;
+using PokemonBattle.Models;
 using PokemonBattle.Properties;
 using PokemonBattle.Services;
 using PokemonBattle.Views;
@@ -106,7 +107,7 @@ namespace PokemonBattle.Controllers {
                         await SimulateBotAttackAsync();
                         turnPlayerOne = true;
                     }
-                } else MessageBox.Show("It is now the turn of player two", "Wait...", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                } else CustomMessageHelper.Show("It is now the turn of player two", "Wait...", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }      
         }
 
@@ -123,7 +124,7 @@ namespace PokemonBattle.Controllers {
                         await SimulateBotAttackAsync();
                         turnPlayerOne = false;
                     }
-                } else MessageBox.Show("It is now the turn of player one", "Wait", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                } else CustomMessageHelper.Show("It is now the turn of player one", "Wait", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
         }
 
@@ -158,7 +159,6 @@ namespace PokemonBattle.Controllers {
                     if (adjustedDamageByArena >= 0) healthPokemonPlayerTwo -= (int)(adjustedDamageByType * adjustedDamageByArena);
                     else healthPokemonPlayerTwo += (int)(adjustedDamageByType / adjustedDamageByArena);
 
-                    //healthPokemonPlayerTwo -= (adjustedDamageByArena > 0) ? (int)(adjustedDamageByType * adjustedDamageByArena) : (int)(adjustedDamageByType / adjustedDamageByArena);
                     _battleForm.lblHealthPlayerTwo.Text = (healthPokemonPlayerTwo < 0) ? "0/100" : $"{healthPokemonPlayerTwo}/100";
                     //Validate that the pokemon has less than 0 health
                     if (healthPokemonPlayerTwo <= 0) {
@@ -183,7 +183,7 @@ namespace PokemonBattle.Controllers {
                                 playerList[1].IsEliminated = true;
                                 playerList[0].IsInQuarter = true;
                             }
-                            MessageBox.Show($"The Winner is {playerList[0].PlayerName}", "Wait...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            CustomMessageHelper.Show($"The Winner is {playerList[0].PlayerName}", "Wait...", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             //The braket is reopened
                             new BracketForm().Show();
                             _battleForm.Close();
@@ -211,7 +211,6 @@ namespace PokemonBattle.Controllers {
                 if (pokemonPlayerOneProtected) {
                     _battleForm.txtStatsPlayerTwo.Text = $"{playerList[1].PlayerName} has used {movement.MovementName}...";
                     _battleForm.txtStatsPlayerTwo.Text += $"\nThe {playerList[0].PlayerName}'s pokemon is protected";
-                    //MessageBox.Show("The pokemon is protected", "Wait...", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     pokemonPlayerOneProtected = false;
                     pokemonPlayerTwoProtected = false;
                 } else {
@@ -232,7 +231,6 @@ namespace PokemonBattle.Controllers {
                     if (adjustedDamageByArena >= 0) healthPokemonPlayerOne -= (int)(adjustedDamageByType * adjustedDamageByArena);
                     else healthPokemonPlayerOne += (int)(adjustedDamageByType / adjustedDamageByArena);
 
-                    //healthPokemonPlayerOne -= (adjustedDamageByArena > 0) ? (int) (adjustedDamageByType * adjustedDamageByArena) : (int) (adjustedDamageByType / adjustedDamageByArena);
                     _battleForm.lblHealthPlayerOne.Text = (healthPokemonPlayerOne < 0) ? "0/100" : $"{healthPokemonPlayerOne}/100";
                     //Validate that the pokemon has less than 0 health
                     if (healthPokemonPlayerOne <= 0) {
@@ -257,7 +255,7 @@ namespace PokemonBattle.Controllers {
                                 playerList[0].IsEliminated = true;
                                 playerList[1].IsInQuarter = true;
                             }
-                            MessageBox.Show($"The Winner is {playerList[1].PlayerName}", "Wait...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            CustomMessageHelper.Show($"The Winner is {playerList[1].PlayerName}", "Wait...", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             //The braket is reopened
                             new BracketForm().Show();
                             _battleForm.Close();

@@ -85,6 +85,7 @@
     <Compile Include="Controllers\PrincipalController.cs" />
     <Compile Include="Controllers\VersusController.cs" />
     <Compile Include="Helpers\ButtonHelper.cs" />
+    <Compile Include="Helpers\CustomMessageHelper.cs" />
     <Compile Include="Helpers\LabelHelper.cs" />
     <Compile Include="Helpers\TextBoxHelper.cs" />
     <Compile Include="Models\Arena.cs">
