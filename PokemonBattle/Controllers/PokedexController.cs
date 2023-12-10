@@ -108,7 +108,7 @@ namespace PokemonBattle.Controllers {
 
                 //Validate if all players already have an equipment
                 if (_pokedexForm.allPlayersHaveATeam) {
-                    _pokedexService.SaveTeamAndTeam();
+                    _pokedexService.SaveTeamAndPlayer();
                     new BracketForm().Show();
                 }
                 else new PlayersForm().Show();
