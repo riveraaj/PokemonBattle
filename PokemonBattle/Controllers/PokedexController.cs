@@ -81,14 +81,14 @@ namespace PokemonBattle.Controllers {
 
         //Event to move to the next pokemon on the list
         private void NextPokemon(object sender, EventArgs e) {
-            if (pokemonPosition == 106) pokemonPosition = 0;
+            if (pokemonPosition == 87) pokemonPosition = 0;
             else pokemonPosition++;
             LoadPokedexInLayout();
         }
 
         //Event to move to the previous pokemon on the list
         private void PreviousPokemon(object sender, EventArgs e) {
-            if (pokemonPosition == 0) pokemonPosition = 106;
+            if (pokemonPosition == 0) pokemonPosition = 87;
             else pokemonPosition--;
             LoadPokedexInLayout();
         }
