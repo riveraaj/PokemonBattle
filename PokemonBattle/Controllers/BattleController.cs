@@ -1,5 +1,4 @@
-﻿using PokemonBattle.Helper;
-using PokemonBattle.Models;
+﻿using PokemonBattle.Models;
 using PokemonBattle.Properties;
 using PokemonBattle.Services;
 using PokemonBattle.Views;
@@ -107,7 +106,7 @@ namespace PokemonBattle.Controllers {
                         await SimulateBotAttackAsync();
                         turnPlayerOne = true;
                     }
-                } else CustomMessageHelper.Show("It is now the turn of player two", "Wait...", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                } else MessageBox.Show("It is now the turn of player two", "Wait...", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }      
         }
 
@@ -124,7 +123,7 @@ namespace PokemonBattle.Controllers {
                         await SimulateBotAttackAsync();
                         turnPlayerOne = false;
                     }
-                } else CustomMessageHelper.Show("It is now the turn of player one", "Wait", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                } else MessageBox.Show("It is now the turn of player one", "Wait", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
         }
 
@@ -183,7 +182,7 @@ namespace PokemonBattle.Controllers {
                                 playerList[1].IsEliminated = true;
                                 playerList[0].IsInQuarter = true;
                             }
-                            CustomMessageHelper.Show($"The Winner is {playerList[0].PlayerName}", "Wait...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show($"The Winner is {playerList[0].PlayerName}", "Wait...", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             //The braket is reopened
                             new BracketForm().Show();
                             _battleForm.Close();
@@ -255,7 +254,7 @@ namespace PokemonBattle.Controllers {
                                 playerList[0].IsEliminated = true;
                                 playerList[1].IsInQuarter = true;
                             }
-                            CustomMessageHelper.Show($"The Winner is {playerList[1].PlayerName}", "Wait...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show($"The Winner is {playerList[1].PlayerName}", "Wait...", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             //The braket is reopened
                             new BracketForm().Show();
                             _battleForm.Close();
