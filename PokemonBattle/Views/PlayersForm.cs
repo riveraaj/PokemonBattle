@@ -9,6 +9,7 @@ namespace PokemonBattle.View {
 
         public PlayersForm() {
             InitializeComponent();
+            this.FormClosing += FormClose;
             _playersController = new PlayersController(this);
         }
 
@@ -20,5 +21,8 @@ namespace PokemonBattle.View {
             if (m.Msg == WM_NCLBUTTONDOWN && (int)m.WParam == HTCAPTION) return;
             base.WndProc(ref m);
         }
+
+        //Event that closes the application if the user closes the window.
+        private void FormClose(object sender, FormClosingEventArgs e) => Application.Exit();
     }
 }

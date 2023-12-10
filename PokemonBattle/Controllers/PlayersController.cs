@@ -10,13 +10,13 @@ namespace PokemonBattle.Controllers {
     internal class PlayersController {
 
         //Instances
-        private PlayersForm _playerForm;
-        private PlayersService _playersService;
+        private readonly PlayersForm _playerForm;
+        private readonly PlayerService _playersService;
 
         public PlayersController(PlayersForm oPlayerForm) { 
             //Init Instances
             _playerForm = oPlayerForm;
-            _playersService = new PlayersService();
+            _playersService = new PlayerService();
             LoadLayoutsForPlayers();
         }
 
